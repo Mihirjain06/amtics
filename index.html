@@ -301,6 +301,20 @@
     </section>
 
 
+<div class="container-fluid my-3">
+  <h2 class="text-start mb-4">Our Gallery</h2>
+  <div class="slider-wrapper">
+    <div class="scrolling-wrapper" id="image-slider">
+      <!-- Original image set -->
+      <img src="images/1.jpg" alt="Image 1">
+      <img src="images/2.jpg" alt="Image 2">
+      <img src="images/3.jpg" alt="Image 3">
+      <img src="images/4.jpg" alt="Image 4">
+      <img src="images/5.jpg" alt="Image 5">
+    </div>
+  </div>
+
+
     <!-- Quick Links Section -->
     <section id="quick-links">
         <h1>Quick Links</h1>
@@ -348,6 +362,19 @@
 
 
     <div id="footer-container"></div>
+     
+    <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('image-slider');
+    const images = Array.from(slider.children);
+
+    // Clone each image and append to the slider
+    images.forEach((img) => {
+      const clone = img.cloneNode(true);
+      slider.appendChild(clone);
+    });
+  });
+</script>
 
 
     <script>

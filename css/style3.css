@@ -23,7 +23,6 @@ body::-webkit-scrollbar {
         /* Smaller base font size for mobile */
     }
 }
-
 /* Navbar Styles */
 .navbar {
     position: relative;
@@ -32,8 +31,6 @@ body::-webkit-scrollbar {
     background-color: #3B3285;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 
@@ -110,6 +107,7 @@ body::-webkit-scrollbar {
     font-size: 24px;
     cursor: pointer;
 }
+
 
 /* Media Queries for Navbar */
 @media (max-width: 768px) {

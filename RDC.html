@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology</title>
+    <link rel="icon" href="images/utu_logo_favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 110px;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .contact-section h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .contact-section h1::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 100px;
+            height: 5px;
+            background-color: #3498db;
+            border-radius: 10px;
+        }
+
+        .contact-section h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section h1::after {
+            background: linear-gradient(90deg, #3498db, #8e44ad);
+        }
+
+
+        .main-content {
+            text-align: center;
+            flex: 1;
+            padding-top: 10px;
+            border-radius: 10px;
+        }
+
+
+        .box-view {
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .box-view h3 {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding: 12px 20px;
+            background-color: #3498db;
+            border-radius: 10px;
+            text-transform: uppercase;
+            text-align: left;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+
+
+        .box-view p {
+            font-size: 1rem;
+            color: #555;
+
+        }
+
+
+        .member-role {
+            text-align: center;
+            font-style: italic;
+            font-weight: 700;
+            color: #555;
+        }
+
+
+
+        .placement-action-plan p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.3;
+            text-align: justify;
+        }
+
+        .placement-action-plan ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .placement-action-plan ul li {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .placement-action-plan ul li strong {
+            color: #3498db;
+        }
+
+        .placement-action-plan ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .placement-action-plan li {
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .placement-action-plan li:hover {
+            background-color: #ddd8ff;
+            transform: scale(1.02);
+        }
+
+        .placement-action-plan li::before {
+            content: ">>";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .placement-action-plan a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.2s ease;
+        }
+
+        .placement-action-plan a:hover {
+            color: #F54599;
+            font-weight: 600;
+        }
+
+        .image-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            justify-items: center;
+        }
+
+        .image-container {
+            flex: 1;
+            max-width: 100px;
+        }
+
+        .responsive-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .image-row {
+                flex-wrap: wrap;
+            }
+
+            .image-container {
+                flex: 1 1 20%;
+                max-width: 80px;
+            }
+
+            .responsive-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .image-container {
+                flex: 1 1 40%;
+                max-width: 100px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .main-content h2 {
+                font-size: 2rem;
+            }
+
+            .table-container {
+                gap: 20px;
+            }
+
+            .box-view {
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+                width: 98%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 20px 15px;
+            }
+
+            .main-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                width: 100%;
+            }
+
+            .card h5 {
+                font-size: 1.3rem;
+            }
+
+            .card p {
+                font-size: 0.85rem;
+            }
+
+            .box-view {
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+                width: 98%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            table th,
+            table td {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            table th,
+            table td {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+
+            table {
+                font-size: 0.75rem;
+            }
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h2 {
+            font-weight: 700;
+            background: linear-gradient(to right, #0d6efd, #6610f2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .tag {
+            display: inline-block;
+            margin: 4px 3px 0 0;
+            padding: 5px 12px;
+            background-color: #edf4ff;
+            color: #0d6efd;
+            font-size: 13px;
+            border-radius: 30px;
+            transition: 0.3s ease;
+        }
+
+        .tag:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .visit-btn {
+            background: #3B3285;
+            color: white;
+            font-weight: 500;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .visit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .info-line {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .info-line i {
+            margin-right: 6px;
+            color: #6610f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-container"></div>
+    <h2 class="text-center mb-3">RDC Research & Consultancy Labs</h2>
+    <p class="text-center text-muted mb-1">Explore cutting-edge labs where research meets innovation at SRIMCA.
+    </p>
+    <div class="container py-5">
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- AI & ML Lab -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/AI & Machine Learning Lab.jpg" class="card-img-top" alt="AI Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Artificial Intelligence and Machine Learning Lab</h5>
+                        <p class="card-text">The AI and ML Lab focuses on cutting-edge research in artificial
+                            intelligence, machine learning, and deep learning.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 401</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> ai.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7900</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Natural Language Processing</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Reinforcement Learning</span>
+                            <span class="tag">AI Ethics</span>
+                            <span class="tag">Predictive Analytics</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cybersecurity Lab -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/Cybersecurity Research Lab.jpg" class="card-img-top" alt="Cybersecurity Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Cybersecurity and Privacy Research Lab</h5>
+                        <p class="card-text">The Cybersecurity Lab conducts research on various aspects of computer and
+                            network security and cryptography.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 405</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> security.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7901</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Cyber Defense</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Threat Modeling</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Privacy Engineering</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/Cybersecurity Research Lab.jpg" class="card-img-top" alt="Cybersecurity Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Cybersecurity and Privacy Research Lab</h5>
+                        <p class="card-text">The Cybersecurity Lab conducts research on various aspects of computer and
+                            network security and cryptography.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 405</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> security.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7901</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Cyber Defense</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Threat Modeling</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Privacy Engineering</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/Cybersecurity Research Lab.jpg" class="card-img-top" alt="Cybersecurity Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Cybersecurity and Privacy Research Lab</h5>
+                        <p class="card-text">The Cybersecurity Lab conducts research on various aspects of computer and
+                            network security and cryptography.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 405</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> security.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7901</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Cyber Defense</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Threat Modeling</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Privacy Engineering</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/Cybersecurity Research Lab.jpg" class="card-img-top" alt="Cybersecurity Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Cybersecurity and Privacy Research Lab</h5>
+                        <p class="card-text">The Cybersecurity Lab conducts research on various aspects of computer and
+                            network security and cryptography.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 405</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> security.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7901</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Cyber Defense</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Threat Modeling</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Privacy Engineering</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/Cybersecurity Research Lab.jpg" class="card-img-top" alt="Cybersecurity Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Cybersecurity and Privacy Research Lab</h5>
+                        <p class="card-text">The Cybersecurity Lab conducts research on various aspects of computer and
+                            network security and cryptography.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 405</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> security.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7901</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Cyber Defense</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Threat Modeling</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Privacy Engineering</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/Cybersecurity Research Lab.jpg" class="card-img-top" alt="Cybersecurity Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Cybersecurity and Privacy Research Lab</h5>
+                        <p class="card-text">The Cybersecurity Lab conducts research on various aspects of computer and
+                            network security and cryptography.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 405</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> security.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7901</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Cyber Defense</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Threat Modeling</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Privacy Engineering</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HCI Lab -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/images/Human-Computer Interaction Lab.jpg" class="card-img-top" alt="HCI Lab">
+                    <div class="card-body">
+                        <h5 class="card-title">Human-Computer Interaction Laboratory</h5>
+                        <p class="card-text">The HCI Lab focuses on designing, implementing, and evaluating novel user
+                            interfaces and interaction techniques.</p>
+                        <p class="info-line"><i class="bi bi-geo-alt"></i> Science Building, Room 410</p>
+                        <p class="info-line"><i class="bi bi-envelope"></i> hci.lab@university.edu</p>
+                        <p class="info-line"><i class="bi bi-telephone"></i> (123) 456-7902</p>
+                        <p class="fw-semibold mb-1 mt-2">Research Areas:</p>
+                        <span class="tag">UX Design</span>
+                        <span class="tag">Accessibility</span>
+                        <span class="tag">Educational Technology</span>
+                        <span class="tag toggle-more" style="cursor:pointer;" onclick="toggleMore(this)">+3 more</span>
+                        <div class="more-tags d-none mt-2">
+                            <span class="tag">Gesture Interfaces</span>
+                            <span class="tag">VR/AR Interaction</span>
+                            <span class="tag">Cognitive UX Research</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="visit-btn">Visit Lab Website →</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- <div class="main-content">
+
+        <div class="box-view">
+            <h3>HKDA-Online Examination System</h3>
+            <P>
+                It is developed by SRIMCA students Dharmendrasinh K. Mahida, Jignasa Dipakbhai Prajapati, Mohsin
+                Hasim Mansur, Affan Ahmed Naeem Ahmed Pathan under the guidance of Mr. Lal Bihari Barik, Asst.
+                Prof.,SRIMCA. HKDA-Online Examination System is an effort to students for the improvement in various
+                subjects, courses and for the faculties to conduct examination, as well as get accurate reports on
+                individual students.
+            </P>
+            <div style="display: flex; align-items: flex-start; gap: 20px; margin-top: 20px;">
+                <div style="flex: 2;">
+                    <p style="font-weight: bold; color: rgb(73, 73, 73);">Objectives</p>
+                    <p>
+                        The objective of HKDA-Online Examination System is to provide best possible services to
+                        students for learning and improvement in various courses, subjects and topics. It helps
+                        individual students to set their own examination according to their interest, knowledge,
+                        preparation and many other criterias. While giving exams, students can also learn the topics
+                        immediately. System maintains individuals learning patterns and stores them in its
+                        KnowledgeBase. It helps faculties to conduct examination in such a way that they can save
+                        their time in setting and assessing questions papers, conduct examinations keeping
+                        individuals in mind and doesn't need to bother in setting the separate papers for individual
+                        students as is done by the system. Faculties get accurate results about performances of
+                        students in different examinations. System helps faculties to draw an attention in students
+                        learning capabilities, their past and present performances in particular courses, subjects
+                        or topics. Different agents are running in the background with their dedicated job who
+                        tracks different aspects of students performance like learning pattern, past behavior,
+                        personal traits and such information is stored into KnowledgeBase of the system.
+                    </p>
+                </div>
+                <div style="flex: 1;">
+                    <img src="objectives.jpg" alt="Objectives Image"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+
+
+            <div style="display: flex; align-items: flex-start; gap: 20px; margin-top: 20px;">
+                <div style="flex: 2;">
+                    <p style="font-weight: bold; color: rgb(73, 73, 73);">System Overview</p>
+                    <p>
+                        There are 3 types of users. Students (Student of an Institute or an outsider), Faculty (Full
+                        Time/ Part Time/ Others), Administrator.
+                    </p>
+                </div>
+                <div style="flex: 1;">
+                    <img src="system-overview.jpg" alt="System Overview Image"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 20px; margin-top: 20px;">
+                <div style="flex: 2;">
+                    <p>
+                        <strong>Administrator Module:</strong><br><br>
+                        The administrator maintains the faculties and students. It provides various rights to
+                        individuals to appear in examination. e.g. FYBCA students are able to appear in examination
+                        in FYBCA related subjects and not SYBCA or other related subject. But students are able to
+                        attempt general examinations. Similarly giving rights to individual faculty to conduct
+                        examination. In short, Administratior determines the basic policies and code of conduct for
+                        the use of a system. System provides various reports on students performance in different
+                        examinations and generates a report on students Concepts, Learning Generalization,
+                        Step-by-Step Psychomotor Skills, Step-by-Step Cognitive Skills, Thinking Skills, Critical
+                        Thinking, Problem Solving, and Decision-Making Processes, Creative Thinking & Performance,
+                        Interpersonal & Social Skills, Attitudes, Appreciations & Values based on their past
+                        performances in different examinations.
+                    </p>
+                </div>
+                <div style="flex: 1;">
+                    <img src="admin-module.jpg" alt="Administrator Module"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 20px; margin-top: 20px;">
+                <div style="flex: 2;">
+                    <p>
+                        <strong>Faculty Module:</strong><br><br>
+                        The faculties can manage question banks having variety and different types of questions
+                        including single/multiple choice questions, true/ false questions, fill in the blank type of
+                        questions etc. Faculties can prepare the schedule, filtering of topic, students and time and
+                        other constraints for the exam. Faculty has rights to display result on the spot or later in
+                        the form of report. Other users (any) can only send questions to the question bank. Apart
+                        from the traditional reports regarding students performance, faculties get variety of
+                        knowledge-oriented reports such as students learning pattern, weakness and interest in
+                        particular subject/topic and some of the personal traits of the students which the
+                        particular agent of the system observes while students give their exams.
+                    </p>
+                </div>
+                <div style="flex: 1;">
+                    <img src="faculty-module.jpg" alt="Faculty Module"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 20px; margin-top: 20px;">
+                <div style="flex: 2;">
+                    <p>
+                        <strong>Student Module:</strong><br><br>
+                        Students can give various types of examinations (subject wise or general examinations).
+                        Students belong to institute are able to manage their basic information. Exam can be
+                        conducted for a set of subjects, or a specific subject or even a particular group of
+                        topic(s) with or without time constraint. There is a provision for general examination that
+                        checks basic knowledge of a student i.e. student belongs to BCA are able to appear on other
+                        topics such as management, medical, pharmacy, English, Reasoning, Communication skills and
+                        many more. The exam offers various types of questions such as multiple choice, single line
+                        question, fill in the blanks, true/false, options, matching items, Extended Open-Response
+                        etc. Important point is that students can also send questions to the question bank. It can
+                        be enhanced by inclusion of Learning Outcome Category & Assessment Technique, Facts &
+                        Information, Concepts, Learning Generalization, Step-by-Step Psychomotor Skills,
+                        Step-by-Step Cognitive Skills, Thinking Skills, Critical Thinking, Problem Solving, and
+                        Decision-Making Processes, Creative Thinking & Performance, Interpersonal & Social Skills,
+                        Attitudes, Appreciations & Values.
+                    </p>
+                </div>
+                <div style="flex: 1;">
+                    <img src="student-module.jpg" alt="Student Module"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+            <P>
+                <strong>Advantage of new proposed system</strong><br>
+            </P>
+
+            <div class="placement-action-plan">
+
+                <ul>
+                    <li>Students belongs to the Institute and even outside students can give this examination and
+                        improve their skills.</li>
+                    <li>This site includes the facility of giving and conducting examination online so it can save
+                        time. Apart from just giving exams online, it offers equal opportunites for online learning
+                        as well. </li>
+                    <li>Students belongs to institute are able to manage their information through system. </li>
+                    <li>Students can plan and schedule their exams keeping their knowledge, preparation and they
+                        have to appear in the regular exams also set by the faculty members. </li>
+                    <li>Students can also submit questions to question bank. </li>
+                    <li>Students can also get more information related to career, websites etc. </li>
+                    <li>Faculties can manage their question bank well. </li>
+                    <li>Faculties have enough facilities to plan an exam keeping the individual students in mind by
+                        just setting some of the policies and constraints rather having to bother at setting
+                        question papers for individual. Its automatically done by system.</li>
+                    <li>Only the faculty has rights to display result on the spot or later in the form of reports.
+                    </li>
+                    <li>The administrator maintains the faculty and student users. He provides various rights to
+                        individual student to appear in examination and faculty to conduct examination. </li>
+                    <li>System provides vast array of reports to both students and faculties.</li>
+                </ul>
+            </div>
+            </p>
+
+            <P>
+                <strong>Non-Quantifiable Benefits:</strong><br>
+            </P>
+
+            <div class="placement-action-plan">
+                <ul>
+                    <li>Students belongs to the Institute and even outside students can give this examination and
+                        improve their skills.</li>
+                    <li>Expert Agent also using his cognitive to gain knowledge from Learner Agent. </li>
+                    <li>This HKDA-Online Examination System supports the security aspect like Session Tracking. In
+                        Session Tracking, when one user is logged in with his/her Userid, another user is login with
+                        same Userid then previous user's session is going to expire.</li>
+                    <li>This HKDA-Online Examination System stop Agent Facility to the User when He/she is going for
+                        Examination. </li>
+                    <li>Faculties can spend their time on other activities rather than setting and checking the
+                        question paper for Students</li>
+                    <li>Faculties can check the Students performance in examination in particular subject. </li>
+                    <li>Faculties can manage their question bank well. </li>
+                    <li>Faculties have enough facilities to plan an exam keeping the individual students in mind by
+                        just setting some of the policies and constraints rather having to bother at setting
+                        question papers for individual. Its automatically done by system. </li>
+                    <li>System can get Creative Thinking &amp; Performance, Interpersonal &amp; Social Skills,
+                        Attitudes, Appreciations &amp; Values of individuals.</li>
+                </ul>
+            </div>
+            </p>
+
+
+            <p>
+                <strong>Conclusion</strong><br>
+                <br>
+                HKDA is a very encouraging effort by students and dedicated faculty members of Shrimad Rajchandra
+                Institute of Management for the students to learn, improve and master their skills effectively with
+                their own pace. Students can test them from average, normal to even broader depth by setting some of
+                the criterias. Students get better feedbacks by different agents of the system regarding to their
+                performance, weak points, skills etc. Faculties can schedule and customize exams keeping the
+                individual learner in mind with no extra time. System provides an easy and the best way to faculty
+                members to monitor the growth of the students by going through the vast array of useful reports
+                generated by the system. The system provides some of the powerful features which are basically not
+                found in traditional online examination simulators. It traps inviduals learning patterns and gives
+                feedback based on their performances. It sets questions automatically based on such performances
+                rather than randomly setting questions that is normally found in online examination simulators. HKDA
+                also provides enough opportunities to learn as well. HKDA is made in more generous that it can be
+                used in any domain at the cost of little bit configuration and tuning. The system is reviewed by
+                some of the industry experts and experienced academicians and has been able to win their
+                appreciations.
+
+
+                <a id="isipd" name="isipd"></a>
+            </p>
+
+        </div>
+
+
+        <div class="box-view">
+            <h3>Inventory System for IP Devices</h3>
+            <p>Project definition: Computerization of functionality i.e. Inventory of IP Devices, sales, purchase,
+                stock management, card management, card refilling of device, maintenance and repair of device,
+                return &amp; resell of device, user management, administration &amp; reporting. Description of major
+                functionalities: The System incorporate computerization of functionality as follows: Inventory of IP
+                Devices: Module incorporate functionality of Inflow and outflow of IP Devices. Also look after of
+                sales of devices to customer and dealers. It also helps to administrator to maintain stock of IP
+                Device. Card management: This module provide functionality to manage Inflow and outflow of cards of
+                different companies. Device Tracking: This module incorporate functionality of refilling of devices
+                with the points, inflow of points, group refilling to dealers. Also helps to track devices for
+                refilling, repairing and reselling of devices. User management: Maintain various kinds of users and
+                their rights. Administration &amp; reporting: Various kinds of reports, which helps administrator to
+                take decisions. Reports to track customer, dealer, superaccound and their devices &amp; cards. Also
+                keep track of cross check functionality for refilling.
+            </p>
+
+
+            <div class="image-row">
+                <div class="image-container">
+                    <img src="images/1.jpg" alt="Image 1" class="responsive-img">
+                </div>
+                <div class="image-container">
+                    <img src="images/scr2.jpg" alt="Image 2" class="responsive-img">
+                </div>
+                <div class="image-container">
+                    <img src="images/rnc_ht1.jpg" alt="Image 3" class="responsive-img">
+                </div>
+                <div class="image-container">
+                    <img src="images/scr3.jpg" alt="Image 4" class="responsive-img">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box-view">
+            <h3>Hospital Management System</h3>
+            <p>Hospital Management System is a generic application, which addresses all the major functional areas
+                of a modern hospital. It seamlessly integrated all major modules of a large size hospital including
+                Patient Registration, Treatment, Out Patient and In Patient Department, Lab Investigation and
+                Inventory. System is based on client server architecture with centralized database and multi-user
+                environment.
+            <div class="image-container">
+                <img src="images/scr1.jpg" alt="Image 1" class="responsive-img">
+            </div>
+            </p>
+
+
+
+
+        </div>
+        <div class="box-view">
+            <h3>Bardoli Nagarpalika Website</h3>
+            <p>Shrimad Rajchandra Institute of Management &amp; Computer Application, Gopal Vidyanagar have
+                designed, developed in successfully implemented the website <a target="_blank"
+                    href="http://www.bardolinagarpalika.org"><u>www.bardolinagarpalika.org</u></a>. This certificate
+                is awarded at the inaugural ceremony of launching of this website on 18th July 2003 at Bardoli given
+                by honorable water supply minister Narottam Patel. The website have been developed by Associated Dr.
+                Bankim C. Patel, Director, SRIMCA, Team Leader of the project Mr. Lalbihari Barik Asst. Prof.,
+                SRIMCA and three active and studios BCA students of B. V. Patel Inst. of Business Mgt. and Computer
+                Applcation, Mr. Snehal Patel, Mr. Jenish Patel and Mr. Chirag Shah.
+            </p>
+            <p>Shrimad Rajchandra Institute of Management &amp; Computer Application, Gopal Vidyanagar have
+                designed, developed in successfully implemented the website <a target="_blank"
+                    href="http://www.bardolinagarpalika.org"><u>www.bardolinagarpalika.org</u></a>. This certificate
+                is awarded at the inaugural ceremony of launching of this website on 18th July 2003 at Bardoli given
+                by honorable water supply minister Narottam Patel. The website have been developed by Associated Dr.
+                Bankim C. Patel, Director, SRIMCA, Team Leader of the project Mr. Lalbihari Barik Asst. Prof.,
+                SRIMCA and three active and studios BCA students of B. V. Patel Inst. of Business Mgt. and Computer
+                Applcation, Mr. Snehal Patel, Mr. Jenish Patel and Mr. Chirag Shah.
+            </p>
+            <p>Using this system a citizen can know his/her duties towards his/her town, thus making a better city
+                to live. The information given by a user for water connection, drainage connection, assessment,
+                property transfer can be downloaded thus reliving the people from going personally to Nagarpalika.
+            </p>
+            <div class="image-container">
+                <img src="images/bardolinagarpalika.jpg" alt="Image 4" class="responsive-img">
+            </div>
+        </div> -->
+
+
+        <!-- <div class="up-message" id="upMessage">
+            <img src="images/up.png" alt="Error" class="up-icon">
+        </div> -->
+
+
+        <div id="footer-container"></div>
+
+        <script src="js/loadheaderfooter.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script>
+            document.getElementById('upMessage').addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            function showErrorMessage() {
+                var errorElement = document.getElementById('upMessage');
+                errorElement.classList.add('show');
+            }
+
+            setTimeout(showErrorMessage, 3000);
+
+
+            // function toggleMore(btn) {
+            //     const card = btn.closest('.card-body'); // get current card's body
+            //     const moreTags = card.querySelector('.more-tags');
+
+            //     if (moreTags.classList.contains('d-none')) {
+            //         moreTags.classList.remove('d-none');
+            //         btn.innerText = 'Show less';
+            //     } else {
+            //         moreTags.classList.add('d-none');
+            //         btn.innerText = '+3 more';
+            //     }
+            // }
+        </script> -->
+</body>
+
+</html>

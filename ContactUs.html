@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology</title>
+    <link rel="icon" href="images/utu_logo_favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            padding-top: 50px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            color: #3B3285;
+            text-align: center;
+        }
+
+        .contact-details a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-details a:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .contact-section h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .contact-section h1::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 100px;
+            height: 5px;
+            background-color: #3498db;
+            border-radius: 10px;
+        }
+
+        .contact-section h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section h1::after {
+            background: linear-gradient(90deg, #3498db, #8e44ad);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .contact-details,
+        #map {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 48%;
+            min-width: 300px;
+        }
+
+        .contact-details img {
+            width: 150px;
+            margin: 15px auto;
+            display: block;
+        }
+
+        .contact-details h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #333;
+            text-align: left;
+        }
+
+        #map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+
+            .contact-details,
+            #map {
+                width: 100%;
+            }
+
+            .contact-details h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-details p {
+                font-size: 0.95rem;
+            }
+
+            #map iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section h1 {
+                padding-top: 50px;
+                font-size: 2rem;
+            }
+
+            .contact-details h2 {
+                font-size: 1.3rem;
+            }
+
+            .contact-details p {
+                font-size: 0.9rem;
+            }
+
+            #map iframe {
+                height: 250px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <main class="contact-section">
+        <h1>Contact Us</h1>
+    </main>
+
+    <div class="contact-container container">
+        <div class="contact-details">
+            <img src="images/logo.png" alt="University Logo">
+            <h2>Asha M. Tarsadia Institute of Computer Science and Technology</h2>
+            <p><strong>Address:</strong>
+                Maliba Campus, Gopal Vidyanagar,<br>
+                Bardoli Mahuva Road, TARSADI,<br>
+                Dist: Surat - 394 350, Gujarat (INDIA).
+            </p>
+            <p><strong>Email:</strong><a href="mailto:director.amtics@utu.ac.in">director.amtics@utu.ac.in</a></p>
+            <p><strong>Phone:</strong><br>
+                Dr. Dharmendra Bhatti: <a href="tel:9825339693">9825339693</a><br>
+                Ms. Bhumika Desai: <a href="tel:9687607383">9687607383</a><br>
+                Mr. Amish Patel: <a href="tel:9879772359">9879772359</a>
+            </p>
+        </div>
+
+        <div id="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.121344426204!2d73.12877737381838!3d21.06781518643894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0618a0948124b%3A0xa11b377ea5fc0ff5!2sAsha%20M.%20Tarsadia%20Institute%20of%20Computer%20Science%20and%20Technology!5e0!3m2!1sen!2sin!4v1747628648993!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="js/loadheaderfooter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

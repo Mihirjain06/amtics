@@ -32,15 +32,17 @@ body::-webkit-scrollbar {
     background-color: #3B3285;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
 .nav-link {
     text-transform: uppercase;
-    padding: 8px 15px;
+    padding: 8px 12px;
     color: white;
     margin-right: 20px;
-    font-size: small;
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -833,11 +835,12 @@ body::-webkit-scrollbar {
 .news-card {
     background: #fff;
     border-radius: 8px;
-    padding: 24px;
+    padding: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-bottom: 0;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -994,6 +997,36 @@ body::-webkit-scrollbar {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+   .slider-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 90%;
+      margin: 80px auto;
+      margin-top: 0;
+    }
+    
+    .scrolling-wrapper {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    .container-fluid h2{
+        margin-left: 66px;
+        margin-top: 0;
+    }
+
+    .scrolling-wrapper img {
+      height: 200px;
+      margin: 0 10px;
+      object-fit: cover;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
 /* Quick Links Section */
 #quick-links {

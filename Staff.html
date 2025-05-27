@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology</title>
-    <link rel="icon" href="images/utu_logo_favicon.ico" type="image/x-icon">
+    <title>AMTICS | Faculty</title>
+    <link rel="icon" type="image/png" href="images/utu_logo_favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
     <style>
-       * {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -22,30 +19,22 @@
             background-color: #f4f7ff;
         }
 
-        h1,
-        h2 {
-            color: #2c3e50;
-        }
-
+        /* Staff Title */
         .staff-title {
             text-align: center;
-            margin-top: 50px;
-            margin-bottom: 30px;
-            position: relative;
+            margin: 50px 0 30px;
         }
-
         .staff-title h1 {
             font-size: 2rem;
             font-weight: bold;
             color: #2c3e50;
             text-transform: uppercase;
             letter-spacing: 2px;
+            padding-bottom: 10px;
             position: relative;
             display: inline-block;
-            padding-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
-
         .staff-title h1::after {
             content: "";
             position: absolute;
@@ -58,27 +47,21 @@
             border-radius: 10px;
         }
 
-        .staff-title p {
-            font-size: 1rem;
-            margin: 5px 0 0;
-            color: #7f8c8d;
-        }
-
+        /* Card Styles */
         .card-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.5rem;
-            max-width: 1200px; /* Match container width from style3.css */
-            width: 92%;
+            max-width: 1200px;
+            width: 95%;
             margin: 0 auto;
             margin-bottom: 1.5rem;
         }
-
         .card {
-            flex: 1 1 300px; /* Consistent width for all cards */
-            max-width: 350px; /* Adjusted max-width for uniformity */
-            min-height: 500px; /* Increased height */
+            flex: 1 1 300px;
+            max-width: 400px;
+            min-height: 700px;
             display: flex;
             flex-direction: column;
             background-color: #fff;
@@ -87,37 +70,23 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
-
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-            z-index: 10;
         }
-
-        .avatar {
+        .card img {
             width: 100%;
-            height: 250px;
-            background-color: #dce9ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 400px;
+          
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
-
-        .avatar::before {
-            content: '👤';
-            font-size: 80px;
-            color: #3a78f2;
-        }
-
         .card-content {
             padding: 1rem;
-            text-align: left;
-            width: 100%;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
-
         .card-content h3 {
             font-size: 1.1rem;
             font-weight: 600;
@@ -126,35 +95,20 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .card-content .tag {
             font-size: 0.65rem;
             padding: 3px 6px;
             border-radius: 8px;
             font-weight: 600;
-        }
-
-        .tag.ai {
             background-color: #e0ecff;
             color: #0056d6;
         }
-
-        .tag.cyber {
-            background-color: #fde2e2;
-            color: #d94a4a;
-        }
-
-        .tag.data {
-            background-color: #dffbe0;
-            color: #15803d;
-        }
-
         .title {
             color: #4f46e5;
             font-weight: 500;
             margin-bottom: 0.2rem;
+            font-size: 0.9rem;
         }
-
         .degree,
         .email,
         .topics {
@@ -162,7 +116,13 @@
             color: #555;
             margin-bottom: 0.3rem;
         }
-
+        .email a {
+            color: #555;
+            text-decoration: none;
+        }
+        .email a:hover {
+            color: #2563eb;
+        }
         .profile-btn {
             margin-top: auto;
             display: inline-block;
@@ -176,267 +136,236 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
-
         .profile-btn:hover {
             background-color: #1e40af;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 991px) {
             .card-container {
                 flex-direction: column;
                 align-items: center;
             }
             .card {
-                max-width: 100%; /* Full width on smaller screens */
-                min-height: 400px; /* Slightly reduced height for mobile */
+                max-width: 100%;
+                min-height: 600px;
             }
+        }
+        @media (max-width: 576px) {
+            .staff-title h1 {
+                font-size: 1.5rem;
+            }
+            .staff-title h1::after {
+                width: 80px;
+            }
+            .card {
+                max-width: 100%;
+                min-height: 600px;
+            }
+            .card img {
+                height: 350px;
+                min-width: 100%;
+            }
+        }
+
+        /* Hide scrollbar */
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
-
 <body>
     <div id="navbar-container"></div>
 
+    <!-- Staff Section -->
     <div class="staff-title">
         <h1>Faculty</h1>
     </div>
 
     <div class="card-container">
         <div class="card">
-            <img src="Staff/Vishvajit Bakrola.png">
+            <img src="Staff/Vishvajit Bakrola.png" alt="Dr. Vishvajit Bakrola" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Dr. Vishvajit Bakrola <span class="tag ai">AI & ML</span></h3>
+                <h3>Dr. Vishvajit Bakrola <span class="tag">AI & ML</span></h3>
                 <p class="title">Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:vishvajit.bakrola@utu.ac.in">vishvajit.bakrola@utu.ac.in</a>
-                </p>
-                <p class="topics"> Machine Learning, Neural Networks, Computer Vision</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:vishvajit.bakrola@utu.ac.in">vishvajit.bakrola@utu.ac.in</a></p>
+                <p class="topics">Machine Learning, Neural Networks, Computer Vision</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Jay Patel.png">
+            <img src="Staff/Jay Patel.png" alt="Jay Patel" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Jay Patel <span class="tag ai">PhD Pursuing</span></h3>
+                <h3>Jay Patel <span class="tag">PhD Pursuing</span></h3>
                 <p class="title">Associate Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:jay.patel@utu.ac.in">jay.patel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Industrial Automation, Renewable Energy, Smart Switchgear</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:jay.patel@utu.ac.in">jay.patel@utu.ac.in</a></p>
+                <p class="topics">Industrial Automation, Renewable Energy, Smart Switchgear</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Snehal Kathale.jpg">
+            <img src="Staff/Snehal Kathale.jpg" alt="Ms. Snehal Kathale" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Snehal Kathale <span class="tag ai">PhD Pursuing</span></h3>
+                <h3>Ms. Snehal Kathale <span class="tag">PhD Pursuing</span></h3>
                 <p class="title">Associate Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:snehal.kathale@utu.ac.in">snehal.kathale@utu.ac.in</a>
-                </p>
-                <p class="topics"> Image Processing, Pattern Recognition, Wireless Network, Database Management System
-                </p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:snehal.kathale@utu.ac.in">snehal.kathale@utu.ac.in</a></p>
+                <p class="topics">Image Processing, Pattern Recognition, Wireless Network, Database Management System</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Dipashree Patel.jpg" alt="">
+            <img src="Staff/Dipashree Patel.jpg" alt="Ms. Dipashree Patel" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Dipashree Patel <span class="tag ai">PhD Pursuing</span></h3>
+                <h3>Ms. Dipashree Patel <span class="tag">PhD Pursuing</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:dipashree.patel@utu.ac.in">dipashree.patel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Real Analysis, Linear Algebra, Discrete Mathematics, Abstract Algebra</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:dipashree.patel@utu.ac.in">dipashree.patel@utu.ac.in</a></p>
+                <p class="topics">Real Analysis, Linear Algebra, Discrete Mathematics, Abstract Algebra</p>
+                <a href="#" class="profile-btn">View Profile →</a>
+            </div>
+        </div>
+       
+        <div class="card">
+            <img src="Staff/Vibhuti Patel.jpg" alt="Ms. Vibhuti Patel" onerror="this.src='images/placeholder.png'">
+            <div class="card-content">
+                <h3>Ms. Vibhuti Patel <span class="tag">PhD</span></h3>
+                <p class="title">Assistant Professor</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:vibhuti.patel@utu.ac.in">vibhuti.patel@utu.ac.in</a></p>
+                <p class="topics">Power System, Industrial Automation, Instrumentation</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Twinkle Kosambia.jpg" alt="">
+            <img src="Staff/VS.png" alt="Ms. Vidhi Sutaria" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Twinkle Kosambia <span class="tag ai">PhD</span></h3>
+                <h3>Ms. Vidhi Sutaria <span class="tag">PhD Pursuing</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:twinkle.kosmbia@utu.ac.in">twinkle.kosmbia@utu.ac.in</a>
-                </p>
-                <p class="topics"> Machine Learning, Deep Learning, Image Processing, Cyber Security</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:vidhi.sutaria@utu.ac.in">vidhi.sutaria@utu.ac.in</a></p>
+                <p class="topics">Cloud Computing, Information Network Security</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Vibhuti Patel.jpg" alt="">
+            <img src="Staff/Ms. Urvishabahen Patel.png" alt="Ms. Urvishabahen Patel" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Vibhuti Patel <span class="tag ai">PhD</span></h3>
+                <h3>Ms. Urvishabahen Patel <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:vibhuti.patel@utu.ac.in">vibhuti.patel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Power System, Industrial Automation, Instrumentation</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:urvisha.patel@utu.ac.in">urvisha.patel@utu.ac.in</a></p>
+                <p class="topics">Machine Learning, Data Science with Python, Computer Vision, Image Processing</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/VS.png" alt="">
+            <img src="Staff/IMG_20240902_174232.jpg" alt="Mr. Aakash Parmar" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Vidhi Sutaria <span class="tag ai">PhD Pursuing</span></h3>
+                <h3>Mr. Aakash Parmar <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:vidhi.sutaria@utu.ac.in">vidhi.sutaria@utu.ac.in</a>
-                </p>
-                <p class="topics"> Cloud Computing, Information Network Security</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:aakash.parmar@utu.ac.in">aakash.parmar@utu.ac.in</a></p>
+                <p class="topics">Machine Learning, Artificial Intelligence, Soft Computing, Digital Forensics</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Ms. Urvishabahen Patel.png" alt="">
+            <img src="Staff/Ms.Vidhi Patel.png" alt="Ms. Vidhi Patel" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Urvishabahen Patel <span class="tag ai">PhD</span></h3>
+                <h3>Ms. Vidhi Patel <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:urvisha.patel@utu.ac.in">urvisha.patel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Machine Learning, Data Science with Python, Computer Vision, Image Processing</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:vidhi.patel@utu.ac.in">vidhi.patel@utu.ac.in</a></p>
+                <p class="topics">Data Structure, Web Designing, Web Developing, Compiler Design, Software Engineering</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/IMG_20240902_174232.jpg" alt="">
+            <img src="Staff/Ms. Halak Patel.png" alt="Ms. Halak Patel" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Mr. Aakash Parmar <span class="tag ai">PhD</span></h3>
+                <h3>Ms. Halak Patel <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:aakash.parmar@utu.ac.in">aakash.parmar@utu.ac.in</a>
-                </p>
-                <p class="topics"> Machine Learning, Artificial Intelligence, Soft Computing, Digital Forensics</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:halak.patel@utu.ac.in">halak.patel@utu.ac.in</a></p>
+                <p class="topics">Database Management System, Analysis and Design Algorithm, Web Design, Software Modeling and Design</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Ms.Vidhi Patel.png" alt="">
+            <img src="Staff/Ms. Roshni Patel.png" alt="Ms. Roshni Patel" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Vidhi Patel <span class="tag ai">PhD</span></h3>
+                <h3>Ms. Roshni Patel <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:vidhi.patel@utu.ac.in">vidhi.patel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Data Structure, Web Designing, Web Developing, Compiler Design, Software Engineering
-                </p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:roshni.patel@utu.ac.in">roshni.patel@utu.ac.in</a></p>
+                <p class="topics">Data Mining, Web Designing, Web Development, Operating System, DBMS</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Ms. Halak Patel.png" alt="">
+            <img src="Staff/Ms. Mitaliben Patel.png" alt="Ms. Mitaliben Patel" onerror="this.src='images/placeholder.png'" />
             <div class="card-content">
-                <h3>Ms. Halak Patel <span class="tag ai">PhD</span></h3>
+                <h3>Ms. Mitaliben Patel <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:halak.patel@utu.ac.in">halak.patel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Database Management System, Analysis and Design Algorithm, Web Design, Software
-                    Modeling and Design</p>
+                <p class="degree">PHP</p>
+                <p class="email"><a href="mailto:mitali.cpatel@utu.ac.in">mitali.cpatel@utu.ac.in</a></p>
+                <p class="topics">Computer Network, Web Designing, Web Development, Software Engineering</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Ms. Roshni Patel.png" alt="">
+            <img src="Staff/Mr. Santosh Shaha.png" alt="Mr. Santosh Saha" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Roshni Patel <span class="tag ai">PhD</span></h3>
+                <h3>Mr. Santosh Saha <span class="tag">PhD Pursuing</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:roshni.patel@utu.ac.in">roshni.patel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Data Mining, Web Designing, Web Development, Operating System, DBMS</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:santosh.saha@utu.ac.in">santosh.saha@utu.ac.in</a></p>
+                <p class="topics">DBMS, OS, OOPs, Mobile Computing, Data Mining, Machine Learning, Cyber Security, Internet of Things, Internet Technologies</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Ms. Mitaliben Patel.png" alt="">
+            <img src="Staff/Mr. Vishvendu Bhatt.png" alt="Mr. Vishvendu Bhatt" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Ms. Mitaliben Patel <span class="tag ai">PhD</span></h3>
+                <h3>Mr. Vishvendu Bhatt <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:mitali.cpatel@utu.ac.in">mitali.cpatel@utu.ac.in</a>
-                </p>
-                <p class="topics"> Computer Network, Web Designing, Web Development, Software Engineering</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:vishvendu.bhatt@utu.ac.in">vishvendu.bhatt@utu.ac.in</a></p>
+                <p class="topics">Machine Learning, Information Security, Android Application Development, Computer Network, Cloud Computing</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Mr. Santosh Shaha.png" alt="">
+            <img src="Staff/Mr. Dipesh Shahane.png" alt="Mr. Dipesh Shahane" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Mr. Santosh Saha <span class="tag ai">PhD Pursuing</span></h3>
+                <h3>Mr. Dipesh Shahane <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:santosh.saha@utu.ac.in">santosh.saha@utu.ac.in</a>
-                </p>
-                <p class="topics"> DBMS, OS, OOPs, Mobile Computing, Data Mining, Machine Learning, Cyber Security,
-                    Internet of Things, Internet Technologies</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:dipesh.shahane@utu.ac.in">dipesh.shahane@utu.ac.in</a></p>
+                <p class="topics">Operating System</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Mr. Vishvendu Bhatt.png" alt="">
+            <img src="Staff/EktaAtodaria.jpg" alt="Ms. Ekta Atodariya" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
-                <h3>Mr. Vishvendu Bhatt <span class="tag ai">PhD</span></h3>
+                <h3>Ms. Ekta Atodariya <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:vishvendu.bhatt@utu.ac.in">vishvendu.bhatt@utu.ac.in</a>
-                </p>
-                <p class="topics"> Machine Learning, Information Security, Android Application Development, Computer
-                    Network, Cloud Computing</p>
-                <a href="#" class="profile-btn">View Profile →</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="Staff/Mr. Dipesh Shahane.png" alt="">
-            <div class="card-content">
-                <h3>Mr. Dipesh Shahane <span class="tag ai">PhD</span></h3>
-                <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:dipesh.shahane@utu.ac.in">dipesh.shahane@utu.ac.in</a>
-                </p>
-                <p class="topics"> Operating System</p>
-                <a href="#" class="profile-btn">View Profile →</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="Staff/EktaAtodaria.jpg" alt="">
-            <div class="card-content">
-                <h3>Ms. Ekta Atodariya <span class="tag ai">PhD</span></h3>
-                <p class="title">Assistant Professor</p>
-                <p class="degree">Ph.D. in Computer Science, Stanford University</p>
-                <p class="email">
-                    <a href="mailto:ekta.atodariya@utu.ac.in">ekta.atodariya@utu.ac.in</a>
-                </p>
-                <p class="topics"> Web Designing</p>
+                <p class="degree">Ph.D. in Computer Science</p>
+                <p class="email"><a href="mailto:ekta.atodariya@utu.ac.in">ekta.atodariya@utu.ac.in</a></p>
+                <p class="topics">Web Designing</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
     </div>
-
+    
     <div id="footer-container"></div>
-
     <script src="js/loadheaderfooter.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

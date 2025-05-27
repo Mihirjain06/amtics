@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transport Facility - AMTICS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f5f7fa;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #3b3285;
+      margin: 40px 0 20px;
+      font-weight: bold;
+    }
+
+    .bus-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+      background: #fff;
+    }
+
+    .bus-card:hover {
+      transform: scale(1.03);
+    }
+
+    .bus-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .bus-card-body {
+      padding: 20px;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #3b3285;
+      color: white;
+    }
+
+    .accordion-button {
+      font-weight: 500;
+    }
+
+    .route-title {
+      color: #3b3285;
+      font-weight: bold;
+    }
+
+    .badge-bus {
+      background-color: #ffd43b;
+      color: #000;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Main Content -->
+  <div class="container py-5">
+
+    <h2 class="section-title">Transport Facility</h2>
+    <p class="text-center mb-4 px-md-5">
+      AMTICS provides safe, reliable, and punctual transportation services to ensure students and faculty have hassle-free commutes from nearby towns and villages. Our buses follow fixed routes and are equipped with tracking and emergency facilities.
+    </p>
+
+    <div class="row g-4">
+      <!-- Bus Route Card -->
+      <div class="col-md-4">
+        <div class="bus-card">
+          <img src="https://images.unsplash.com/photo-1521805103429-7d671c4ca6f6?auto=format&fit=crop&w=800&q=60" alt="Bus Route" />
+          <div class="bus-card-body">
+            <h5 class="route-title">Route 1: Valsad → AMTICS</h5>
+            <p>Stops at Tithal, Atul, Pardi, and college campus.</p>
+            <span class="badge badge-bus">Departs: 7:30 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bus Route Card -->
+      <div class="col-md-4">
+        <div class="bus-card">
+          <img src="https://images.unsplash.com/photo-1561103546-8dcf60aa2aab?auto=format&fit=crop&w=800&q=60" alt="Bus Route" />
+          <div class="bus-card-body">
+            <h5 class="route-title">Route 2: Vapi → AMTICS</h5>
+            <p>Stops at Chanod, Dungra, and other local areas en route.</p>
+            <span class="badge badge-bus">Departs: 7:15 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bus Route Card -->
+      <div class="col-md-4">
+        <div class="bus-card">
+          <img src="https://images.unsplash.com/photo-1551776235-dde6d482980c?auto=format&fit=crop&w=800&q=60" alt="Bus Route" />
+          <div class="bus-card-body">
+            <h5 class="route-title">Route 3: Dharampur → AMTICS</h5>
+            <p>Covers Waghai, Nana Pondha, and adjoining areas.</p>
+            <span class="badge badge-bus">Departs: 6:50 AM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <h4 class="mt-5 section-title">Frequently Asked Questions</h4>
+    <div class="accordion accordion-flush" id="transportFAQ">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
+            Is transport available for all students?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#transportFAQ">
+          <div class="accordion-body">
+            Yes, students from nearby towns and villages can avail transport by registering during admission.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Are there any safety features on buses?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#transportFAQ">
+          <div class="accordion-body">
+            All buses are equipped with CCTV surveillance, GPS tracking, and emergency contact access.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+            How are the timings managed?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#transportFAQ">
+          <div class="accordion-body">
+            Bus routes are planned to arrive 10–15 minutes before lectures begin and depart post final session of the day.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/loadheaderfooter.js"></script>
+</body>
+</html>

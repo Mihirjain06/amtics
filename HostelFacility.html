@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hostel Facility - AMTICS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #3b3285;
+      margin: 40px 0 20px;
+      font-weight: bold;
+    }
+
+    .hostel-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      background: #fff;
+    }
+
+    .hostel-card:hover {
+      transform: scale(1.03);
+    }
+
+    .hostel-card img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .amenities i {
+      font-size: 22px;
+      margin-right: 8px;
+      color: #3b3285;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #3b3285;
+      color: white;
+    }
+
+    .accordion-button {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Main Content -->
+  <div class="container py-5">
+    <h2 class="section-title">Hostel Facility</h2>
+    <p class="text-center px-md-5 mb-5">
+      AMTICS provides comfortable and secure hostel facilities for both male and female students. Our hostels offer a homely atmosphere with all essential amenities that support student life and learning.
+    </p>
+
+    <!-- Hostel Info Cards -->
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="hostel-card">
+          <img src="https://images.unsplash.com/photo-1578898887958-5b8a4b867a94?auto=format&fit=crop&w=800&q=60" class="w-100" alt="Boys Hostel">
+          <div class="p-4">
+            <h5 class="text-primary fw-bold">Boys' Hostel</h5>
+            <p>Spacious and well-ventilated rooms, indoor recreation, and 24/7 security ensure a peaceful environment for male students.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="hostel-card">
+          <img src="https://images.unsplash.com/photo-1553949345-eb786bb3f853?auto=format&fit=crop&w=800&q=60" class="w-100" alt="Girls Hostel">
+          <div class="p-4">
+            <h5 class="text-primary fw-bold">Girls' Hostel</h5>
+            <p>Dedicated girls' hostel with strict supervision, hygiene facilities, and secure premises to ensure comfort and safety.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amenities Section -->
+    <h4 class="section-title mt-5">Amenities</h4>
+    <div class="row text-center amenities g-4">
+      <div class="col-md-3">
+        <i class="fas fa-wifi"></i>
+        <p>High-Speed Wi-Fi</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fas fa-utensils"></i>
+        <p>Nutritious Mess Food</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fas fa-shield-alt"></i>
+        <p>24/7 Security</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fas fa-user-nurse"></i>
+        <p>Medical Facility</p>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <h4 class="section-title mt-5">Frequently Asked Questions</h4>
+    <div class="accordion accordion-flush" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q1">
+            Are hostels available for all students?
+          </button>
+        </h2>
+        <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Hostel seats are allotted based on availability and need. Priority is given to students from distant locations.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">
+            What are the rules and timings?
+          </button>
+        </h2>
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Hostels follow strict in-time rules, especially for girls. Disciplinary policies are in place to maintain order and safety.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">
+            Is laundry service available?
+          </button>
+        </h2>
+        <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, laundry service is available on a weekly basis with optional paid service for daily needs.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/loadheaderfooter.js"></script>
+</body>
+</html>

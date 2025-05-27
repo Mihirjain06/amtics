@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Club - Amtics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .section-title {
+      color: #3b3285;
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .club-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      background-color: white;
+    }
+    .club-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+    .club-img {
+      height: 220px;
+      object-fit: cover;
+    }
+    .club-card h5 {
+      color: #3b3285;
+      font-weight: 600;
+    }
+    .club-container {
+      padding: 40px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Student Club Section -->
+  <div class="container club-container">
+    <h2 class="section-title">Student Clubs at Amtics</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="card club-card h-100">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?fit=crop&w=800&q=80" class="card-img-top club-img" alt="Cultural Club">
+          <div class="card-body">
+            <h5 class="card-title">Cultural Club</h5>
+            <p class="card-text">From Garba nights to theatre, this club brings colors, rhythm, and traditions to campus.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card club-card h-100">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=800&q=80" class="card-img-top club-img" alt="Tech Club">
+          <div class="card-body">
+            <h5 class="card-title">Tech Innovators Club</h5>
+            <p class="card-text">Where code meets creativity — hosting hackathons, workshops, and problem-solving sprints.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card club-card h-100">
+          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?fit=crop&w=800&q=80" class="card-img-top club-img" alt="Eco Club">
+          <div class="card-body">
+            <h5 class="card-title">Eco Club</h5>
+            <p class="card-text">Promoting sustainability through tree plantations, clean-up drives, and awareness campaigns.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card club-card h-100">
+          <img src="https://images.unsplash.com/photo-1573164574472-cb89e39749b4?fit=crop&w=800&q=80" class="card-img-top club-img" alt="Leadership Club">
+          <div class="card-body">
+            <h5 class="card-title">Leadership Forum</h5>
+            <p class="card-text">Cultivating tomorrow’s leaders through event management, debates, and personality building.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card club-card h-100">
+          <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?fit=crop&w=800&q=80" class="card-img-top club-img" alt="Photography Club">
+          <div class="card-body">
+            <h5 class="card-title">Photography & Media Club</h5>
+            <p class="card-text">Capturing moments that matter. Students learn visual storytelling through lens and editing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card club-card h-100">
+          <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?fit=crop&w=800&q=80" class="card-img-top club-img" alt="Sports Club">
+          <div class="card-body">
+            <h5 class="card-title">Sports Club</h5>
+            <p class="card-text">From cricket to chess, promoting team spirit, fitness, and friendly competition across all games.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Bootstrap & Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/loadheaderfooter.js"></script>
+
+</body>
+</html>

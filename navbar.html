@@ -1,96 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology</title>
-    <link rel="icon" type="image/png" href="images/icon.png">
+    <link rel="icon" type="image/png" href="images/utu_logo_favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="css/Style3.css">
 </head>
-<style>
-    /* Custom styles for the top bar */
-    .top-bar {
-        background-color: #f1f1f1;
-        padding: 4px 15px;
-        font-size: 12px;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .top-bar .top-links a {
-        color: #333;
-        text-decoration: none;
-        margin-right: 10px;
-    }
-
-    .top-bar .top-links a:hover,
-    .top-bar .top-links a.active {
-        background: #1e3a8a;
-        color: #fff;
-        border-radius: 12px;
-    }
-
-    /* Navbar and dropdown styles */
-    .navbar-nav .dropdown-menu {
-       font-family: 'Open Sans', sans-serif;
-        font-size: 13px;
-    }
-
-    .dropdown-submenu {
-        position: relative;
-    }
-
-    .dropdown-submenu .dropdown-menu {
-        top: 0;
-        left: 100%;
-        margin-top: -5px;
-    }
-
-    /* Hover effect for main dropdown */
-    .nav-item.dropdown:hover>.dropdown-menu {
-        display: block;
-        margin-top: 0;
-    }
-
-    /* Hover effect for nested dropdown (dropend) */
-    .dropdown-submenu:hover>.dropdown-menu {
-        display: block;
-        margin-left: 0;
-    }
-
-
-    .nav-item.dropdown:hover>.dropdown-menu,
-    .dropdown-submenu:hover>.dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-    }
-</style>
-
 <body>
-
-    <!-- New Top Bar Section -->
+    <!-- Top Bar Section -->
     <div class="top-bar d-flex justify-content-end align-items-center px-4">
         <div class="top-links">
-            <a href="#">Contact Us</a>
-            <a href="#">SIS</a>
-            <a href="#">Uka Tarsadia University</a>
+            <a href="https://app.utu.ac.in/UTUSIS/SIS/Login.aspx">SIS</a>
+            <a href="#">News@AMTICS</a>
+            <a href="#">Exam Corner</a>
+            <a href="#">Photo Gallery</a>
+            <a href="#">Career@AMTICS</a>
+            <a href="#">Alumni</a>
+            <a href="ContactUs.html">Contact Us</a>
         </div>
     </div>
 
-    <header style="font-family: 'Montserrat';font-size: 13px;">
+    <header style="font-family: 'Montserrat'; font-size: 13px;">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            
+            <div class="container-fluid">
                 <div class="logo-container">
                     <img src="./images/logo.png" class="logo" alt="logo">
                     <h3 class="university-name">Asha M. Tarsadia Institute of <br> Computer Science and Technology</h3>
                 </div>
-                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -101,77 +44,45 @@
                             <a href="index.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside"
-                                data-bs-toggle="dropdown">About Us</a>
-                            <ul class="dropdown-menu">
-                                <li class=" dropend">
-                                    <a class="dropdown-item " href="WhyAmtics.html">Why
-                                        AMTICS?</a>
-                                    <!-- <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">M.Tech. CSE Overview</a></li>
-                                        <li><a class="dropdown-item" href="#">Curriculum</a></li>
-                                        <li><a class="dropdown-item" href="Staff.html">Faculty</a></li>
-                                        <li><a class="dropdown-item" href="#">Projects</a></li>
-                                        <li><a class="dropdown-item" href="#">Research</a></li>
-                                        <li><a class="dropdown-item" href="#">Placements</a></li>
-                                        <li><a class="dropdown-item" href="#">Alumni</a></li>
-                                    </ul> -->
-                                </li>
-                                 <li class=" dropend">
-                                    <a class="dropdown-item " href="AboutAmtics.html">About
-                                        AMTICS</a>
-                                    <!-- <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">M.Tech. CSE Overview</a></li>
-                                        <li><a class="dropdown-item" href="#">Curriculum</a></li>
-                                        <li><a class="dropdown-item" href="Staff.html">Faculty</a></li>
-                                        <li><a class="dropdown-item" href="#">Projects</a></li>
-                                        <li><a class="dropdown-item" href="#">Research</a></li>
-                                        <li><a class="dropdown-item" href="#">Placements</a></li>
-                                        <li><a class="dropdown-item" href="#">Alumni</a></li>
-                                    </ul> -->
-                                </li>
+                            <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                            <ul class="dropdown-menu" aria-labelledby="aboutUsDropdown">
+                                <li><a class="dropdown-item" href="AboutAmtics.html">About AMTICS</a></li>
+                                <li><a class="dropdown-item" href="WhyAmtics.html">Why AMTICS?</a></li>
                                 <li><a class="dropdown-item" href="Vision&Mission.html">Vision and Mission</a></li>
                                 <li><a class="dropdown-item" href="#">Director's Message</a></li>
                                 <li><a class="dropdown-item" href="#">Achievements</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="studentDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Academics</a>
-                            <ul class="dropdown-menu" aria-labelledby="studentDropdown">
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=B.Tech.%20Computer%20Science%20and%20Engineering%20(CSE)">B.Tech.
-                                        Computer Science and Engineering (CSE)</a></li>
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=B.Tech.%20Computer%20Science%20and%20Bioscience">B.Tech.
-                                        Computer Science and Bioscience</a></li>
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=B.Tech.%20CSE%20(Artificial%20Intelligence%20and%20Machine%20Learning)">B.Tech.
-                                        CSE (Artificial Intelligence and Machine Learning)</a></li>
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=B.Tech.%20CSE%20(Cloud%20Computing)">B.Tech. CSE
-                                        (Cloud Computing)</a></li>
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=B.Tech.%20CSE%20(Cyber%20Security)">B.Tech. CSE (Cyber
-                                        Security)</a></li>
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=B.Tech.%20Computer%20Engineering%20(CE)">B.Tech.
-                                        Computer Engineering (CE)</a></li>
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=B.Tech.%20CE%20(Software%20Engineering)">B.Tech. CE
-                                        (Software Engineering)</a></li>
-                                <li><a class="dropdown-item"
-                                        href="course.html?program=Integrated%20M.%20Tech.%20CSE">Integrated M. Tech.
-                                        CSE</a></li>
-                                <li><a class="dropdown-item" href="course.html?program=M.Tech.%20CSE">M.Tech. CSE</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Academics</a>
+                            <ul class="dropdown-menu" aria-labelledby="academicsDropdown">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#" id="ugPrograms" data-bs-toggle="dropdown" aria-expanded="false">Undergraduate Programs</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="course.html?program=B.Tech.%20Computer%20Science%20and%20Bioscience">B.Tech. Computer Science and Bioscience</a></li>
+                                        <li><a class="dropdown-item" href="course.html?program=B.Tech.%20CSE%20(Artificial%20Intelligence%20and%20Machine%20Learning)">B.Tech. CSE (Artificial Intelligence and Machine Learning)</a></li>
+                                        <li><a class="dropdown-item" href="course.html?program=B.Tech.%20CSE%20(Cloud%20Computing)">B.Tech. CSE (Cloud Computing)</a></li>
+                                        <li><a class="dropdown-item" href="course.html?program=B.Tech.%20CSE%20(Cyber%20Security)">B.Tech. CSE (Cyber Security)</a></li>
+                                        <li><a class="dropdown-item" href="course.html?program=B.Tech.%20Computer%20Engineering%20(CE)">B.Tech. Computer Engineering (CE)</a></li>
+                                        <li><a class="dropdown-item" href="course.html?program=B.Tech.%20CE%20(Software%20Engineering)">B.Tech. CE (Software Engineering)</a></li>
+                                        <li><a class="dropdown-item" href="course.html?program=Integrated%20M.%20Tech.%20CSE">Integrated M. Tech. CSE</a></li>
+                                    </ul>
                                 </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#" id="pgPrograms" data-bs-toggle="dropdown" aria-expanded="false">Postgraduate Programs</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="course.html?program=M.Tech.%20CSE">M.Tech. Computer Science and Engineering (CSE)</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="Staff.html">Our Faculties</a></li>
+                                <li><a class="dropdown-item" href="#">Curriculum</a></li>
+                                <li><a class="dropdown-item" href="RDC.html">Laboratories</a></li>
+                                <li><a class="dropdown-item" href="#">Exam Corner</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="studentDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Student Corner</a>
-                            <ul class="dropdown-menu" aria-labelledby="studentDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentCornerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Student Corner</a>
+                            <ul class="dropdown-menu" aria-labelledby="studentCornerDropdown">
                                 <li><a class="dropdown-item" href="#">Academic Calendar</a></li>
                                 <li><a class="dropdown-item" href="#">Career Counseling</a></li>
                                 <li><a class="dropdown-item" href="#">Code of Conduct</a></li>
@@ -181,51 +92,32 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="studentDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Research</a>
-                            <ul class="dropdown-menu" aria-labelledby="studentDropdown">
-                                <li><a class="dropdown-item" href="#">Research Cell</a></li>
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Research</a>
+                            <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                                <li><a class="dropdown-item" href="ResearchCell.html">Research Cell</a></li>
                                 <li><a class="dropdown-item" href="#">Funding Opportunities</a></li>
                                 <li><a class="dropdown-item" href="#">Ongoing Projects</a></li>
                                 <li><a class="dropdown-item" href="#">Publications</a></li>
                                 <li><a class="dropdown-item" href="#">Patents</a></li>
                             </ul>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Alumni</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="lifeAtAmticsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Life@AMTICS</a>
+                            <ul class="dropdown-menu" aria-labelledby="lifeAtAmticsDropdown">
+                                <li><a class="dropdown-item" href="#">NSS</a></li>
+                                <li><a class="dropdown-item" href="#">Events</a></li>
+                                <li><a class="dropdown-item" href="#">Student Clubs</a></li>
+                                <li><a class="dropdown-item" href="#">Media</a></li>
+                                <li><a class="dropdown-item" href="#">Hostel Facility</a></li>
+                                <li><a class="dropdown-item" href="#">Transport Facility</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const navbarCollapse = document.getElementById('navbarNav');
-        const navbarToggler = document.querySelector('.navbar-toggler');
-
-        function closeNavbar() {
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-            if (bsCollapse) {
-                bsCollapse.hide();
-            }
-        }
-
-        // Add event listeners to all nav links inside the navbar
-        document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                // Close only if navbar toggler is visible (mobile view)
-                if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                    closeNavbar();
-                }
-            });
-        });
-
-    </script>
-
-
-
 </body>
-
 </html>

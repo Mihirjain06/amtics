@@ -124,17 +124,22 @@
         <section class="stats-section">
             <div class="stat-box">
                 <i class="fas fa-user-circle"></i>
-                <h3>20+</h3>
-                <p>Faculty Members</p>
+                <h3>10+</h3>
+                <p>Industry MoU</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-users"></i>
+                <h3>5+</h3>
+                <p>Global Academies</p>
             </div>
             <div class="stat-box">
                 <i class="fas fa-book"></i>
-                <h3>10</h3>
+                <h3>13+</h3>
                 <p>Laboratories</p>
             </div>
             <div class="stat-box">
                 <i class="fas fa-users"></i>
-                <h3>1500+</h3>
+                <h3>1200+</h3>
                 <p>Students Enrolled</p>
             </div>
             <div class="stat-box">
@@ -182,9 +187,8 @@
                     <h3>VISION</h3>
                 </div>
                 <div class="text-content">
-                    <p>- Become a cradle for innovation through nurturing excellence and imparting knowledge to handle
-                        and</p>
-                    <p> respond to societal challenges.</p>
+                    <p>Become a cradle for innovation through nurturing excellence and imparting knowledge to handle
+                        and respond to societal challenges.</p>
                 </div>
             </div>
 
@@ -197,11 +201,11 @@
                     <h3>MISSION</h3>
                 </div>
                 <div class="text-content">
-                    <p>- To become centre of excellence in the field of Computer Science and Technology by,</p>
-                    <p>- Fostering humanitarian values, critical thinking, and creativity for problem solving in
+                    <p>1. To become centre of excellence in the field of Computer Science and Technology by fostering
+                        humanitarian values, critical thinking, and creativity for problem solving in
                         faculties and students.</p>
-                    <p>- Establish an innovation ecosystem through skill-based technical education.</p>
-                    <p>- Develop a socially responsible, highly skilled task force and future leaders to meet national
+                    <p>2. Establish an innovation ecosystem through skill-based technical education.</p>
+                    <p>3. Develop a socially responsible, highly skilled task force and future leaders to meet national
                         challenges.</p>
                 </div>
             </div>
@@ -210,271 +214,277 @@
     </div>
 
 
-
-    <section id="SRIMCA">
-        <h1 class="well">Welcome To Asha M. Tarsadia Institute of Computer Science and Technology (AMTICS)</h1>
-        <div class="container">
-
-            <div class="page">
-                <p>The Asha M. Tarsadia Institute of Computer Science and Technology popularly known as AMTICS, a
-                    distinguished constituent of Uka Tarsadia University, is recognized as one of the best places for
-                    education in Computer Science and Engineering in South Gujarat region. Situated in the vibrant
-                    Maliba Campus, AMTICS is a hub of innovation and excellence, offering seven undergraduate and one
-                    postgraduate program that cater to the dynamic and emerging fields of technology, including
-                    Artificial Intelligence & Machine Learning, Cloud Computing, Cyber Security, and Software
-                    Engineering.</p>
-                <p>At AMTICS, we take pride in providing a best-in-class, state-of-the-art academic infrastructure
-                    designed to foster creativity, innovation, and hands-on learning. Our mission is to deliver
-                    skill-based, industry-oriented education that prepares students to excel in the fast-evolving
-                    technological landscape. We bridge the gap between academia and industry through a curriculum
-                    aligned with real-world applications, ensuring to prepare future-ready students.</p>
-                <p>The institute thrives on a vibrant student culture that encourages collaboration, critical thinking,
-                    and holistic development. Under the mentorship of experienced academicians, leading researchers, and
-                    seasoned industry professionals, students are nurtured to tackle complex societal and technological
-                    challenges with confidence.</p>
-                <p>Whether you aspire to be a trailblazer in cutting-edge technologies or contribute meaningfully to
-                    global advancements, AMTICS offers the ideal environment to realize your potential and achieve
-                    excellence.</p>
-            </div>
-        </div>
-    </section>
-
     <section class="news-section">
-        <h2>News &amp; Announcements</h2>
+        <h2 class="text-start mb-2">News & Announcements</h2>
 
         <!-- Filter buttons (optional) -->
-        <div class="news-filters">
-            <button class="active">All</button>
-            <button>Announcement</button>
-            <button>Event</button>
-            <button>Achievement</button>
-            <button>Research</button>
+        <div class="news-filters mb-3">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="announcement">Announcement</button>
+            <button data-filter="event">Event</button>
+            <button data-filter="achievement">Achievement</button>
+            <button data-filter="research">Research</button>
         </div>
 
-        <!-- Cards grid -->
-        <div class="news-grid">
-            <!-- 1 -->
-            <article class="news-card research">
-                <div class="news-header">
+        <!-- Horizontal slider for news cards -->
+        <div class="slider-wrapper">
+            <div class="scrolling-wrapper news-slider">
+                <!-- Card 1 -->
+                <article class="news-card research">
+                    <div class="news-header">
+                        <i class="fa-solid fa-flask"></i>
+                        <span class="category">Research</span>
+                        <span class="badge">Important</span>
+                    </div>
+                    <h3>Department Receives $5M Research Grant</h3>
+                    <time datetime="2023-06-15">June 15, 2023</time>
+                    <p>Our CS department has been awarded a $5 million grant from the NSF to advance research in quantum
+                        computing algorithms and applications.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="news-card announcement">
+                    <div class="news-header">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <span class="category">Announcement</span>
+                        <span class="badge">Important</span>
+                    </div>
+                    <h3>New AI and Machine Learning Specialization Announced</h3>
+                    <time datetime="2023-06-10">June 10, 2023</time>
+                    <p>Starting Fall 2023, the department will offer a new specialization in AI and Machine Learning for
+                        undergraduates. Applications are now open.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="news-card event">
+                    <div class="news-header">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="category">Event</span>
+                        <span class="badge">Important</span>
+                    </div>
+                    <h3>Annual CS Department Symposium</h3>
+                    <time datetime="2023-05-25">May 25, 2023</time>
+                    <p>Join us for the Annual CS Department Symposium on July 15–16, 2023. This year’s theme is
+                        “Computing for Sustainable Futures.” Registration is required.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+            </div>
+        </div>
+
+       
+    </section>
+
+
+
+    <div class="container-fluid">
+        <h2 class="text-start">Our Gallery</h2>
+        <div class="slider-wrapper">
+            <div class="scrolling-wrapper" id="image-slider">
+                <!-- Original image set -->
+                <img src="images/1.jpg" alt="Image 1">
+                <img src="images/2.jpg" alt="Image 2">
+                <img src="images/3.jpg" alt="Image 3">
+                <img src="images/4.jpg" alt="Image 4">
+                <img src="images/5.jpg" alt="Image 5">
+            </div>
+        </div>
+
+
+        <!-- Quick Links Section -->
+        <section id="quick-links">
+            <h1>Quick Links</h1>
+            <div class="quick-links-container">
+                <div class="quick-link-card">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Faculty Directory</h3>
+                    <p>Meet our world-class faculty and researchers</p>
+                    <a href="Staff.html">Visit <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="quick-link-card">
                     <i class="fa-solid fa-flask"></i>
-                    <span class="category">Research</span>
-                    <span class="badge">Important</span>
+                    <h3>Research Labs</h3>
+                    <p>Explore our cutting-edge research facilities</p>
+                    <a href="RDC.html">Visit <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <h3>Department Receives $5M Research Grant</h3>
-                <time datetime="2023-06-15">June 15, 2023</time>
-                <p>Our CS department has been awarded a $5 million grant from the NSF to advance research in quantum
-                    computing algorithms and applications.</p>
-                <a href="#" class="read-more">Read more →</a>
-            </article>
-
-            <!-- 2 -->
-            <article class="news-card announcement">
-                <div class="news-header">
-                    <i class="fa-solid fa-bullhorn"></i>
-                    <span class="category">Announcement</span>
-                    <span class="badge">Important</span>
+                <div class="quick-link-card">
+                    <i class="fa-solid fa-book"></i>
+                    <h3>Student Projects</h3>
+                    <p>Discover innovative projects by our students</p>
+                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <h3>New AI and Machine Learning Specialization Announced</h3>
-                <time datetime="2023-06-10">June 10, 2023</time>
-                <p>Starting Fall 2023, the department will offer a new specialization in AI and Machine Learning for
-                    undergraduates. Applications are now open.</p>
-                <a href="#" class="read-more">Read more →</a>
-            </article>
-
-            <!-- 3 -->
-            <article class="news-card event">
-                <div class="news-header">
-                    <i class="fa-solid fa-calendar"></i>
-                    <span class="category">Event</span>
-                    <span class="badge">Important</span>
+                <div class="quick-link-card">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <h3>Newsletter</h3>
+                    <p>Read our latest department newsletter</p>
+                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <h3>Annual CS Department Symposium</h3>
-                <time datetime="2023-05-25">May 25, 2023</time>
-                <p>Join us for the Annual CS Department Symposium on July 15–16, 2023. This year’s theme is “Computing
-                    for Sustainable Futures.” Registration is required.</p>
-                <a href="#" class="read-more">Read more →</a>
-            </article>
-        </div>
-        <div class="view-all-news">
-            <a href="news.html" class="view-all-button">View All News</a>
-        </div>
-    </section>
-
-
-<div class="container-fluid my-3">
-  <h2 class="text-start mb-4">Our Gallery</h2>
-  <div class="slider-wrapper">
-    <div class="scrolling-wrapper" id="image-slider">
-      <!-- Original image set -->
-      <img src="images/1.jpg" alt="Image 1">
-      <img src="images/2.jpg" alt="Image 2">
-      <img src="images/3.jpg" alt="Image 3">
-      <img src="images/4.jpg" alt="Image 4">
-      <img src="images/5.jpg" alt="Image 5">
-    </div>
-  </div>
-
-
-    <!-- Quick Links Section -->
-    <section id="quick-links">
-        <h1>Quick Links</h1>
-        <div class="quick-links-container">
-            <div class="quick-link-card">
-                <i class="fa-solid fa-users"></i>
-                <h3>Faculty Directory</h3>
-                <p>Meet our world-class faculty and researchers</p>
-                <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="quick-link-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Academic Programs</h3>
+                    <p>Learn about our degree programs and courses</p>
+                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="quick-link-card">
+                    <i class="fa-solid fa-calendar-alt"></i>
+                    <h3>Events Calendar</h3>
+                    <p>View upcoming department events and seminars</p>
+                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="quick-link-card">
-                <i class="fa-solid fa-flask"></i>
-                <h3>Research Labs</h3>
-                <p>Explore our cutting-edge research facilities</p>
-                <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="quick-link-card">
-                <i class="fa-solid fa-book"></i>
-                <h3>Student Projects</h3>
-                <p>Discover innovative projects by our students</p>
-                <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="quick-link-card">
-                <i class="fa-solid fa-newspaper"></i>
-                <h3>Newsletter</h3>
-                <p>Read our latest department newsletter</p>
-                <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="quick-link-card">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h3>Academic Programs</h3>
-                <p>Learn about our degree programs and courses</p>
-                <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="quick-link-card">
-                <i class="fa-solid fa-calendar-alt"></i>
-                <h3>Events Calendar</h3>
-                <p>View upcoming department events and seminars</p>
-                <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
+        </section>
 
 
 
 
-    <div id="footer-container"></div>
-     
-    <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementById('image-slider');
-    const images = Array.from(slider.children);
+        <div id="footer-container"></div>
 
-    // Clone each image and append to the slider
-    images.forEach((img) => {
-      const clone = img.cloneNode(true);
-      slider.appendChild(clone);
-    });
-  });
-</script>
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                const slider = document.getElementById('image-slider');
+                const images = Array.from(slider.children);
 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Navbar toggle
-            const menuToggle = document.getElementById('menuToggle');
-            const navbarNav = document.getElementById('navbarNav');
-            if (menuToggle && navbarNav) {
-                menuToggle.addEventListener('click', () => {
-                    navbarNav.classList.toggle('collapse');
-                    navbarNav.classList.toggle('show');
+                // Clone each image and append to the slider
+                images.forEach((img) => {
+                    const clone = img.cloneNode(true);
+                    slider.appendChild(clone);
                 });
-            }
+            });
+        </script>
 
-            // Simple slideshow (if using mySlides class)
-            let slideIndex = 0;
-            function showSlides() {
-                const slides = document.getElementsByClassName("mySlides");
-                if (!slides.length) return;
-                for (let i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                slideIndex++;
-                if (slideIndex > slides.length) {
-                    slideIndex = 1;
-                }
-                slides[slideIndex - 1].style.display = "block";
-            }
-            setInterval(showSlides, 2000);
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const buttons = document.querySelectorAll(".news-filters button");
+                const cards = document.querySelectorAll(".news-card");
 
-            // News horizontal scroll carousel
-            const newsContainer = document.querySelector('.news-carousel');
-            const newsItems = document.querySelectorAll('.news-item');
-            if (newsContainer && newsItems.length > 0) {
-                let scrollIndex = 0;
-                const scrollAmount = newsItems[0].offsetWidth + 20;
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        // Remove active class from all buttons
+                        buttons.forEach(btn => btn.classList.remove("active"));
+                        // Add active class to clicked button
+                        button.classList.add("active");
 
-                setInterval(function () {
-                    scrollIndex++;
-                    newsContainer.scrollLeft = scrollIndex * scrollAmount;
+                        const filter = button.getAttribute("data-filter");
 
-                    if (scrollIndex >= newsItems.length) {
-                        scrollIndex = 0;
-                        newsContainer.scrollLeft = 0;
-                    }
-                }, 10000);
-            }
-
-            // Bootstrap carousel animation
-            const carouselElement = document.getElementById('bannerCarousel');
-            if (carouselElement) {
-                carouselElement.addEventListener('slid.bs.carousel', () => {
-                    const activeItem = document.querySelector('.carousel-item.active');
-                    if (!activeItem) return;
-
-                    const elements = activeItem.querySelectorAll('.animate');
-                    elements.forEach(el => {
-                        el.style.opacity = '0';
-                        el.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            el.style.opacity = '1';
-                            el.style.transform = 'scale(1)';
-                        }, 100);
+                        cards.forEach(card => {
+                            // Show all if filter is 'all'
+                            if (filter === "all") {
+                                card.style.display = "block";
+                            } else {
+                                // Show only matching cards
+                                if (card.classList.contains(filter)) {
+                                    card.style.display = "block";
+                                } else {
+                                    card.style.display = "none";
+                                }
+                            }
+                        });
                     });
                 });
-            }
+            });
+        </script>
 
-            // Vertical news scroll (translateY)
-            const verticalWrapper = document.querySelector(".news-carousel");
-            const verticalItems = document.querySelectorAll(".news-item");
-            if (verticalWrapper && verticalItems.length > 0) {
-                let verticalIndex = 0;
-                setInterval(() => {
-                    verticalWrapper.style.transform = `translateY(-${verticalIndex * 100}%)`;
-                    verticalIndex = (verticalIndex + 1) % verticalItems.length;
-                }, 3000);
-            }
 
-            // Responsive stats section repositioning
-            function moveStatsSection() {
-                const stats = document.querySelector('.stats-section');
-                const banner = document.querySelector('.banner');
 
-                if (window.innerWidth < 768) {
-                    if (stats && banner && banner.nextSibling !== stats) {
-                        banner.parentNode.insertBefore(stats, banner.nextSibling);
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Navbar toggle
+                const menuToggle = document.getElementById('menuToggle');
+                const navbarNav = document.getElementById('navbarNav');
+                if (menuToggle && navbarNav) {
+                    menuToggle.addEventListener('click', () => {
+                        navbarNav.classList.toggle('collapse');
+                        navbarNav.classList.toggle('show');
+                    });
+                }
+
+                // Simple slideshow (if using mySlides class)
+                let slideIndex = 0;
+                function showSlides() {
+                    const slides = document.getElementsByClassName("mySlides");
+                    if (!slides.length) return;
+                    for (let i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
                     }
-                } else {
-                    if (stats && banner && !banner.contains(stats)) {
-                        banner.appendChild(stats);
+                    slideIndex++;
+                    if (slideIndex > slides.length) {
+                        slideIndex = 1;
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                }
+                setInterval(showSlides, 2000);
+
+                // News horizontal scroll carousel
+                const newsContainer = document.querySelector('.news-carousel');
+                const newsItems = document.querySelectorAll('.news-item');
+                if (newsContainer && newsItems.length > 0) {
+                    let scrollIndex = 0;
+                    const scrollAmount = newsItems[0].offsetWidth + 20;
+
+                    setInterval(function () {
+                        scrollIndex++;
+                        newsContainer.scrollLeft = scrollIndex * scrollAmount;
+
+                        if (scrollIndex >= newsItems.length) {
+                            scrollIndex = 0;
+                            newsContainer.scrollLeft = 0;
+                        }
+                    }, 10000);
+                }
+
+                // Bootstrap carousel animation
+                const carouselElement = document.getElementById('bannerCarousel');
+                if (carouselElement) {
+                    carouselElement.addEventListener('slid.bs.carousel', () => {
+                        const activeItem = document.querySelector('.carousel-item.active');
+                        if (!activeItem) return;
+
+                        const elements = activeItem.querySelectorAll('.animate');
+                        elements.forEach(el => {
+                            el.style.opacity = '0';
+                            el.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                el.style.opacity = '1';
+                                el.style.transform = 'scale(1)';
+                            }, 100);
+                        });
+                    });
+                }
+
+                // Vertical news scroll (translateY)
+                const verticalWrapper = document.querySelector(".news-carousel");
+                const verticalItems = document.querySelectorAll(".news-item");
+                if (verticalWrapper && verticalItems.length > 0) {
+                    let verticalIndex = 0;
+                    setInterval(() => {
+                        verticalWrapper.style.transform = `translateY(-${verticalIndex * 100}%)`;
+                        verticalIndex = (verticalIndex + 1) % verticalItems.length;
+                    }, 3000);
+                }
+
+                // Responsive stats section repositioning
+                function moveStatsSection() {
+                    const stats = document.querySelector('.stats-section');
+                    const banner = document.querySelector('.banner');
+
+                    if (window.innerWidth < 768) {
+                        if (stats && banner && banner.nextSibling !== stats) {
+                            banner.parentNode.insertBefore(stats, banner.nextSibling);
+                        }
+                    } else {
+                        if (stats && banner && !banner.contains(stats)) {
+                            banner.appendChild(stats);
+                        }
                     }
                 }
-            }
-            moveStatsSection();
-            window.addEventListener('resize', moveStatsSection);
-        });
-    </script>
+                moveStatsSection();
+                window.addEventListener('resize', moveStatsSection);
+            });
+        </script>
 
 
-    <script src="./js/loadheaderfooter.js"></script>
+        <script src="./js/loadheaderfooter.js"></script>
 
 </body>
 

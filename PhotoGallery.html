@@ -1,234 +1,419 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology (AMTICS)</title>
+    <title>AMTICS | Photo Gallery</title>
     <link rel="icon" href="images/utu_logo_favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            padding-top: 30px;
+            box-sizing: border-box;
         }
 
-        .PhotoGallery {
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f1f5f9;
+            color: #2d3748;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .gallery-header {
             text-align: center;
-            margin-top: 60px;
-            margin-bottom: 30px;
+            padding: 3.5rem 1.5rem;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
         }
 
-        .PhotoGallery h1 {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #2c3e50;
+        .gallery-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .gallery-header h1 {
+            font-size: 2.7rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-bottom: 0.5rem;
             position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
-        .PhotoGallery h1::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-            width: 100px;
-            height: 5px;
-            background-color: #3498db;
-            border-radius: 10px;
-            background: linear-gradient(90deg, #3498db, #8e44ad);
+        .gallery-header p {
+            font-size: 1.1rem;
+            color: #e9d5ff;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
         }
 
-        .year-buttons {
-            margin: 20px 0;
+        .year-filter {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
         }
 
-        .year-buttons button {
-            margin: 0 10px;
-            padding: 10px 20px;
-            font-size: 1rem;
+        .year-filter button {
+            padding: 0.6rem 1.3rem;
+            margin: 0.3rem;
+            font-size: 0.95rem;
+            font-weight: 600;
             border: none;
-            background-color: #3498db;
-            color: white;
+            background: #2563eb;
+            color: #fff;
+            border-radius: 25px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .year-buttons button:hover {
-            background-color: #2980b9;
+        .year-filter button:hover {
+            background: #f59e0b;
+            color: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .year-filter button.active {
+            background: #f59e0b;
+            color: #1f2937;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
         }
 
         .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            padding: 30px;
+            max-width: 1450px; /* Increased slightly to accommodate wider images */
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
 
-        .gallery-item {
+        .gallery-year {
+            margin: 2rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .gallery-year h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
             position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.06);
-            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
-            background: linear-gradient(145deg, #e3e3e3, #ffffff);
-            display: flex;
-            flex-direction: column;
-            width: calc(25% - 20px); 
-            height: 200px;
-            margin: 10px;
             display: inline-block;
-            align-items: center;
-            justify-content: center;
+            padding-bottom: 0.5rem;
+        }
+
+        .gallery-year h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 60px;
+            height: 4px;
+            background: #f59e0b;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
 
         .event-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            text-align: center;
-            padding: 10px;
-            background-color: #3498db;
-            color: white;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2d3748;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.8rem 1.5rem;
             border-radius: 10px;
-            width: 100%;
+            text-align: center;
+            margin: 1.5rem 0 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event-title:hover {
+            transform: translateY(-3px);
+        }
+
+        .gallery-section {
+            column-count: 3; /* Reduced from 4 to make images wider */
+            column-gap: 1.2rem;
+            padding: 1rem 0;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.2rem;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
+            height: auto;
+            display: block;
+            border-radius: 12px;
             transition: transform 0.4s ease, opacity 0.4s ease;
-
         }
 
         .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.1);
-            background-color: #f0f8ff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(37, 99, 235, 0.9), transparent);
+            color: #fff;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.4s ease;
+        }
+
+        .lightbox-caption {
+            color: #fff;
+            font-size: 1.1rem;
+            background: rgba(37, 99, 235, 0.85);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #fff;
+            background: rgba(37, 99, 235, 0.8);
+            padding: 0.6rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: #f59e0b;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 1.5rem;
+        }
+
+        .lightbox-next {
+            right: 1.5rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: #fff;
+            background: rgba(37, 99, 235, 0.8);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: #f59e0b;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Design */
         @media (max-width: 1200px) {
-            .gallery-item {
-                width: calc(25% - 20px);
+            .gallery-section {
+                column-count: 2; /* Reduced to 2 columns for wider images */
+            }
+            .gallery-container {
+                max-width: 1000px;
             }
         }
 
         @media (max-width: 992px) {
-            .gallery-item {
-                width: calc(33.33% - 20px);
+            .gallery-section {
+                column-count: 2;
+            }
+            .gallery-header h1 {
+                font-size: 2.2rem;
+            }
+            .gallery-year h2 {
+                font-size: 1.7rem;
+            }
+            .event-title {
+                font-size: 1.4rem;
             }
         }
 
         @media (max-width: 768px) {
-            .gallery-item {
-                width: calc(50% - 20px);
+            .gallery-section {
+                column-count: 1; /* Single column for mobile */
+            }
+            .year-filter button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            .lightbox img {
+                max-width: 92%;
+                max-height: 75%;
             }
         }
 
         @media (max-width: 576px) {
-            .gallery-item {
-                width: calc(100% - 20px);
+            .gallery-section {
+                column-count: 1;
+            }
+            .gallery-header h1 {
+                font-size: 1.8rem;
+            }
+            .gallery-header p {
+                font-size: 1rem;
+            }
+            .gallery-year h2 {
+                font-size: 1.5rem;
+            }
+            .event-title {
+                font-size: 1.2rem;
+            }
+            .year-filter button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            .lightbox img {
+                max-width: 95%;
+                max-height: 70%;
+            }
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+                font-size: 1.6rem;
             }
         }
-
     </style>
 </head>
-
 <body>
-
-    <div id="navbar-container"></div>
-
-    <div class="PhotoGallery">
+    <div class="gallery-header">
         <h1>Photo Gallery</h1>
+        <p>Relive the Moments of AMTICS Events</p>
     </div>
 
-    <div class="year-buttons" id="year-buttons">
-    </div>
+    <div class="year-filter" id="year-filter"></div>
 
     <main>
-        <div class="container gallery-container" id="gallery-container">
-        </div>
+        <div class="gallery-container" id="gallery-container"></div>
     </main>
-    
 
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">❮</span>
+        <img id="lightbox-img" src="" alt="Lightbox Image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">❯</span>
+    </div>
 
-    <div id="footer-container"></div>
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
-      function loadContent(url, elementId) {
-            fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById(elementId).innerHTML = html;
-                })
-                .catch(error => console.error('Error loading content:', error));
-        }
-
-
         const years = {
             2023: {
                 events: [
                     { title: 'Independence Day Celebration', imageCount: 4, eventFolder: 'Independence Day Celebration' },
                     { title: 'Parent’s Meet', imageCount: 5, eventFolder: 'Parents Meet 2023' },
-                    { title: 'Orientation Program ', imageCount: 5, eventFolder: 'Orientation Program 2023' },
+                    { title: 'Orientation Program', imageCount: 5, eventFolder: 'Orientation Program 2023' },
                     { title: 'Fresher’s Radiance', imageCount: 5, eventFolder: 'Freshers Radiance 2023' },
                     { title: 'Social Meet', imageCount: 4, eventFolder: 'Social Meet' },
                     { title: 'Sports Day', imageCount: 4, eventFolder: 'Sports Day' },
                     { title: 'IT Mania', imageCount: 7, eventFolder: 'ITMania' }
-
                 ]
             },
-            2022:{
+            2022: {
                 events: [
                     { title: 'Knowledge Fair [on the occasion of Teacher’s Day]', imageCount: 7, eventFolder: 'Knowledge Fair' },
                     { title: 'Poster Making Competition', imageCount: 3, eventFolder: 'Poster Making' },
                     { title: 'Megh Mahotsav', imageCount: 6, eventFolder: 'MeghMahotsav' },
                     { title: 'Freshers Party', imageCount: 9, eventFolder: 'Freshers Party' },
-                    { title: 'TechVision 2022', imageCount: 15, eventFolder: 'TechVision' },
-
+                    { title: 'TechVision 2022', imageCount: 15, eventFolder: 'TechVision' }
                 ]
             },
             2020: {
                 events: [
                     { title: 'Independence Day Celebration', imageCount: 12, eventFolder: 'Independence Day Celebration' },
                     { title: 'Sports Days', imageCount: 32, eventFolder: 'Sports Days' },
-                    { title: 'Student Orienteation', imageCount: 36, eventFolder: 'Student Orienteation' }
-
-
+                    { title: 'Student Orientation', imageCount: 36, eventFolder: 'Student Orientation' }
                 ]
             },
-            2016:{
+            2016: {
                 events: [
-                    { title: 'BLISS - Annual Day on 23th March, 2016', imageCount: 13, eventFolder: 'Bliss2016' },
+                    { title: 'BLISS - Annual Day on 23th March, 2016', imageCount: 13, eventFolder: 'Bliss2016' }
                 ]
             },
             2015: {
@@ -236,41 +421,38 @@
                     { title: 'ALUMNI MEET ON 12th AUGUST 2015', imageCount: 15, eventFolder: 'AlumniMeet' },
                     { title: 'Seminar on Open Source Web Application Development Framework CodeIgniter', imageCount: 24, eventFolder: 'OpenSourceCodeIgnitore' },
                     { title: 'Teachers Day organized by Faculty of Computer Science and Technology', imageCount: 14, eventFolder: 'Teachers Day 2015' },
-                    { title: 'Event 2015', imageCount: 39, eventFolder: '2015' },
+                    { title: 'Event 2015', imageCount: 39, eventFolder: '2015' }
                 ]
-            },
-            
-           
+            }
         };
 
-        const sortedYears = Object.entries(years).sort(([yearA], [yearB]) => yearB - yearA);
+        let currentImages = [];
+        let currentImageIndex = 0;
 
-        const yearButtonsContainer = document.getElementById('year-buttons');
-        sortedYears.forEach(([year]) => {
+        // Generate year filter buttons
+        const yearFilter = document.getElementById('year-filter');
+        const sortedYears = Object.keys(years).sort((a, b) => b - a);
+        sortedYears.forEach(year => {
             const button = document.createElement('button');
             button.textContent = year;
-            button.onclick = function () {
+            button.setAttribute('aria-label', `Filter gallery by year ${year}`);
+            button.onclick = () => {
                 filterImagesByYear(year);
                 highlightYearButton(year);
             };
-            yearButtonsContainer.appendChild(button);
+            yearFilter.appendChild(button);
         });
 
+        // Highlight active year button
         function highlightYearButton(selectedYear) {
-            const buttons = yearButtonsContainer.querySelectorAll('button');
-            buttons.forEach(button => {
-                if (button.textContent === selectedYear) {
-                    button.style.backgroundColor = '#2980b9';
-                } else {
-                    button.style.backgroundColor = '#3498db';
-                }
+            yearFilter.querySelectorAll('button').forEach(button => {
+                button.classList.toggle('active', button.textContent === selectedYear);
             });
         }
 
-        
-
+        // Generate masonry gallery
         const galleryContainer = document.getElementById('gallery-container');
-        sortedYears.forEach(([year, data]) => {
+        sortedYears.forEach(year => {
             const yearSection = document.createElement('div');
             yearSection.classList.add('gallery-section');
             yearSection.id = `year-${year}`;
@@ -280,44 +462,84 @@
             yearHeader.innerHTML = `<h2>${year}</h2>`;
             yearSection.appendChild(yearHeader);
 
-            data.events.forEach((event, eventIndex) => {
+            years[year].events.forEach(event => {
                 const eventTitle = document.createElement('div');
                 eventTitle.classList.add('event-title');
-                eventTitle.innerHTML = event.title;
+                eventTitle.textContent = event.title;
                 yearSection.appendChild(eventTitle);
 
+                const eventSection = document.createElement('div');
+                eventSection.classList.add('gallery-section');
+
                 for (let i = 1; i <= event.imageCount; i++) {
+                    const imgPath = `PhotoGallery/${year}/${event.eventFolder}/${i}.jpg`;
                     const galleryItem = document.createElement('div');
                     galleryItem.classList.add('gallery-item');
-
+                    // Randomize height for masonry effect, adjusted for wider images
+                    const randomHeight = Math.floor(Math.random() * (400 - 250 + 1)) + 250;
                     galleryItem.innerHTML = `
-                        <a href="PhotoGallery/${year}/${event.eventFolder}/${i}.jpg" data-lightbox="${year}">
-                            <img src="PhotoGallery/${year}/${event.eventFolder}/${i}.jpg" alt="Image ${i} from ${event.title}">
-                        </a>
+                        <img src="${imgPath}" alt="${event.title} - Image ${i}" style="height: ${randomHeight}px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/600x${randomHeight}?text=Image+Not+Found';">
+                        <div class="caption">${event.title} - Image ${i}</div>
                     `;
-                    yearSection.appendChild(galleryItem);
+                    galleryItem.onclick = () => openLightbox(year, event.eventFolder, i - 1, event.title);
+                    eventSection.appendChild(galleryItem);
                 }
+                yearSection.appendChild(eventSection);
             });
 
             galleryContainer.appendChild(yearSection);
         });
 
+        // Filter images by year
         function filterImagesByYear(selectedYear) {
-            sortedYears.forEach(([year]) => {
-                const yearSection = document.getElementById(`year-${year}`);
-                yearSection.style.display = (year === selectedYear) ? 'block' : 'none';
+            sortedYears.forEach(year => {
+                document.getElementById(`year-${year}`).style.display = year === selectedYear ? 'block' : 'none';
             });
         }
 
-        const latestYear = sortedYears[0][0]; 
-        filterImagesByYear(latestYear);
-        highlightYearButton(latestYear);
+        // Lightbox functionality
+        function openLightbox(year, eventFolder, index, eventTitle) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            currentImages = Array.from({ length: years[year].events.find(e => e.eventFolder === eventFolder).imageCount }, (_, i) => ({
+                src: `PhotoGallery/${year}/${eventFolder}/${i + 1}.jpg`,
+                alt: `${eventTitle} - Image ${i + 1}`
+            }));
+            currentImageIndex = index;
+
+            lightboxImg.src = currentImages[index].src;
+            lightboxImg.alt = currentImages[index].alt;
+            lightboxCaption.textContent = currentImages[index].alt;
+            lightbox.style.display = 'flex';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + currentImages.length) % currentImages.length;
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            lightboxImg.src = currentImages[currentImageIndex].src;
+            lightboxImg.alt = currentImages[currentImageIndex].alt;
+            lightboxCaption.textContent = currentImages[currentImageIndex].alt;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+
+        // Initialize
+        filterImagesByYear(sortedYears[0]);
+        highlightYearButton(sortedYears[0]);
     </script>
-
-    <script src="/js/loadheaderfooter.js"></script>
-
-
-    
 </body>
-
 </html>

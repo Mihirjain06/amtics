@@ -363,6 +363,7 @@
     </style>
 </head>
 <body>
+    <div id="navbar-container"></div>
     <div class="gallery-header">
         <h1>Photo Gallery</h1>
         <p>Relive the Moments of AMTICS Events</p>
@@ -381,6 +382,8 @@
         <div class="lightbox-caption" id="lightbox-caption"></div>
         <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">❯</span>
     </div>
+
+    <div id="footer-container"></div>
 
     <script>
         const years = {
@@ -541,5 +544,6 @@
         filterImagesByYear(sortedYears[0]);
         highlightYearButton(sortedYears[0]);
     </script>
+    <script src="/js/loadheaderfooter.js"></script>
 </body>
 </html>

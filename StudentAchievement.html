@@ -44,13 +44,21 @@
             padding: 25px;
         }
 
+        .achievement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
         .achievement-image {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #3b3285;
-            margin-bottom: 15px;
+            margin-left: 15px;
+            order: 2; /* This makes the image appear on the right */
         }
 
         .achievement-title {
@@ -60,6 +68,8 @@
             margin-bottom: 10px;
             display: flex;
             align-items: center;
+            order: 1; /* This makes the title appear on the left */
+            flex-grow: 1;
         }
 
         .achievement-description {
@@ -67,6 +77,7 @@
             color: #555;
             line-height: 1.6;
             margin-bottom: 10px;
+            clear: both; /* Ensures description appears below both elements */
         }
 
         .achievement-meta {
@@ -74,8 +85,6 @@
             color: #777;
             margin-top: 10px;
         }
-
-    
 
         .achievement-icon {
             color: #3b3285;
@@ -90,9 +99,18 @@
         }
 
         @media (max-width: 767.98px) {
+            .achievement-header {
+                flex-direction: column;
+            }
+            
             .achievement-image {
-                margin: 0 auto 15px;
-                display: block;
+                margin: 15px auto 15px;
+                order: 1;
+            }
+            
+            .achievement-title {
+                order: 2;
+                margin-top: 15px;
             }
         }
     </style>
@@ -109,11 +127,12 @@
                 <div class="col-12 col-md-6">
                     <div class="card achievement-card h-100">
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/80" alt="Hackathon Trophy images" class="achievement-image">
-                            <h3 class="achievement-title">
-                                <i class="fas fa-trophy achievement-icon"></i>National Hackathon Winner
-                               
-                            </h3>
+                            <div class="achievement-header">
+                                <h3 class="achievement-title">
+                                    <i class="fas fa-trophy achievement-icon"></i>National Hackathon Winner
+                                </h3>
+                                <img src="/images/AI & Machine Learning Lab.jpg" alt="Hackathon Trophy images" class="achievement-image">
+                            </div>
                             <p class="achievement-description">
                                 Team AI Innovators won first place at the 2025 National Hackathon, developing an
                                 AI-powered app for real-time disaster response coordination.
@@ -126,13 +145,14 @@
                 <div class="col-12 col-md-6">
                     <div class="card achievement-card h-100">
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/80" alt="Research Paper" class="achievement-image">
-                            <h3 class="achievement-title">
-                                <i class="fas fa-book achievement-icon"></i>IEEE Journal Publication
-                               
-                            </h3>
+                            <div class="achievement-header">
+                                <h3 class="achievement-title">
+                                    <i class="fas fa-book achievement-icon"></i>IEEE Journal Publication
+                                </h3>
+                                <img src="/images/AI & Machine Learning Lab.jpg" alt="Research Paper" class="achievement-image">
+                            </div>
                             <p class="achievement-description">
-                                Student Riya Patel published a paper on “Deep Learning for Medical Imaging” in an IEEE
+                                Student Riya Patel published a paper on "Deep Learning for Medical Imaging" in an IEEE
                                 journal, recognized for innovative diagnostic algorithms.
                             </p>
                             <div class="achievement-meta">Date: March 2025</div>
@@ -143,11 +163,12 @@
                 <div class="col-12 col-md-6">
                     <div class="card achievement-card h-100">
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/80" alt="AI Project" class="achievement-image">
-                            <h3 class="achievement-title">
-                                <i class="fas fa-code achievement-icon"></i>Smart City AI Project
-                            
-                            </h3>
+                            <div class="achievement-header">
+                                <h3 class="achievement-title">
+                                    <i class="fas fa-code achievement-icon"></i>Smart City AI Project
+                                </h3>
+                                <img src="/images/AI & Machine Learning Lab.jpg" alt="AI Project" class="achievement-image">
+                            </div>
                             <p class="achievement-description">
                                 A student team developed an AI system for optimizing traffic flow in smart cities,
                                 showcased at the 2025 Tech Expo.
@@ -160,13 +181,14 @@
                 <div class="col-12 col-md-6">
                     <div class="card achievement-card h-100">
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/80" alt="Startup Award" class="achievement-image">
-                            <h3 class="achievement-title">
-                                <i class="fas fa-rocket achievement-icon"></i>Startup Pitch Champion
-                               
-                            </h3>
+                            <div class="achievement-header">
+                                <h3 class="achievement-title">
+                                    <i class="fas fa-rocket achievement-icon"></i>Startup Pitch Champion
+                                </h3>
+                                <img src="/images/AI & Machine Learning Lab.jpg" alt="Startup Award" class="achievement-image">
+                            </div>
                             <p class="achievement-description">
-                                AMTICS student startup “AIHealth” won the 2025 Startup Pitch Competition for their
+                                AMTICS student startup "AIHealth" won the 2025 Startup Pitch Competition for their
                                 AI-driven health monitoring platform.
                             </p>
                             <div class="achievement-meta">Date: February 2025</div>

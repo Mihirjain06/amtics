@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMTICS | Photo Gallery</title>
-    <link rel="icon" href="images/utu_logo_favicon.ico" type="image/x-icon">
+       <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -99,7 +99,7 @@
         }
 
         .gallery-container {
-            max-width: 1450px; /* Increased slightly to accommodate wider images */
+            max-width: 1600px; /* Increased from 1450px for wider images */
             margin: 0 auto;
             padding: 2rem 1rem;
         }
@@ -148,7 +148,7 @@
         }
 
         .gallery-section {
-            column-count: 3; /* Reduced from 4 to make images wider */
+            column-count: 2; /* Reduced from 3 for wider images */
             column-gap: 1.2rem;
             padding: 1rem 0;
         }
@@ -220,8 +220,8 @@
         }
 
         .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
+            max-width: 92%; /* Increased from 90% for wider images */
+            max-height: 75%; /* Reduced from 80% to balance caption space */
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             animation: zoomIn 0.4s ease;
@@ -294,16 +294,16 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .gallery-section {
-                column-count: 2; /* Reduced to 2 columns for wider images */
+                column-count: 1; /* Single column for wider images */
             }
             .gallery-container {
-                max-width: 1000px;
+                max-width: 1200px; /* Adjusted for responsiveness */
             }
         }
 
         @media (max-width: 992px) {
             .gallery-section {
-                column-count: 2;
+                column-count: 1;
             }
             .gallery-header h1 {
                 font-size: 2.2rem;
@@ -318,15 +318,15 @@
 
         @media (max-width: 768px) {
             .gallery-section {
-                column-count: 1; /* Single column for mobile */
+                column-count: 1;
             }
             .year-filter button {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
             .lightbox img {
-                max-width: 92%;
-                max-height: 75%;
+                max-width: 95%;
+                max-height: 70%;
             }
         }
 
@@ -352,7 +352,7 @@
             }
             .lightbox img {
                 max-width: 95%;
-                max-height: 70%;
+                max-height: 65%;
             }
             .lightbox-close {
                 top: 1rem;
@@ -363,6 +363,8 @@
     </style>
 </head>
 <body>
+    <div id="navbar-container"></div>
+
     <div class="gallery-header">
         <h1>Photo Gallery</h1>
         <p>Relive the Moments of AMTICS Events</p>
@@ -381,6 +383,8 @@
         <div class="lightbox-caption" id="lightbox-caption"></div>
         <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">❯</span>
     </div>
+
+    <div id="footer-container"></div>
 
     <script>
         const years = {
@@ -475,7 +479,7 @@
                     const imgPath = `PhotoGallery/${year}/${event.eventFolder}/${i}.jpg`;
                     const galleryItem = document.createElement('div');
                     galleryItem.classList.add('gallery-item');
-                    // Randomize height for masonry effect, adjusted for wider images
+                    // Randomize height for masonry effect
                     const randomHeight = Math.floor(Math.random() * (400 - 250 + 1)) + 250;
                     galleryItem.innerHTML = `
                         <img src="${imgPath}" alt="${event.title} - Image ${i}" style="height: ${randomHeight}px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/600x${randomHeight}?text=Image+Not+Found';">
@@ -515,6 +519,32 @@
             lightbox.style.display = 'flex';
         }
 
+        // Load header and footer
+        function loadHeaderFooter() {
+            const navbarContainer = document.getElementById('navbar-container');
+            const footerContainer = document.getElementById('footer-container');
+            if (navbarContainer) {
+                const xhrNavbar = new XMLHttpRequest();
+                xhrNavbar.open('GET', 'navbar.html', true);
+                xhrNavbar.onreadystatechange = function () {
+                    if (xhrNavbar.readyState === 4 && xhrNavbar.status === 200) {
+                        navbarContainer.innerHTML = xhrNavbar.responseText;
+                    }
+                };
+                xhrNavbar.send();
+            }
+            if (footerContainer) {
+                const xhrFooter = new XMLHttpRequest();
+                xhrFooter.open('GET', 'footer.html', true);
+                xhrFooter.onreadystatechange = function () {
+                    if (xhrFooter.readyState === 4 && xhrFooter.status === 200) {
+                        footerContainer.innerHTML = xhrFooter.responseText;
+                    }
+                };
+                xhrFooter.send();
+            }
+        }
+
         function changeImage(direction) {
             currentImageIndex = (currentImageIndex + direction + currentImages.length) % currentImages.length;
             const lightboxImg = document.getElementById('lightbox-img');
@@ -540,6 +570,7 @@
         // Initialize
         filterImagesByYear(sortedYears[0]);
         highlightYearButton(sortedYears[0]);
+        loadHeaderFooter();
     </script>
 </body>
 </html>

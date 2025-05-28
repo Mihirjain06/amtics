@@ -451,7 +451,8 @@ body::-webkit-scrollbar {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px !important;
+    
 }
 
 .btn {
@@ -504,8 +505,9 @@ body::-webkit-scrollbar {
 /* Sidebar Styles */
 .sidebar {
     position: absolute;
-    top: 80%;
+    top: 76%;
     right: 0;
+    gap: 0px;
     transform: translateY(-50%);
     background-color: transparent;
     padding: 0;
@@ -549,7 +551,7 @@ body::-webkit-scrollbar {
 }
 
 .button-gap {
-    height: 15px;
+    height: 7px;
 }
 
 .sidebar a:hover {

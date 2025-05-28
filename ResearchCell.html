@@ -5,10 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Research Cell | AMTICS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9f9f9;
+    }
+
+    .hero-section {
+      background: #5c4fc4 !important;
+      color: white;
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .hero-section p {
+      font-size: 15px;
     }
 
     .pdf-section {
@@ -19,7 +37,7 @@
       align-items: center;
     }
 
-    .pdf-section h1 {
+    .pdf-section h2 {
       color: #3b3285;
       margin-bottom: 10px;
     }
@@ -48,25 +66,28 @@
 <body>
   <div id="navbar-container"></div>
 
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Research Cell</h1>
+    <p>Fostering a culture of innovation, inquiry, and scholarly exploration</p>
+  </section>
+
+  <!-- PDF Section -->
   <section class="pdf-section">
-    <h1>Research Cell at AMTICS</h1>
-    <p>Explore our sample research document below.</p>
+    <h2>Explore our research cell document</h2>
+    <p>Learn more about our initiatives, policies, and achievements in research.</p>
 
-   <div class="pdf-container">
-  <iframe 
-    style="width:100%;"
-    src="/files/http___app.utu.ac.in_utuexmanagement_exammsters_Syllabus_B.Tech CSE-SEM_1-EL3005-Basics of Electrical and Electronics Engineering (3).pdf#toolbar=0&navpanes=0&scrollbar=0" 
-    class="pdf-viewer" 
-    title="PDF Viewer">
-  </iframe>
-  
-  
-
-</div>
+    <div class="pdf-container">
+      <iframe 
+        src="files/http___app.utu.ac.in_utuexmanagement_exammsters_Syllabus_B.Tech CSE-SEM_1-IT3014-Programming with C.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+        class="pdf-viewer" 
+        title="PDF Viewer">
+      </iframe>
+    </div>
   </section>
 
   <div id="footer-container"></div>
 
-  <script src="/js/loadheaderfooter.js"></script>
+  <script src="js/loadheaderfooter.js"></script>
 </body>
 </html>

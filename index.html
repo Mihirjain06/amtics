@@ -227,7 +227,7 @@
         </div>
 
         <!-- Horizontal slider for news cards -->
-        <div class="slider-wrapper">
+        <div class="card-slider">
             <div class="scrolling-wrapper news-slider">
                 <!-- Card 1 -->
                 <article class="news-card research">
@@ -360,19 +360,15 @@
 
                 buttons.forEach(button => {
                     button.addEventListener("click", () => {
-                        // Remove active class from all buttons
                         buttons.forEach(btn => btn.classList.remove("active"));
-                        // Add active class to clicked button
                         button.classList.add("active");
 
                         const filter = button.getAttribute("data-filter");
 
                         cards.forEach(card => {
-                            // Show all if filter is 'all'
                             if (filter === "all") {
                                 card.style.display = "block";
                             } else {
-                                // Show only matching cards
                                 if (card.classList.contains(filter)) {
                                     card.style.display = "block";
                                 } else {
@@ -385,6 +381,78 @@
             });
         </script>
 
+        <script>
+                document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('.news-slider');
+            const originalCards = Array.from(slider.children);
+            const visibleCount = 3;
+
+            // Get exact card width including margin
+            const cardStyle = getComputedStyle(originalCards[0]);
+            const cardWidth = originalCards[0].offsetWidth +
+                parseFloat(cardStyle.marginRight || 0);
+
+            // Clone last N cards at the beginning, and first N at the end
+            const clonesBefore = originalCards.slice(-visibleCount).map(card => {
+                const clone = card.cloneNode(true);
+                clone.classList.add('clone');
+                return clone;
+            });
+
+            const clonesAfter = originalCards.slice(0, visibleCount).map(card => {
+                const clone = card.cloneNode(true);
+                clone.classList.add('clone');
+                return clone;
+            });
+
+            clonesBefore.forEach(clone => slider.prepend(clone));
+            clonesAfter.forEach(clone => slider.append(clone));
+
+            // Set fixed width to each card to avoid flex stretching
+            [...slider.children].forEach(card => {
+                card.style.minWidth = `${cardWidth}px`;
+                card.style.maxWidth = `${cardWidth}px`;
+                card.style.flex = `0 0 ${cardWidth}px`;
+                card.style.boxSizing = 'border-box'; // wrap contents inside card
+                card.style.wordWrap = 'break-word';   // force wrapping inside card
+            });
+
+            // Initialize slider position
+            let index = visibleCount;
+            slider.style.transition = 'none';
+            slider.style.transform = `translateX(${-index * cardWidth}px)`;
+
+            // Scroll function
+            function goToSlide(i) {
+                slider.style.transition = 'transform 0.4s ease';
+                slider.style.transform = `translateX(${-i * cardWidth}px)`;
+                index = i;
+            }
+
+            // Looping logic
+            slider.addEventListener('transitionend', () => {
+                if (index >= originalCards.length + visibleCount) {
+                    slider.style.transition = 'none';
+                    index = visibleCount;
+                    slider.style.transform = `translateX(${-index * cardWidth}px)`;
+                } else if (index < visibleCount) {
+                    slider.style.transition = 'none';
+                    index = originalCards.length + visibleCount - 1;
+                    slider.style.transform = `translateX(${-index * cardWidth}px)`;
+                }
+            });
+
+            // Auto scroll
+            let autoScroll = setInterval(() => goToSlide(index + 1), 3000);
+
+            // Optional: pause on hover
+            slider.addEventListener('mouseenter', () => clearInterval(autoScroll));
+            slider.addEventListener('mouseleave', () => {
+                autoScroll = setInterval(() => goToSlide(index + 1), 3000);
+            });
+        });
+
+    </script>
 
 
         <script>
@@ -452,16 +520,7 @@
                     });
                 }
 
-                // Vertical news scroll (translateY)
-                const verticalWrapper = document.querySelector(".news-carousel");
-                const verticalItems = document.querySelectorAll(".news-item");
-                if (verticalWrapper && verticalItems.length > 0) {
-                    let verticalIndex = 0;
-                    setInterval(() => {
-                        verticalWrapper.style.transform = `translateY(-${verticalIndex * 100}%)`;
-                        verticalIndex = (verticalIndex + 1) % verticalItems.length;
-                    }, 3000);
-                }
+               
 
                 // Responsive stats section repositioning
                 function moveStatsSection() {

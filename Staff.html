@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@
             text-align: center;
             margin: 50px 0 30px;
         }
+
         .staff-title h1 {
             font-size: 2rem;
             font-weight: bold;
@@ -35,6 +37,7 @@
             display: inline-block;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         .staff-title h1::after {
             content: "";
             position: absolute;
@@ -53,15 +56,18 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.5rem;
-            max-width: 1200px;
+            max-width: 1100px;
             width: 95%;
             margin: 0 auto;
             margin-bottom: 1.5rem;
         }
+
         .card {
             flex: 1 1 300px;
+            width: 100%;
             max-width: 400px;
-            min-height: 700px;
+            min-height: 600px;
+            max-height: 600px;
             display: flex;
             flex-direction: column;
             background-color: #fff;
@@ -70,23 +76,28 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
+
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
         }
+
         .card img {
             width: 100%;
-            height: 400px;
-          
+            height: 350px;
+            object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
+
+    
         .card-content {
             padding: 1rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
+
         .card-content h3 {
             font-size: 1.1rem;
             font-weight: 600;
@@ -95,6 +106,7 @@
             align-items: center;
             justify-content: space-between;
         }
+
         .card-content .tag {
             font-size: 0.65rem;
             padding: 3px 6px;
@@ -103,12 +115,14 @@
             background-color: #e0ecff;
             color: #0056d6;
         }
+
         .title {
             color: #4f46e5;
             font-weight: 500;
             margin-bottom: 0.2rem;
             font-size: 0.9rem;
         }
+
         .degree,
         .email,
         .topics {
@@ -116,13 +130,16 @@
             color: #555;
             margin-bottom: 0.3rem;
         }
+
         .email a {
             color: #555;
             text-decoration: none;
         }
+
         .email a:hover {
             color: #2563eb;
         }
+
         .profile-btn {
             margin-top: auto;
             display: inline-block;
@@ -136,6 +153,7 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
+
         .profile-btn:hover {
             background-color: #1e40af;
         }
@@ -146,25 +164,59 @@
                 flex-direction: column;
                 align-items: center;
             }
+
             .card {
-                max-width: 100%;
-                min-height: 600px;
+                width: 90%;
+                max-width: 350px;
+                min-height: 550px;
+                max-height: 550px;
+            }
+
+            .card img {
+                height: 300px;
+                object-fit: cover;
             }
         }
+
         @media (max-width: 576px) {
             .staff-title h1 {
                 font-size: 1.5rem;
             }
+
             .staff-title h1::after {
                 width: 80px;
             }
+
             .card {
-                max-width: 100%;
-                min-height: 600px;
+                width: 100%;
+                max-width: 320px;
+                min-height: 500px;
+                max-height: 500px;
             }
+
             .card img {
-                height: 350px;
-                min-width: 100%;
+                height: 280px;
+                object-fit: cover;
+            }
+
+            .card-content {
+                padding: 0.8rem;
+            }
+
+            .card-content h3 {
+                font-size: 1rem;
+            }
+
+            .title,
+            .degree,
+            .email,
+            .topics {
+                font-size: 0.8rem;
+            }
+
+            .profile-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -175,6 +227,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="navbar-container"></div>
 
@@ -185,7 +238,8 @@
 
     <div class="card-container">
         <div class="card">
-            <img src="Staff/Vishvajit Bakrola.png" alt="Dr. Vishvajit Bakrola" onerror="this.src='images/placeholder.png'">
+            <img src="Staff/Vishvajit Bakrola.png" alt="Dr. Vishvajit Bakrola"
+                onerror="this.src='images/placeholder.png'">
             <div class="card-content">
                 <h3>Dr. Vishvajit Bakrola <span class="tag">AI & ML</span></h3>
                 <p class="title">Professor</p>
@@ -213,7 +267,8 @@
                 <p class="title">Associate Professor</p>
                 <p class="degree">Ph.D. in Computer Science</p>
                 <p class="email"><a href="mailto:snehal.kathale@utu.ac.in">snehal.kathale@utu.ac.in</a></p>
-                <p class="topics">Image Processing, Pattern Recognition, Wireless Network, Database Management System</p>
+                <p class="topics">Image Processing, Pattern Recognition, Wireless Network, Database Management System
+                </p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
@@ -228,7 +283,7 @@
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
-       
+
         <div class="card">
             <img src="Staff/Vibhuti Patel.jpg" alt="Ms. Vibhuti Patel" onerror="this.src='images/placeholder.png'">
             <div class="card-content">
@@ -252,7 +307,8 @@
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Ms. Urvishabahen Patel.png" alt="Ms. Urvishabahen Patel" onerror="this.src='images/placeholder.png'">
+            <img src="Staff/Ms. Urvishabahen Patel.png" alt="Ms. Urvishabahen Patel"
+                onerror="this.src='images/placeholder.png'">
             <div class="card-content">
                 <h3>Ms. Urvishabahen Patel <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
@@ -263,7 +319,8 @@
             </div>
         </div>
         <div class="card">
-            <img src="Staff/IMG_20240902_174232.jpg" alt="Mr. Aakash Parmar" onerror="this.src='images/placeholder.png'">
+            <img src="Staff/IMG_20240902_174232.jpg" alt="Mr. Aakash Parmar"
+                onerror="this.src='images/placeholder.png'">
             <div class="card-content">
                 <h3>Mr. Aakash Parmar <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
@@ -280,7 +337,8 @@
                 <p class="title">Assistant Professor</p>
                 <p class="degree">Ph.D. in Computer Science</p>
                 <p class="email"><a href="mailto:vidhi.patel@utu.ac.in">vidhi.patel@utu.ac.in</a></p>
-                <p class="topics">Data Structure, Web Designing, Web Developing, Compiler Design, Software Engineering</p>
+                <p class="topics">Data Structure, Web Designing, Web Developing, Compiler Design, Software Engineering
+                </p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
@@ -291,7 +349,8 @@
                 <p class="title">Assistant Professor</p>
                 <p class="degree">Ph.D. in Computer Science</p>
                 <p class="email"><a href="mailto:halak.patel@utu.ac.in">halak.patel@utu.ac.in</a></p>
-                <p class="topics">Database Management System, Analysis and Design Algorithm, Web Design, Software Modeling and Design</p>
+                <p class="topics">Database Management System, Analysis and Design Algorithm, Web Design, Software
+                    Modeling and Design</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
@@ -307,7 +366,8 @@
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Ms. Mitaliben Patel.png" alt="Ms. Mitaliben Patel" onerror="this.src='images/placeholder.png'" />
+            <img src="Staff/Ms. Mitaliben Patel.png" alt="Ms. Mitaliben Patel"
+                onerror="this.src='images/placeholder.png'" />
             <div class="card-content">
                 <h3>Ms. Mitaliben Patel <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
@@ -324,23 +384,27 @@
                 <p class="title">Assistant Professor</p>
                 <p class="degree">Ph.D. in Computer Science</p>
                 <p class="email"><a href="mailto:santosh.saha@utu.ac.in">santosh.saha@utu.ac.in</a></p>
-                <p class="topics">DBMS, OS, OOPs, Mobile Computing, Data Mining, Machine Learning, Cyber Security, Internet of Things, Internet Technologies</p>
+                <p class="topics">DBMS, OS, OOPs, Mobile Computing, Data Mining, Machine Learning, Cyber Security,
+                    Internet of Things, Internet Technologies</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Mr. Vishvendu Bhatt.png" alt="Mr. Vishvendu Bhatt" onerror="this.src='images/placeholder.png'">
+            <img src="Staff/Mr. Vishvendu Bhatt.png" alt="Mr. Vishvendu Bhatt"
+                onerror="this.src='images/placeholder.png'">
             <div class="card-content">
                 <h3>Mr. Vishvendu Bhatt <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
                 <p class="degree">Ph.D. in Computer Science</p>
                 <p class="email"><a href="mailto:vishvendu.bhatt@utu.ac.in">vishvendu.bhatt@utu.ac.in</a></p>
-                <p class="topics">Machine Learning, Information Security, Android Application Development, Computer Network, Cloud Computing</p>
+                <p class="topics">Machine Learning, Information Security, Android Application Development, Computer
+                    Network, Cloud Computing</p>
                 <a href="#" class="profile-btn">View Profile →</a>
             </div>
         </div>
         <div class="card">
-            <img src="Staff/Mr. Dipesh Shahane.png" alt="Mr. Dipesh Shahane" onerror="this.src='images/placeholder.png'">
+            <img src="Staff/Mr. Dipesh Shahane.png" alt="Mr. Dipesh Shahane"
+                onerror="this.src='images/placeholder.png'">
             <div class="card-content">
                 <h3>Mr. Dipesh Shahane <span class="tag">PhD</span></h3>
                 <p class="title">Assistant Professor</p>
@@ -362,10 +426,11 @@
             </div>
         </div>
     </div>
-    
+
     <div id="footer-container"></div>
     <script src="js/loadheaderfooter.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

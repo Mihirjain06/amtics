@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,23 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f4f8;
       color: #333;
+    }
+
+    .hero-section {
+      background: #5c4fc4;
+      color: white;
+      padding: 10px 12px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-section h1 {
+      font-size: 35px;
+      margin-bottom: -2px;
+    }
+
+    .hero-section p {
+      font-size: 15px;
     }
 
     .funding-section {
@@ -30,13 +48,13 @@
       border-radius: 15px;
       padding: 10px 30px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.7s ease, box-shadow 0.7s ease;
       border-left: 6px solid #3b3285;
     }
 
     .funding-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(59, 50, 133, 0.3);
+      transform: translateY(-8px) scale(1.0);
+
     }
 
     .funding-title {
@@ -64,19 +82,26 @@
     }
   </style>
 </head>
+
 <body>
   <div id="navbar-container"></div>
 
+  <!-- Hero Section (from Why AMTICS? code) -->
+  <section class="hero-section">
+    <h1>Funding Opportunities</h1>
+    <p>Explore grants and funding to drive innovative research and technological advancements.</p>
+  </section>
   <!-- Funding Opportunities Section -->
   <section class="funding-section">
     <div class="container">
-      <h2 class="section-title">Funding Opportunities at AMTICS</h2>
+
       <div class="row g-4">
         <div class="col-12 col-md-15">
           <div class="funding-card">
             <div class="funding-title">AI Innovation Grant</div>
             <div class="funding-details">
-              <strong>Description:</strong> Fuel groundbreaking AI research in healthcare and education, supporting projects that push the boundaries of machine learning applications.<br>
+              <strong>Description:</strong> Fuel groundbreaking AI research in healthcare and education, supporting
+              projects that push the boundaries of machine learning applications.<br>
               <strong>Agency:</strong> DST, India<br>
               <strong>Deadline:</strong> July 15, 2025
             </div>
@@ -87,7 +112,8 @@
           <div class="funding-card">
             <div class="funding-title">Robotics Development Fund</div>
             <div class="funding-details">
-              <strong>Description:</strong> Empower the creation of next-generation autonomous robotic systems for industrial and agricultural automation, integrating advanced AI.<br>
+              <strong>Description:</strong> Empower the creation of next-generation autonomous robotic systems for
+              industrial and agricultural automation, integrating advanced AI.<br>
               <strong>Agency:</strong> Ministry of Electronics, India<br>
               <strong>Deadline:</strong> August 30, 2025
             </div>
@@ -98,7 +124,8 @@
           <div class="funding-card">
             <div class="funding-title">Cybersecurity Research Grant</div>
             <div class="funding-details">
-              <strong>Description:</strong> Advance AI-driven cybersecurity solutions to safeguard critical infrastructure and IoT networks against evolving threats.<br>
+              <strong>Description:</strong> Advance AI-driven cybersecurity solutions to safeguard critical
+              infrastructure and IoT networks against evolving threats.<br>
               <strong>Agency:</strong> DRDO, India<br>
               <strong>Deadline:</strong> June 30, 2025
             </div>
@@ -109,7 +136,8 @@
           <div class="funding-card">
             <div class="funding-title">Cloud Computing Research Grant</div>
             <div class="funding-details">
-              <strong>Description:</strong> Support scalable, efficient machine learning frameworks optimized for cloud environments, driving innovation in distributed computing.<br>
+              <strong>Description:</strong> Support scalable, efficient machine learning frameworks optimized for cloud
+              environments, driving innovation in distributed computing.<br>
               <strong>Agency:</strong> SERB, India<br>
               <strong>Deadline:</strong> September 10, 2025
             </div>
@@ -124,4 +152,5 @@
   <script src="js/loadheaderfooter.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

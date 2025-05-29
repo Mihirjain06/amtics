@@ -164,7 +164,7 @@ body {
     display: block;
     opacity: 1;
     visibility: visible;
-    color:#5c4fc4;
+    color:#5c4fc4 !important;
 }
 
 /* Ensure Bootstrap's collapse functionality works */

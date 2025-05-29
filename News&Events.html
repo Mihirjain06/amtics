@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
-
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -90,10 +88,72 @@
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        /* Apply different border colors to news items */
+        .news-container > div:nth-child(1) .news-item {
+            border-left: 6px solid #3b3285; /* Blue for first item */
+        }
+
+        .news-container > div:nth-child(2) .news-item {
+            border-left: 6px solid #d32f2f; /* Red for second item */
+        }
+
+        .news-container > div:nth-child(3) .news-item {
+            border-left: 6px solid #2e7d32; /* Green for third item */
+        }
+
+        .news-container > div:nth-child(4) .news-item {
+            border-left: 6px solid #f57c00; /* Orange for fourth item */
+        }
+
+        .news-container > div:nth-child(5) .news-item {
+            border-left: 6px solid #8e24aa; /* Purple for fifth item */
+        }
+
+        .news-container > div:nth-child(6) .news-item {
+            border-left: 6px solid #0288d1; /* Light blue for sixth item */
+        }
+
+        .news-container > div:nth-child(7) .news-item {
+            border-left: 6px solid #f50057; /* Pink for seventh item */
+        }
+
+        .news-container > div:nth-child(8) .news-item {
+            border-left: 6px solid #388e3c; /* Dark green for eighth item */
+        }
+
+        .news-container > div:nth-child(9) .news-item {
+            border-left: 6px solid #d81b60; /* Deep pink for ninth item */
+        }
+
+        .news-container > div:nth-child(10) .news-item {
+            border-left: 6px solid #fbc02d; /* Yellow for tenth item */
+        }
+
+        .news-container > div:nth-child(11) .news-item {
+            border-left: 6px solid #6d4c41; /* Brown for eleventh item */
+        }
+
+        .news-container > div:nth-child(12) .news-item {
+            border-left: 6px solid #455a64; /* Blue-grey for twelfth item */
+        }
+
+        .news-container > div:nth-child(13) .news-item {
+            border-left: 6px solid #00838f; /* Cyan for thirteenth item */
+        }
+
+        .news-container > div:nth-child(14) .news-item {
+            border-left: 6px solid #6a1b9a; /* Deep purple for fourteenth item */
+        }
+
+        .news-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+      
 
         .news-title {
             font-weight: 600;
@@ -101,21 +161,20 @@
             flex-grow: 1;
         }
 
-        .download-btn {
-            background-color: #3b3285;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .news-date {
+            font-size: 0.9rem;
+            color: #777;
         }
 
-        .download-btn:hover {
-            background-color: #2a2461;
+        .pdf-icon {
+            color: #8B4513; /* Brown color for PDF icon */
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .pdf-icon:hover {
+            color: #5e2e0d; /* Darker brown on hover */
         }
 
         @keyframes fadeIn {
@@ -138,15 +197,13 @@
                 gap: 10px;
             }
 
-            .download-btn {
+            .pdf-icon {
                 align-self: flex-end;
             }
         }
     </style>
 </head>
-
 <body>
-
     <div id="navbar-container"></div>
 
     <!-- Hero Section -->
@@ -303,15 +360,15 @@
             // Create news items
             newsData.forEach(item => {
                 const newsItem = document.createElement('div');
-                newsItem.className = 'news-item';
+                newsItem.className = 'col-12 col-md-12';
                 newsItem.innerHTML = `
-                    <div>
-                        <div class="news-title">${item.title}</div>
-                        <div class="news-date">${item.date}</div>
+                    <div class="news-item">
+                        <div>
+                            <div class="news-title">${item.title}</div>
+                            <div class="news-date">${item.date}</div>
+                        </div>
+                        <i class="fas fa-file-pdf pdf-icon" data-pdf="${item.pdf}" title="Download PDF"></i>
                     </div>
-                    <button class="download-btn" data-pdf="${item.pdf}">
-                        <i class="fas fa-download"></i> Download PDF
-                    </button>
                 `;
 
                 // Add to all news container
@@ -329,11 +386,10 @@
                 }
             });
 
-            // Add event listeners to download buttons
-            document.querySelectorAll('.download-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+            // Add event listeners to PDF icons
+            document.querySelectorAll('.pdf-icon').forEach(icon => {
+                icon.addEventListener('click', function() {
                     const pdfPath = this.getAttribute('data-pdf');
-                    // Create a temporary anchor element to trigger download
                     const link = document.createElement('a');
                     link.href = pdfPath;
                     link.download = pdfPath.split('/').pop();
@@ -378,5 +434,4 @@
         });
     </script>
 </body>
-
 </html>

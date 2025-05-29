@@ -100,7 +100,6 @@
       font-size: 12px;
       padding: 8px 9px;
       border: none;
-
       border-radius: 8px 8px 0 0;
       transition: all 0.3s ease;
       background: #1f7adb;
@@ -152,7 +151,7 @@
     td {
       border: 1px solid #000 !important;
       padding: 10px 12px;
-      text-align: center !important;
+      text-align: left !important;
     }
 
     th {
@@ -183,7 +182,6 @@
     }
 
     @media (min-width: 768px) {
-
       .about-course,
       .about-us-box {
         max-width: 45%;
@@ -284,7 +282,7 @@
     td {
       border: 1px solid #000 !important;
       padding: 0.5rem;
-      text-align: center !important;
+      text-align: left !important;
       font-size: clamp(0.8rem, 2.5vw, 0.95rem);
     }
 
@@ -398,7 +396,7 @@
       font-size: 1rem;
     }
 
-    #footer-container:empty::before23 {
+    #footer-container:empty::before {
       content: "Footer failed to load";
       display: block;
       text-align: center;
@@ -420,8 +418,8 @@
     <!-- About Us Section -->
     <div class="about-us-container" style="display: flex; justify-content: center;">
       <div class="about-us-box">
-        <h3>About CSE</h3>
-        <p>
+        <h3 id="about-title">About</h3>
+        <p id="about-description">
           The B.Tech. in Computer Science and Engineering at AMTICS offers a cutting-edge curriculum focused on emerging
           technologies like AI, Cybersecurity, Cloud Computing, and Software Development. Designed to blend theory with
           hands-on experience, the program prepares students for industry challenges and innovation, fostering skilled
@@ -430,7 +428,7 @@
       </div>
       <div class="about-us-box">
         <h3>Our Vision</h3>
-        <p>
+        <p id="vision-description">
           Our vision is to create a dynamic learning environment that nurtures creativity, technical expertise, and
           ethical values, preparing students to lead in the ever-evolving field of computer science and technology.
         </p>
@@ -467,346 +465,15 @@
         </li>
       </ul>
 
-      <!-- Semester 1 -->
-      <div class="semester-card active" id="semester-1">
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Syllabus</th>
-                <th>Lesson Plan</th>
-                <th>Assessment Parameter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>EL3005 - Basics of Electrical and Electronics Engineering</td>
-                <td><a
-                    href="files/http___app.utu.ac.in_utuexmanagement_exammsters_Syllabus_B.Tech CSE-SEM_1-EL3005-Basics of Electrical and Electronics Engineering.pdf"
-                    download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon"
-                      alt="PDF"></a></td>
-                <td><a href="files/fundamentals-of-programming-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/fundamentals-of-programming-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>IT3014 - Programming with C</td>
-                <td><a
-                    href="files/http___app.utu.ac.in_utuexmanagement_exammsters_Syllabus_B.Tech CSE-SEM_1-IT3014-Programming with C.pdf"
-                    download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon"
-                      alt="PDF"></a></td>
-                <td><a href="files/dbms-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/dbms-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>MT3037 - Calculus</td>
-                <td><a
-                    href="files/http___app.utu.ac.in_utuexmanagement_exammsters_Syllabus_B.Tech CSE-SEM_1-MT3037- CALCULUS.pdf"
-                    download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon"
-                      alt="PDF"></a></td>
-                <td><a href="files/math-for-computing-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/math-for-computing-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>PY3028 - Physics</td>
-                <td><a
-                    href="files/http___app.utu.ac.in_utuexmanagement_exammsters_Syllabus_B.Tech CSE-SEM_1-PY3028-Physics.pdf"
-                    download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon"
-                      alt="PDF"></a></td>
-                <td><a href="files/digital-logic-design-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/digital-logic-design-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>UE3001 - Professional Communication</td>
-                <td><a
-                    href="files//http___app.utu.ac.in_utuexmanagement_exammsters_Syllabus_UE3001-Professional Communication 19.pdf"
-                    download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon"
-                      alt="PDF"></a></td>
-                <td><a href="files/professional-communication-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/professional-communication-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Semester 2 -->
-      <div class="semester-card" id="semester-2">
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Syllabus</th>
-                <th>Lesson Plan</th>
-                <th>Assessment Parameter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CS3023 - Data Structures</td>
-                <td><a href="files/data-structures-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3024 - Object-Oriented Programming</td>
-                <td><a href="files/oop-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3025 - Discrete Mathematics</td>
-                <td><a href="files/discrete-math-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3026 - Computer Organization</td>
-                <td><a href="files/computer-org-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3027 - Environmental Science</td>
-                <td><a href="files/env-science-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Semester 3 -->
-      <div class="semester-card" id="semester-3">
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Syllabus</th>
-                <th>Lesson Plan</th>
-                <th>Assessment Parameter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CS3023 - Data Structures</td>
-                <td><a href="files/data-structures-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3024 - Object-Oriented Programming</td>
-                <td><a href="files/oop-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3025 - Discrete Mathematics</td>
-                <td><a href="files/discrete-math-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3026 - Computer Organization</td>
-                <td><a href="files/computer-org-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3027 - Environmental Science</td>
-                <td><a href="files/env-science-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Semester 4 -->
-      <div class="semester-card" id="semester-4">
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Syllabus</th>
-                <th>Lesson Plan</th>
-                <th>Assessment Parameter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CS3023 - Data Structures</td>
-                <td><a href="files/data-structures-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3024 - Object-Oriented Programming</td>
-                <td><a href="files/oop-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3025 - Discrete Mathematics</td>
-                <td><a href="files/discrete-math-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3026 - Computer Organization</td>
-                <td><a href="files/computer-org-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3027 - Environmental Science</td>
-                <td><a href="files/env-science-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Semester 5 -->
-      <div class="semester-card" id="semester-5">
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Syllabus</th>
-                <th>Lesson Plan</th>
-                <th>Assessment Parameter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CS3023 - Data Structures</td>
-                <td><a href="files/data-structures-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/data-structures-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3024 - Object-Oriented Programming</td>
-                <td><a href="files/oop-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/oop-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3025 - Discrete Mathematics</td>
-                <td><a href="files/discrete-math-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/discrete-math-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3026 - Computer Organization</td>
-                <td><a href="files/computer-org-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/computer-org-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-              <tr>
-                <td>CS3027 - Environmental Science</td>
-                <td><a href="files/env-science-syllabus.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-lessonplan.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-                <td><a href="files/env-science-assessment.pdf" download class="pdf-link"><img
-                      src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Semester 6 -->
-      <div class="semester-card" id="semester-6">
-        <h3>Curriculum - Semester 6</h3>
-        <p>Content for Semester 6 coming soon...</p>
-      </div>
-      <!-- Semester 7 -->
-      <div class="semester-card" id="semester-7">
-        <h3>Curriculum - Semester 7</h3>
-        <p>Content for Semester 7 coming soon...</p>
-      </div>
-      <!-- Semester 8 -->
-      <div class="semester-card" id="semester-8">
-        <h3>Curriculum - Semester 8</h3>
-        <p>Content for Semester 8 coming soon...</p>
-      </div>
+      <!-- Semester Cards (to be populated dynamically) -->
+      <div class="semester-card active" id="semester-1"></div>
+      <div class="semester-card" id="semester-2"></div>
+      <div class="semester-card" id="semester-3"></div>
+      <div class="semester-card" id="semester-4"></div>
+      <div class="semester-card" id="semester-5"></div>
+      <div class="semester-card" id="semester-6"></div>
+      <div class="semester-card" id="semester-7"></div>
+      <div class="semester-card" id="semester-8"></div>
     </div>
   </div>
 
@@ -818,12 +485,204 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize semester tabs
-      initializeTabs();
+    // Course data structure
+    const courseData = {
+      'B.Tech. Computer Science and Engineering': {
+        about: {
+          title: 'About CSE',
+          description: 'The B.Tech. in Computer Science and Engineering at AMTICS offers a cutting-edge curriculum focused on emerging technologies like AI, Cybersecurity, Cloud Computing, and Software Development. Designed to blend theory with hands-on experience, the program prepares students for industry challenges and innovation, fostering skilled professionals ready to excel globally.'
+        },
+        vision: {
+          description: 'Our vision is to create a dynamic learning environment that nurtures creativity, technical expertise, and ethical values, preparing students to lead in the ever-evolving field of computer science and technology.'
+        },
+        semesters: {
+          1: [
+            { code: 'EL3005', name: 'Basics of Electrical and Electronics Engineering', syllabus: 'files/cse-el3005-syllabus.pdf', lessonPlan: 'files/cse-el3005-lessonplan.pdf', assessment: 'files/cse-el3005-assessment.pdf' },
+            { code: 'IT3014', name: 'Programming with C', syllabus: 'files/cse-it3014-syllabus.pdf', lessonPlan: 'files/cse-it3014-lessonplan.pdf', assessment: 'files/cse-it3014-assessment.pdf' },
+            { code: 'MT3037', name: 'Calculus', syllabus: 'files/cse-mt3037-syllabus.pdf', lessonPlan: 'files/cse-mt3037-lessonplan.pdf', assessment: 'files/cse-mt3037-assessment.pdf' },
+            { code: 'PY3028', name: 'Physics', syllabus: 'files/cse-py3028-syllabus.pdf', lessonPlan: 'files/cse-py3028-lessonplan.pdf', assessment: 'files/cse-py3028-assessment.pdf' },
+            { code: 'UE3001', name: 'Professional Communication', syllabus: 'files/cse-ue3001-syllabus.pdf', lessonPlan: 'files/cse-ue3001-lessonplan.pdf', assessment: 'files/cse-ue3001-assessment.pdf' }
+          ],
+          2: [
+            { code: 'CS3023', name: 'Data Structures', syllabus: 'files/cse-data-structures-syllabus.pdf', lessonPlan: 'files/cse-data-structures-lessonplan.pdf', assessment: 'files/cse-data-structures-assessment.pdf' },
+            { code: 'CS3024', name: 'Object-Oriented Programming', syllabus: 'files/cse-oop-syllabus.pdf', lessonPlan: 'files/cse-oop-lessonplan.pdf', assessment: 'files/cse-oop-assessment.pdf' },
+            { code: 'CS3025', name: 'Discrete Mathematics', syllabus: 'files/cse-discrete-math-syllabus.pdf', lessonPlan: 'files/cse-discrete-math-lessonplan.pdf', assessment: 'files/cse-discrete-math-assessment.pdf' },
+            { code: 'CS3026', name: 'Computer Organization', syllabus: 'files/cse-computer-org-syllabus.pdf', lessonPlan: 'files/cse-computer-org-lessonplan.pdf', assessment: 'files/cse-computer-org-assessment.pdf' },
+            { code: 'CS3027', name: 'Environmental Science', syllabus: 'files/cse-env-science-syllabus.pdf', lessonPlan: 'files/cse-env-science-lessonplan.pdf', assessment: 'files/cse-env-science-assessment.pdf' }
+          ],
+          3: [
+            { code: 'CS3030', name: 'Operating Systems', syllabus: 'files/cse-os-syllabus.pdf', lessonPlan: 'files/cse-os-lessonplan.pdf', assessment: 'files/cse-os-assessment.pdf' },
+            { code: 'CS3031', name: 'Database Management Systems', syllabus: 'files/cse-dbms-syllabus.pdf', lessonPlan: 'files/cse-dbms-lessonplan.pdf', assessment: 'files/cse-dbms-assessment.pdf' }
+          ],
+          4: [], // Add more semesters as needed
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      },
+      'B.Tech. Computer Science and Bioscience': {
+        about: {
+          title: 'About CS and Bioscience',
+          description: 'The B.Tech. in Computer Science and Bioscience program integrates computing with biological sciences, preparing students for interdisciplinary careers in bioinformatics, computational biology, and health tech.'
+        },
+        vision: {
+          description: 'Our vision is to foster innovation at the intersection of computer science and bioscience, enabling students to address global challenges in healthcare and biotechnology.'
+        },
+        semesters: {
+          1: [
+            { code: 'BL3001', name: 'Introduction to Biology', syllabus: 'files/csb-bl3001-syllabus.pdf', lessonPlan: 'files/csb-bl3001-lessonplan.pdf', assessment: 'files/csb-bl3001-assessment.pdf' },
+            { code: 'IT3014', name: 'Programming with C', syllabus: 'files/csb-it3014-syllabus.pdf', lessonPlan: 'files/csb-it3014-lessonplan.pdf', assessment: 'files/csb-it3014-assessment.pdf' },
+            { code: 'MT3037', name: 'Calculus', syllabus: 'files/csb-mt3037-syllabus.pdf', lessonPlan: 'files/csb-mt3037-lessonplan.pdf', assessment: 'files/csb-mt3037-assessment.pdf' }
+          ],
+          2: [
+            { code: 'BL3002', name: 'Biochemistry', syllabus: 'files/csb-biochemistry-syllabus.pdf', lessonPlan: 'files/csb-biochemistry-lessonplan.pdf', assessment: 'files/csb-biochemistry-assessment.pdf' },
+            { code: 'CS3024', name: 'Object-Oriented Programming', syllabus: 'files/csb-oop-syllabus.pdf', lessonPlan: 'files/csb-oop-lessonplan.pdf', assessment: 'files/csb-oop-assessment.pdf' }
+          ],
+          3: [],
+          4: [],
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      },
+      'B.Tech. CSE (Artificial Intelligence and Machine Learning)': {
+        about: {
+          title: 'About AI & ML',
+          description: 'The B.Tech. CSE (AI & ML) program focuses on artificial intelligence and machine learning, equipping students with skills in data science, neural networks, and intelligent systems.'
+        },
+        vision: {
+          description: 'Our vision is to develop leaders in AI and ML who drive innovation in intelligent systems and data-driven solutions.'
+        },
+        semesters: {
+          1: [
+            { code: 'AI3001', name: 'Introduction to AI', syllabus: 'files/aiml-ai3001-syllabus.pdf', lessonPlan: 'files/aiml-ai3001-lessonplan.pdf', assessment: 'files/aiml-ai3001-assessment.pdf' },
+            { code: 'IT3014', name: 'Programming with C', syllabus: 'files/aiml-it3014-syllabus.pdf', lessonPlan: 'files/aiml-it3014-lessonplan.pdf', assessment: 'files/aiml-it3014-assessment.pdf' }
+          ],
+          2: [
+            { code: 'AI3002', name: 'Machine Learning Fundamentals', syllabus: 'files/aiml-ml-syllabus.pdf', lessonPlan: 'files/aiml-ml-lessonplan.pdf', assessment: 'files/aiml-ml-assessment.pdf' }
+          ],
+          3: [],
+          4: [],
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      },
+      // Add other courses similarly
+      'B.Tech. CSE (Cloud Computing)': {
+        about: {
+          title: 'About Cloud Computing',
+          description: 'The B.Tech. CSE (Cloud Computing) program emphasizes cloud technologies, distributed systems, and scalable infrastructure for modern computing environments.'
+        },
+        vision: {
+          description: 'Our vision is to train experts in cloud computing who can design and manage scalable, secure, and efficient cloud-based systems.'
+        },
+        semesters: {
+          1: [
+            { code: 'CC3001', name: 'Cloud Computing Basics', syllabus: 'files/cc-cc3001-syllabus.pdf', lessonPlan: 'files/cc-cc3001-lessonplan.pdf', assessment: 'files/cc-cc3001-assessment.pdf' }
+          ],
+          2: [],
+          3: [],
+          4: [],
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      },
+      'B.Tech. CSE (Cyber Security)': {
+        about: {
+          title: 'About Cyber Security',
+          description: 'The B.Tech. CSE (Cyber Security) program trains students in securing digital systems, covering cryptography, network security, and ethical hacking.'
+        },
+        vision: {
+          description: 'Our vision is to produce cybersecurity professionals who safeguard digital infrastructure against emerging threats.'
+        },
+        semesters: {
+          1: [
+            { code: 'CY3001', name: 'Introduction to Cyber Security', syllabus: 'files/cy-cy3001-syllabus.pdf', lessonPlan: 'files/cy-cy3001-lessonplan.pdf', assessment: 'files/cy-cy3001-assessment.pdf' }
+          ],
+          2: [],
+          3: [],
+          4: [],
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      },
+      'B.Tech. Computer Engineering (CE)': {
+        about: {
+          title: 'About Computer Engineering',
+          description: 'The B.Tech. in Computer Engineering (CE) program combines hardware and software engineering, focusing on system design and embedded technologies.'
+        },
+        vision: {
+          description: 'Our vision is to cultivate engineers who excel in designing integrated hardware and software solutions for cutting-edge technologies.'
+        },
+        semesters: {
+          1: [
+            { code: 'CE3001', name: 'Digital Logic Design', syllabus: 'files/ce-ce3001-syllabus.pdf', lessonPlan: 'files/ce-ce3001-lessonplan.pdf', assessment: 'files/ce-ce3001-assessment.pdf' }
+          ],
+          2: [],
+          3: [],
+          4: [],
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      },
+      'B.Tech. CE (Software Engineering)': {
+        about: {
+          title: 'About Software Engineering',
+          description: 'The B.Tech. CE (Software Engineering) program specializes in software development methodologies, agile practices, and large-scale system design.'
+        },
+        vision: {
+          description: 'Our vision is to develop software engineers who lead in creating robust, scalable, and user-centric software solutions.'
+        },
+        semesters: {
+          1: [
+            { code: 'SE3001', name: 'Software Engineering Principles', syllabus: 'files/se-se3001-syllabus.pdf', lessonPlan: 'files/se-se3001-lessonplan.pdf', assessment: 'files/se-se3001-assessment.pdf' }
+          ],
+          2: [],
+          3: [],
+          4: [],
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      },
+      'Integrated M. Tech. CSE': {
+        about: {
+          title: 'About Integrated M. Tech. CSE',
+          description: 'The Integrated M.Tech. CSE program offers an accelerated path to advanced computing expertise, combining undergraduate and postgraduate studies.'
+        },
+        vision: {
+          description: 'Our vision is to create advanced computing experts who drive research and innovation in computer science.'
+        },
+        semesters: {
+          1: [
+            { code: 'IM3001', name: 'Advanced Programming', syllabus: 'files/im-im3001-syllabus.pdf', lessonPlan: 'files/im-im3001-lessonplan.pdf', assessment: 'files/im-im3001-assessment.pdf' }
+          ],
+          2: [],
+          3: [],
+          4: [],
+          5: [],
+          6: [],
+          7: [],
+          8: []
+        }
+      }
+    };
 
-      // Update course title based on query parameter
-      updateCourseTitle();
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize semester tabs and content
+      updateCourseContent();
+      initializeTabs();
 
       // Observe navbar loading and initialize
       const navbarObserver = new MutationObserver((mutations) => {
@@ -837,32 +696,62 @@
       navbarObserver.observe(document.getElementById('navbar-container'), { childList: true, subtree: true });
     });
 
-    // Function to update course title based on query parameter
-    function updateCourseTitle() {
+    // Function to update course title, descriptions, and syllabus
+    function updateCourseContent() {
       const urlParams = new URLSearchParams(window.location.search);
-      const program = urlParams.get('program');
+      const program = decodeURIComponent(urlParams.get('program') || 'B.Tech. Computer Science and Engineering');
       const courseTitleElement = document.getElementById('course-title');
-      const courseDescriptionElement = document.getElementById('course-description');
+      const aboutTitleElement = document.getElementById('about-title');
+      const aboutDescriptionElement = document.getElementById('about-description');
+      const visionDescriptionElement = document.getElementById('vision-description');
 
-      if (program) {
-        courseTitleElement.textContent = decodeURIComponent(program);
-        // Update course description based on program
-        const descriptions = {
-          'B.Tech. Computer Science and Engineering (CSE)': 'The B.Tech. in Computer Science and Engineering (CSE) program is designed to provide students with a strong foundation in computing principles, software development, and emerging technologies. This curriculum covers core subjects like programming, database management, algorithms, and more, preparing students for a career in technology and innovation.',
-          'B.Tech. Computer Science and Bioscience': 'The B.Tech. in Computer Science and Bioscience program integrates computing with biological sciences, preparing students for interdisciplinary careers in bioinformatics, computational biology, and health tech.',
-          'B.Tech. CSE (Artificial Intelligence and Machine Learning)': 'The B.Tech. CSE (AI & ML) program focuses on artificial intelligence and machine learning, equipping students with skills in data science, neural networks, and intelligent systems.',
-          'B.Tech. CSE (Cloud Computing)': 'The B.Tech. CSE (Cloud Computing) program emphasizes cloud technologies, distributed systems, and scalable infrastructure for modern computing environments.',
-          'B.Tech. CSE (Cyber Security)': 'The B.Tech. CSE (Cyber Security) program trains students in securing digital systems, covering cryptography, network security, and ethical hacking.',
-          'B.Tech. Computer Engineering (CE)': 'The B.Tech. in Computer Engineering (CE) program combines hardware and software engineering, focusing on system design and embedded technologies.',
-          'B.Tech. CE (Software Engineering)': 'The B.Tech. CE (Software Engineering) program specializes in software development methodologies, agile practices, and large-scale system design.',
-          'Integrated M. Tech. CSE': 'The Integrated M.Tech. CSE program offers an accelerated path to advanced computing expertise, combining undergraduate and postgraduate studies.',
-          'M.Tech. CSE': 'The M.Tech. in CSE program provides advanced training in computer science, focusing on research and specialized technical skills.'
-        };
-        courseDescriptionElement.textContent = descriptions[program] || 'Program description coming soon...';
-      } else {
-        // Default title and description if no program is specified
-        courseTitleElement.textContent = 'B.Tech. Computer Science and Engineering (CSE)';
-        courseDescriptionElement.textContent = 'The B.Tech. in Computer Science and Engineering (CSE) program is designed to provide students with a strong foundation in computing principles, software development, and emerging technologies. This curriculum covers core subjects like programming, database management, algorithms, and more, preparing students for a career in technology and innovation.';
+      // Update title and descriptions
+      courseTitleElement.textContent = program;
+      const courseInfo = courseData[program] || courseData['B.Tech. Computer Science and Engineering'];
+      aboutTitleElement.textContent = courseInfo.about.title;
+      aboutDescriptionElement.textContent = courseInfo.about.description;
+      visionDescriptionElement.textContent = courseInfo.vision.description;
+
+      // Populate semester tables
+      for (let sem = 1; sem <= 8; sem++) {
+        const semesterCard = document.getElementById(`semester-${sem}`);
+        const subjects = courseInfo.semesters[sem] || [];
+        if (subjects.length > 0) {
+          let tableHTML = `
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Course</th>
+                    <th>Syllabus</th>
+                    <th>Lesson Plan</th>
+                    <th>Assessment Parameter</th>
+                  </tr>
+                </thead>
+                <tbody>
+          `;
+          subjects.forEach(subject => {
+            tableHTML += `
+              <tr>
+                <td>${subject.code} - ${subject.name}</td>
+                <td><a href="${subject.syllabus}" download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
+                <td><a href="${subject.lessonPlan}" download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
+                <td><a href="${subject.assessment}" download class="pdf-link"><img src="https://img.icons8.com/color/48/000000/pdf.png" class="pdf-icon" alt="PDF"></a></td>
+              </tr>
+            `;
+          });
+          tableHTML += `
+                </tbody>
+              </table>
+            </div>
+          `;
+          semesterCard.innerHTML = tableHTML;
+        } else {
+          semesterCard.innerHTML = `
+            <h3>Curriculum - Semester ${sem}</h3>
+            <p>Content for Semester ${sem} coming soon...</p>
+          `;
+        }
       }
     }
 

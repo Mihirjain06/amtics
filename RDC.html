@@ -20,6 +20,26 @@
             min-height: 100vh;
         }
 
+        
+        .hero-section {
+            background: #5c4fc4 !important;
+            color: white;
+            padding: 15px 12px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 35px;
+            margin-top: 20px;
+        }
+
+        .hero-section p {
+            font-size: 15px;
+            text-align: center;
+            color: white !important;
+            margin-top: -4px;
+        }
+
         .contact-section {
             text-align: center;
             margin-bottom: 30px;
@@ -381,7 +401,16 @@
 
 <body>
     <div id="navbar-container"></div>
-    <h2 class="text-center mt-3">Laboratories</h2>
+
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Our Laboratories</h1>
+        <p>
+            Cutting-edge facilities fostering innovation and research in advanced technologies at AMTICS.
+        </p>
+    </section>
+    
     <p class="text-center text-muted mb-1"></p>
     <div class="container py-5">
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -406,7 +435,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -432,7 +461,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -458,7 +487,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -484,7 +513,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -510,7 +539,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -536,7 +565,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -562,7 +591,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -588,7 +617,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -614,7 +643,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0">
-                        <button class="visit-btn">Visit Lab Website →</button>
+                        <button class="visit-btn"> Know More →</button>
                     </div>
                 </div>
             </div>
@@ -624,6 +653,18 @@
     <div id="footer-container"></div>
 
     <script src="js/loadheaderfooter.js"></script>
+    <script>
+        function toggleMore(element) {
+            const moreTags = element.parentElement.querySelector('.more-tags');
+            if (moreTags.classList.contains('d-none')) {
+                moreTags.classList.remove('d-none');
+                element.textContent = '-2 less';
+            } else {
+                moreTags.classList.add('d-none');
+                element.textContent = '+2 more';
+            }
+        }
+    </script>
 
 </body>
 

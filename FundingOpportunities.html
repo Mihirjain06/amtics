@@ -15,24 +15,25 @@
     }
 
     .hero-section {
-      background: #5c4fc4;
+      background: #5c4fc4 !important;
       color: white;
-      padding: 10px 12px;
+      padding: 15px 12px;
       text-align: center;
       font-family: 'Montserrat', sans-serif;
     }
 
     .hero-section h1 {
       font-size: 35px;
-      margin-bottom: -2px;
+      margin-top: 20px;
     }
 
     .hero-section p {
       font-size: 15px;
+      margin-top: -4px;
     }
 
     .funding-section {
-      padding: 40px 10px;
+      padding: 60px 10px;
     }
 
     .section-title {
@@ -46,22 +47,37 @@
     .funding-card {
       background: #ffffff;
       border-radius: 15px;
-      padding: 10px 30px;
+      padding: 30px 30px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       transition: transform 0.7s ease, box-shadow 0.7s ease;
-      border-left: 6px solid #3b3285;
+    }
+
+    /* Apply different border colors to funding cards */
+    .row > div:nth-child(1) .funding-card {
+      border-left: 6px solid #3b3285; /* Blue for first item */
+    }
+
+    .row > div:nth-child(2) .funding-card {
+      border-left: 6px solid #d32f2f; /* Red for second item */
+    }
+
+    .row > div:nth-child(3) .funding-card {
+      border-left: 6px solid #2e7d32; /* Green for third item */
+    }
+
+    .row > div:nth-child(4) .funding-card {
+      border-left: 6px solid #f57c00; /* Orange for fourth item */
     }
 
     .funding-card:hover {
       transform: translateY(-8px) scale(1.0);
-
     }
 
     .funding-title {
       color: #3b3285;
       font-size: 1.3rem;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     .funding-details {
@@ -69,15 +85,13 @@
       color: #444;
     }
 
-    .funding-icon {
-      font-size: 1.2rem;
-      color: #3b3285;
-      margin-bottom: 5px;
-    }
-
     @media (max-width: 576px) {
       .funding-card {
         padding: 15px 30px;
+      }
+
+      .hero-section h1 {
+        font-size: 32px;
       }
     }
   </style>
@@ -86,17 +100,17 @@
 <body>
   <div id="navbar-container"></div>
 
-  <!-- Hero Section (from Why AMTICS? code) -->
+  <!-- Hero Section (from WhyAMTICS.html) -->
   <section class="hero-section">
     <h1>Funding Opportunities</h1>
     <p>Explore grants and funding to drive innovative research and technological advancements.</p>
   </section>
+
   <!-- Funding Opportunities Section -->
   <section class="funding-section">
     <div class="container">
-
       <div class="row g-4">
-        <div class="col-12 col-md-15">
+        <div class="col-12 col-md-6">
           <div class="funding-card">
             <div class="funding-title">AI Innovation Grant</div>
             <div class="funding-details">
@@ -108,7 +122,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-15">
+        <div class="col-12 col-md-6">
           <div class="funding-card">
             <div class="funding-title">Robotics Development Fund</div>
             <div class="funding-details">
@@ -120,7 +134,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-15 ">
+        <div class="col-12 col-md-6">
           <div class="funding-card">
             <div class="funding-title">Cybersecurity Research Grant</div>
             <div class="funding-details">
@@ -132,7 +146,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-15">
+        <div class="col-12 col-md-6">
           <div class="funding-card">
             <div class="funding-title">Cloud Computing Research Grant</div>
             <div class="funding-details">

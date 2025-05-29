@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testimonials | AMTICS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-      <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:wght@400;600;700" rel="stylesheet">
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9f9f9;
     }
 
+    .hero-section {
+      background: #5c4fc4 !important;
+      color: white;
+      padding: 15px 12px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-section h1 {
+      font-size: 35px;
+      margin-top: 20px;
+    }
+
+    .hero-section p {
+      font-size: 15px;
+      margin-top: -4px;
+    }
+
     .testimonials-section {
-      background-color: #fff;
-      padding: 60px 20px;
+      padding: 70px 20px;
+      background-color: transparent;
     }
 
     .section-title {
@@ -23,118 +43,173 @@
       font-weight: 700;
       text-align: center;
       margin-bottom: 40px;
+      font-size: 25px;
     }
 
     .testimonial-card {
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-      border-left: 5px solid #3b3285;
-      transition: transform 0.3s ease;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     }
 
-    .testimonial-card .card-body {
-      padding: 20px;
+    /* Apply different border colors to testimonial cards */
+    .row>div:nth-child(1) .testimonial-card {
+      border-left: 6px solid #3b3285;
+      /* Blue for first item */
+    }
+
+    .row>div:nth-child(2) .testimonial-card {
+      border-left: 6px solid #d32f2f;
+      /* Red for second item */
+    }
+
+    .row>div:nth-child(3) .testimonial-card {
+      border-left: 6px solid #2e7d32;
+      /* Green for third item */
+    }
+
+    .row>div:nth-child(4) .testimonial-card {
+      border-left: 6px solid #f57c00;
+      /* Orange for fourth item */
+    }
+
+    .row>div:nth-child(5) .testimonial-card {
+      border-left: 6px solid #8e24aa;
+      /* Purple for fifth item */
     }
 
     .testimonial-quote {
       font-style: italic;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      color: #777;
     }
 
     .testimonial-author {
       margin-top: 15px;
       font-weight: 600;
-      color: #3b3285;
+      color: #333;
+      font-size: 1rem;
     }
 
     .testimonial-role {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #777;
+    }
+
+    @media (max-width: 576px) {
+      .hero-section {
+        padding: 60px 15px;
+      }
+
+      .hero-section h1 {
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+      }
+
+      .testimonials-section {
+        padding: 40px 15px;
+      }
+
+      .testimonial-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
   </style>
 </head>
+
 <body>
-<div id="navbar-container"></div>
-<!-- Testimonials Section -->
-<section class="testimonials-section">
-  <div class="container">
-    <h2 class="section-title">What Our Students Say</h2>
-    <div class="row g-4">
+  <div id="navbar-container"></div>
 
-      <div class="col-md-6 col-lg-4">
-        <div class="card testimonial-card h-100">
-          <div class="card-body">
-            <p class="testimonial-quote">
-              “AMTICS gave me the platform and mentorship I needed to excel in AI and ML. The labs and faculty are truly world-class.”
-            </p>
-            <div class="testimonial-author">Ritika Shah</div>
-            <div class="testimonial-role">B.Tech CSE (AI & ML)</div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Testimonials</h1>
+    <p>Hear from our students about their transformative experiences at AMTICS.</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">What Our Students Say</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <p class="testimonial-quote">
+                “AMTICS gave me the platform and mentorship I needed to excel in AI and ML. The labs and faculty are
+                truly world-class.”
+              </p>
+              <div class="testimonial-author">Ritika Shah</div>
+              <div class="testimonial-role">B.Tech CSE (AI & ML)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <p class="testimonial-quote">
+                “AMTICS gave me the platform and mentorship I needed to excel in AI and ML. The labs and faculty are
+                truly world-class.”
+              </p>
+              <div class="testimonial-author">Ritika Shah</div>
+              <div class="testimonial-role">B.Tech CSE (AI & ML)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <p class="testimonial-quote">
+                “AMTICS gave me the platform and mentorship I needed to excel in AI and ML. The labs and faculty are
+                truly world-class.”
+              </p>
+              <div class="testimonial-author">Ritika Shah</div>
+              <div class="testimonial-role">B.Tech CSE (AI & ML)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <p class="testimonial-quote">
+                “The supportive environment and hands-on projects made my learning journey exciting and productive.”
+              </p>
+              <div class="testimonial-author">Parth Patel</div>
+              <div class="testimonial-role">B.Tech CE (Software Engg.)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <p class="testimonial-quote">
+                “Studying at AMTICS was a life-changing experience. I gained both technical skills and soft skills that
+                helped me get placed early.”
+              </p>
+              <div class="testimonial-author">Meera Joshi</div>
+              <div class="testimonial-role">M.Tech CSE</div>
+            </div>
           </div>
         </div>
       </div>
-
-      
-      <div class="col-md-6 col-lg-4">
-        <div class="card testimonial-card h-100">
-          <div class="card-body">
-            <p class="testimonial-quote">
-              “AMTICS gave me the platform and mentorship I needed to excel in AI and ML. The labs and faculty are truly world-class.”
-            </p>
-            <div class="testimonial-author">Ritika Shah</div>
-            <div class="testimonial-role">B.Tech CSE (AI & ML)</div>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="col-md-6 col-lg-4">
-        <div class="card testimonial-card h-100">
-          <div class="card-body">
-            <p class="testimonial-quote">
-              “AMTICS gave me the platform and mentorship I needed to excel in AI and ML. The labs and faculty are truly world-class.”
-            </p>
-            <div class="testimonial-author">Ritika Shah</div>
-            <div class="testimonial-role">B.Tech CSE (AI & ML)</div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card testimonial-card h-100">
-          <div class="card-body">
-            <p class="testimonial-quote">
-              “The supportive environment and hands-on projects made my learning journey exciting and productive.”
-            </p>
-            <div class="testimonial-author">Parth Patel</div>
-            <div class="testimonial-role">B.Tech CE (Software Engg.)</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card testimonial-card h-100">
-          <div class="card-body">
-            <p class="testimonial-quote">
-              “Studying at AMTICS was a life-changing experience. I gained both technical skills and soft skills that helped me get placed early.”
-            </p>
-            <div class="testimonial-author">Meera Joshi</div>
-            <div class="testimonial-role">M.Tech CSE</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Add more testimonials here if needed -->
-
     </div>
-  </div>
-</section>
-<div id="footer-container"></div>
-<script src="js/loadheaderfooter.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <script src="js/loadheaderfooter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

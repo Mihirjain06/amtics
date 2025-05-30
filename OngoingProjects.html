@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,24 @@
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9f9f9;
+    }
+
+    .hero-section {
+      background: #5c4fc4 !important;
+      color: white;
+      padding: 15px 12px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-section h1 {
+      font-size: 35px;
+      margin-top: 20px;
+    }
+
+    .hero-section p {
+      font-size: 15px;
+      margin-top: -4px;
     }
 
     .projects-section {
@@ -34,20 +53,24 @@
     }
 
     /* Apply different border colors to project cards based on their parent div */
-    .row > div:nth-child(1) .project-card {
-      border-left: 5px solid #3b3285; /* Blue for first card */
+    .row>div:nth-child(1) .project-card {
+      border-left: 5px solid #3b3285;
+      /* Blue for first card */
     }
 
-    .row > div:nth-child(2) .project-card {
-      border-left: 5px solid #d32f2f; /* Red for second card */
+    .row>div:nth-child(2) .project-card {
+      border-left: 5px solid #d32f2f;
+      /* Red for second card */
     }
 
-    .row > div:nth-child(3) .project-card {
-      border-left: 5px solid #2e7d32; /* Green for third card */
+    .row>div:nth-child(3) .project-card {
+      border-left: 5px solid #2e7d32;
+      /* Green for third card */
     }
 
-    .row > div:nth-child(4) .project-card {
-      border-left: 5px solid #f57c00; /* Orange for fourth card */
+    .row>div:nth-child(4) .project-card {
+      border-left: 5px solid #f57c00;
+      /* Orange for fourth card */
     }
 
     .card.project-card:hover {
@@ -95,20 +118,27 @@
     }
   </style>
 </head>
+
 <body>
   <div id="navbar-container"></div>
+
+  <section class="hero-section">
+    <h1>Ongoing Projects</h1>
+    <p>Discover AMTICS' active initiatives driving innovation and technological advancement.</p>
+  </section>
 
   <!-- Ongoing Projects Section -->
   <section class="projects-section">
     <div class="container">
-      <h2 class="section-title">Ongoing Projects at AMTICS</h2>
+
       <div class="row g-4 justify-content-center">
         <div class="col-12 col-md-6">
           <div class="card project-card h-100">
             <div class="card-body">
               <h3 class="project-title">Smart Healthcare Diagnostics</h3>
               <p class="project-description">
-                Developing AI-powered diagnostic tools for real-time disease detection using advanced imaging and predictive analytics.
+                Developing AI-powered diagnostic tools for real-time disease detection using advanced imaging and
+                predictive analytics.
               </p>
               <div class="project-meta">Lead: Dr. Priya Mehra | Start Date: Jan 2024</div>
               <!-- <div class="progress">
@@ -123,7 +153,8 @@
             <div class="card-body">
               <h3 class="project-title">Intelligent Automation Systems</h3>
               <p class="project-description">
-                Building autonomous systems for industrial automation, integrating machine learning and sensor fusion technologies.
+                Building autonomous systems for industrial automation, integrating machine learning and sensor fusion
+                technologies.
               </p>
               <div class="project-meta">Lead: Prof. Arjun Desai | Start Date: Mar 2024</div>
               <!-- <div class="progress">
@@ -138,7 +169,8 @@
             <div class="card-body">
               <h3 class="project-title">AI-Enhanced Network Security</h3>
               <p class="project-description">
-                Creating AI-driven solutions to detect and mitigate cyber threats in real-time for enterprise and IoT networks.
+                Creating AI-driven solutions to detect and mitigate cyber threats in real-time for enterprise and IoT
+                networks.
               </p>
               <div class="project-meta">Lead: Dr. Sanjay Rao | Start Date: Nov 2023</div>
               <!-- <div class="progress">
@@ -153,7 +185,8 @@
             <div class="card-body">
               <h3 class="project-title">Scalable Cloud AI Frameworks</h3>
               <p class="project-description">
-                Designing optimized cloud-based AI frameworks for efficient data processing and low-latency model deployment.
+                Designing optimized cloud-based AI frameworks for efficient data processing and low-latency model
+                deployment.
               </p>
               <div class="project-meta">Lead: Prof. Kavita Sharma | Start Date: Feb 2024</div>
               <!-- <div class="progress">
@@ -171,4 +204,5 @@
   <script src="js/loadheaderfooter.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

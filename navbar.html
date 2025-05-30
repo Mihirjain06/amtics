@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -44,7 +44,7 @@
                             <a href="index.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About Us</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
                             <ul class="dropdown-menu" aria-labelledby="aboutUsDropdown">
                                 <li><a class="dropdown-item" href="AboutAmtics.html">About AMTICS</a></li>
                                 <li><a class="dropdown-item" href="WhyAmtics.html">Why AMTICS?</a></li>
@@ -114,82 +114,5 @@
             </div>
         </nav>
     </header>
-
-    <script>
-        // Handle nested dropdowns for desktop (hover) and mobile (click)
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdowns = document.querySelectorAll('.dropdown-submenu');
-
-            // Function to close all submenus
-            function closeAllSubmenus() {
-                dropdowns.forEach(function(dropdown) {
-                    const menu = dropdown.querySelector('.dropdown-menu');
-                    menu.classList.remove('show');
-                    const toggle = dropdown.querySelector('.dropdown-toggle');
-                    toggle.setAttribute('aria-expanded', 'false');
-                });
-            }
-
-            // Desktop - hover functionality
-            if (window.innerWidth > 991) {
-                dropdowns.forEach(function(dropdown) {
-                    dropdown.addEventListener('mouseenter', function() {
-                        const menu = this.querySelector('.dropdown-menu');
-                        menu.classList.add('show');
-                        this.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'true');
-                    });
-                    dropdown.addEventListener('mouseleave', function() {
-                        const menu = this.querySelector('.dropdown-menu');
-                        menu.classList.remove('show');
-                        this.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-            // Mobile and iPad - click functionality
-            else {
-                dropdowns.forEach(function(dropdown) {
-                    const toggle = dropdown.querySelector('.dropdown-toggle');
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const menu = dropdown.querySelector('.dropdown-menu');
-                        const isShowing = menu.classList.contains('show');
-
-                        // Close all other submenus
-                        closeAllSubmenus();
-
-                        // Toggle this menu
-                        if (!isShowing) {
-                            menu.classList.add('show');
-                            toggle.setAttribute('aria-expanded', 'true');
-                        }
-                    });
-                });
-
-                // Close submenus when clicking a main dropdown
-                document.querySelectorAll('.nav-item.dropdown > .dropdown-toggle').forEach(function(mainToggle) {
-                    mainToggle.addEventListener('click', function(e) {
-                        if (!this.parentElement.querySelector('.dropdown-menu').classList.contains('show')) {
-                            closeAllSubmenus();
-                        }
-                    });
-                });
-
-                // Close submenus when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.dropdown-submenu') && !e.target.closest('.navbar-toggler')) {
-                        closeAllSubmenus();
-                    }
-                });
-
-                // Close submenus when navbar collapses
-                document.querySelector('.navbar-toggler').addEventListener('click', function() {
-                    if (document.querySelector('.navbar-collapse').classList.contains('show')) {
-                        closeAllSubmenus();
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>

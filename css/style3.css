@@ -125,11 +125,28 @@ body {
     position: relative;
 }
 
+.dropdown-item {
+            transition: all 0.3s ease; /* Smooth transition for all properties */
+        }
+
+.dropdown-item:hover {
+            background-color: #e6e6fa; /* Light purple background on hover */
+            color: #3b3285; /* Darker purple text for contrast */
+            transform: scale(1.02); /* Slight scale effect for interactivity */
+        }
+
 .dropdown-submenu .dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: 0;
 }
+
+.dropdown-submenu .dropdown-item:hover {
+            background-color: #e6e6fa !important;
+            color: #3b3285 !important;
+            transform: scale(1.02);
+        }
+        
 
 /* Hover effects for desktop */
 @media (min-width: 769px) {

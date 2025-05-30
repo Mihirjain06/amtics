@@ -63,11 +63,11 @@
     h3 {
       color: #1e3a8a;
       font-weight: 500;
-      font-size: 1.75rem;
+      font-size: 1.5rem !important;
     }
 
     .about-us-box {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       padding: 20px;
       background-color: #f8f9fa;
       border-left: 4px solid #1e3a8a;
@@ -79,7 +79,9 @@
       margin: 0;
       color: #555;
       line-height: 1.6;
-      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      font-size: 12px;
+      margin-bottom: 5px;
+      text-align: justify;
     }
 
     .about-us-container {
@@ -112,7 +114,7 @@
       z-index: 1;
       scrollbar-width: thin;
       -webkit-overflow-scrolling: touch;
-      margin-left: 10.5%;
+      margin-left: 5%;
     }
 
     .semester-tabs .nav-item {
@@ -127,20 +129,19 @@
       border: none;
       border-radius: 8px 8px 0 0;
       transition: all 0.3s ease;
-      background: #224cbe;
+      background: #224cbe !important;
       cursor: pointer;
       white-space: nowrap;
-
     }
 
     .semester-tabs .nav-link:hover {
-      background-color: #e6e9f5;
-      color: #194bd4;
+      background-color: #e6e9f5 !important;
+      color: #194bd4 !important;
     }
 
     .semester-tabs .nav-link.active {
-      background-color: #224cbe;
-      color: #ffffff;
+      background-color: #224cbe !important;
+      color: #ffffff !important;
       border: none;
     }
 
@@ -320,7 +321,8 @@
     <div class="about-us-container">
       <div class="about-us-box">
         <h3 id="about-title">About</h3>
-        <p id="about-description">
+        <h6>Intake: <span id="program-intake">30</span></h6>
+        <p id="program-description">
           The B.Tech. in Computer Science and Engineering at AMTICS offers a cutting-edge curriculum focused on emerging
           technologies like AI, Cybersecurity, Cloud Computing, and Software Development. Designed to blend theory with
           hands-on experience, the program prepares students for industry challenges and innovation, fostering skilled
@@ -328,8 +330,9 @@
         </p>
       </div>
       <div class="about-us-box">
-        <h3>Our Vision</h3>
-        <p id="vision-description">
+        <h3>Program</h3>
+        <h6>Major career opportunities after <span id="course-name">Course name</span></h6>
+        <p id="opportunities-description">
           Our vision is to create a dynamic learning environment that nurtures creativity, technical expertise, and
           ethical values, preparing students to lead in the ever-evolving field of computer science and technology.
         </p>
@@ -386,11 +389,15 @@
       'B.Tech. Computer Science and Engineering': {
         about: {
           title: 'About CSE',
-          description: 'The B.Tech. in Computer Science and Engineering at AMTICS offers a cutting-edge curriculum focused on emerging technologies like AI, Cybersecurity, Cloud Computing, and Software Development. Designed to blend theory with hands-on experience, the program prepares students for industry challenges and innovation, fostering skilled professionals ready to excel globally.'
+          description: 'The course is focused to prepare students for problem solving and research in the field of computer science. Along with the core computer science subjects, students of Computer Science and Engineering are having knowledge and skill in Software, Hardware and Networking domains.'
         },
         vision: {
-          description: 'Our vision is to create a dynamic learning environment that nurtures creativity, technical expertise, and ethical values, preparing students to lead in the ever-evolving field of computer science and technology.'
+          description: 'The course is focused to prepare students for problem solving and research in the field of computer science. Along with the core computer science subjects, students of Computer Science and Engineering are having knowledge and skill in Software, Hardware and Networking domains.'
         },
+        opportunities: {
+          description: 'Computer Engineer, IT Developer, Mobile Application Developer, Computer Programmer, Machine Learning Engineer, Hardware Engineer, Network Administrator, Network Analyst.'
+        },
+        intake: 120,
         semesters: {
           1: [
             { code: 'EL3005', name: 'Basics of Electrical and Electronics Engineering', syllabus: 'WebsiteSyllabus/CSE/Sem1/EL3005_Basics of Electrical and Electronics Engineering.pdf' },
@@ -408,8 +415,6 @@
             { code: 'OC3002', name: 'Applied Linear Algebra in AI and ML', syllabus: 'WebsiteSyllabus/CSE/Sem2/OC3003_Applied Linear Algebra in AI and ML.pdf', lessonPlan: '', assessment: '' },
             { code: 'OC3002', name: 'Elementary Bhagavad Gita', syllabus: 'WebsiteSyllabus/CSE/Sem2/UE3032_Elementary Bhagavad Gita.pdf', lessonPlan: '', assessment: '' },
             { code: 'OC3002', name: 'Vedic Mathematics', syllabus: 'WebsiteSyllabus/CSE/Sem2/UE3033_Vedic Mathematics.pdf', lessonPlan: '', assessment: '' },
-
-
           ],
           3: [
             { code: 'CE4012', name: 'Database Management Systems', syllabus: 'WebsiteSyllabus/CSE/Sem3/CE4012_Database Management System.pdf', lessonPlan: '', assessment: '' },
@@ -420,7 +425,7 @@
           ],
           4: [
             { code: 'AI4010', name: 'Probability Models', syllabus: 'WebsiteSyllabus/CSE/Sem4/AI4010_Probability Models.pdf', lessonPlan: '', assessment: '' },
-            { code: 'CE4016', name: 'Operating System', syllabus: 'WebsiteSyllabus/CSE\/em4/CE4016_Operating Systems.pdf', lessonPlan: '', assessment: '' },
+            { code: 'CE4016', name: 'Operating System', syllabus: 'WebsiteSyllabus/CSE/Sem4/CE4016_Operating Systems.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE4019', name: 'Software Modeling and Design', syllabus: 'WebsiteSyllabus/CSE/Sem4/CE4019_Software Modeling and Design.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE4020', name: 'Microprocessors and Microcontrollers', syllabus: 'WebsiteSyllabus/CSE/Sem4/CE4020_Microprocessors and Microcontrollers.pdf', lessonPlan: '', assessment: '' },
             { code: 'CY4002', name: 'Introduction to Cyber Security', syllabus: 'WebsiteSyllabus/CSE/Sem4/CY4002_Introduction to Cyber Security.pdf', lessonPlan: '', assessment: '' },
@@ -450,7 +455,7 @@
             { code: 'AI5021', name: 'Artificial Intelligence', syllabus: 'WebsiteSyllabus/CSE/Sem6/AI5021_Artificial Intelligence.pdf', lessonPlan: '', assessment: '' },
             { code: 'AI6009', name: 'BRAIN MACHINE INTERFACE', syllabus: 'WebsiteSyllabus/CSE/Sem6/AI6009_BRAIN MACHINE INTERFACE.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE5023', name: 'Compiler Design', syllabus: 'WebsiteSyllabus/CSE/Sem6/CE5023_Compiler Design.pdf', lessonPlan: '', assessment: '' },
-            { code: 'CE5024', name: 'Software Quality Assurance', syllabus: 'WebsiteSyllabus/CSE/Sem6/CE5024_Software Quality Assurance.pdf', lessonPlan: '', assessment: '' },
+            { code: 'CE5024#pragma once', name: 'Software Quality Assurance', syllabus: 'WebsiteSyllabus/CSE/Sem6/CE5024_Software Quality Assurance.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE5025', name: 'Software Project Management', syllabus: 'WebsiteSyllabus/CSE/Sem6/CE5025_Software Project Management.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE5026', name: 'Machine Learning with Cloud Computing', syllabus: 'WebsiteSyllabus/CSE/Sem6/CE5026_Machine Learning with Cloud Computing.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE5027', name: 'Development Operations', syllabus: 'WebsiteSyllabus/CSE/Sem6/CE5027_Development Operations.pdf', lessonPlan: '', assessment: '' },
@@ -469,7 +474,7 @@
             { code: 'AI6012', name: 'Speech and Language Processing', syllabus: 'WebsiteSyllabus/CSE/Sem7/AI6012_Speech and Language Processing.pdf', lessonPlan: '', assessment: '' },
             { code: 'AI6013', name: 'XAI', syllabus: 'WebsiteSyllabus/CSE/Sem7/AI6013_XAI.pdf', lessonPlan: '', assessment: '' },
             { code: 'AI6014', name: 'Robotics and Intelligent Systems', syllabus: 'WebsiteSyllabus/CSE/Sem7/AI6014_Robotics and Intelligent Systems.pdf', lessonPlan: '', assessment: '' },
-            { code: 'AI6015', name: 'Computer Vision', syllabus: 'WebsiteSyllabu/\CSE/Sem7/AI6015_Computer Vision.pdf', lessonPlan: '', assessment: '' },
+            { code: 'AI6015', name: 'Computer Vision', syllabus: 'WebsiteSyllabus/CSE/Sem7/AI6015_Computer Vision.pdf', lessonPlan: '', assessment: '' },
             { code: 'AI6017', name: 'Artificial Intelligence in Health Care', syllabus: 'WebsiteSyllabus/CSE/Sem7/AI6017_Artificial Intelligence in Health Care.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE6013', name: 'Software Development Security', syllabus: 'WebsiteSyllabus/CSE/Sem7/CE6013_Software Development Security.pdf', lessonPlan: '', assessment: '' },
             { code: 'CE6014', name: 'Object Oriented Software Design', syllabus: 'WebsiteSyllabus/CSE/Sem7/CE6014_Object Oriented Software Design.pdf', lessonPlan: '', assessment: '' },
@@ -483,7 +488,6 @@
             { code: 'IT6014', name: 'Big Data with Cloud Computing', syllabus: 'WebsiteSyllabus/CSE/Sem7/IT6014_Big Data with Cloud Computing.pdf', lessonPlan: '', assessment: '' },
             { code: 'UE6001', name: 'Indian Health, Wellness and Psychology', syllabus: 'WebsiteSyllabus/CSE/Sem7/UE6001_Indian Health, Wellness and Psychology.pdf', lessonPlan: '', assessment: '' },
             { code: 'UE6002', name: 'Indian Vision for Human Society', syllabus: 'WebsiteSyllabus/CSE/Sem7/UE6002_Indian Vision for Human Society.pdf', lessonPlan: '', assessment: '' },
-
           ],
           8: []
         }
@@ -491,11 +495,15 @@
       'B.Tech. Computer Science and Bioscience': {
         about: {
           title: 'About CS and Bioscience',
-          description: 'The B.Tech. in Computer Science and Bioscience program integrates computing with biological sciences, preparing students for interdisciplinary careers in bioinformatics, computational biology, and health tech.'
+          description: 'This program uniquely blends the fields of Computer Science and Biological Sciences, creating a multidisciplinary learning environment at the intersection of technology and life sciences. The curriculum is designed to build strong foundations in core computer science principles while introducing key concepts from bioinformatics, computational biology, and biotechnology.'
         },
         vision: {
-          description: 'Our vision is to foster innovation at the intersection of computer science and bioscience, enabling students to address global challenges in healthcare and biotechnology.'
+          description: 'This program uniquely blends the fields of Computer Science and Biological Sciences, creating a multidisciplinary learning environment at the intersection of technology and life sciences. The curriculum is designed to build strong foundations in core computer science principles while introducing key concepts from bioinformatics, computational biology, and biotechnology.'
         },
+        opportunities: {
+          description: 'Bioinformatics Analyst, Computational Biologist, Data Scientist, Software Developer in Healthcare/Pharma Tech, AI in Healthcare Specialist, Research Scientist, Biomedical Data Engineer, Systems Biologist, Biotech IT Consultant, Academic Researcher'
+        },
+        intake: 30,
         semesters: {
           1: [
             { code: 'BL3001', name: 'Introduction to Biology', syllabus: 'files/csb-bl3001-syllabus.pdf', lessonPlan: 'files/csb-bl3001-lessonplan.pdf', assessment: 'files/csb-bl3001-assessment.pdf' },
@@ -517,11 +525,15 @@
       'B.Tech. CSE (Artificial Intelligence and Machine Learning)': {
         about: {
           title: 'About AI & ML',
-          description: 'The B.Tech. CSE (AI & ML) program focuses on artificial intelligence and machine learning, equipping students with skills in data science, neural networks, and intelligent systems.'
+          description: 'B.Tech. CSE (Artificial Intelligence & Machine Learning) is an undergraduate programme with the need of the time advanced learning paradigms like machine learning, reinforcement learning, deep learning, big data, data sciences and artificial intelligence as a whole. The programme curriculum is designed to enable students to design and develop intelligence machines, software, or applications by combining cutting edge technologies. The primary goal of artificial intelligence is to provide the ability to computers so that they can learn with examples and experience to solve the given problem without being explicitly programmed by humans. Many such applications already exist and grabbing attention in the IT industry. Applications that analyse past sales data to predict customer behaviour used in financial management, Recognition of human face or speech, Optimization of industrial robotics to achieve better results with minimum human resources.'
         },
         vision: {
-          description: 'Our vision is to develop leaders in AI and ML who drive innovation in intelligent systems and data-driven solutions.'
+          description: 'B.Tech. CSE (Artificial Intelligence & Machine Learning) is an undergraduate programme with the need of the time advanced learning paradigms like machine learning, reinforcement learning, deep learning, big data, data sciences and artificial intelligence as a whole. The programme curriculum is designed to enable students to design and develop intelligence machines, software, or applications by combining cutting edge technologies. The primary goal of artificial intelligence is to provide the ability to computers so that they can learn with examples and experience to solve the given problem without being explicitly programmed by humans. Many such applications already exist and grabbing attention in the IT industry. Applications that analyse past sales data to predict customer behaviour used in financial management, Recognition of human face or speech, Optimization of industrial robotics to achieve better results with minimum human resources.'
         },
+        opportunities: {
+          description: 'Software Engineer, AI Engineer, Machine Learning Engineer Researcher, Research Scientist, Data Scientist, Business Intelligence (BI) Developer, Big Data Engineer/Architect.'
+        },
+        intake: 30,
         semesters: {
           1: [
             { code: 'AI3001', name: 'Introduction to AI', syllabus: 'files/aiml-ai3001-syllabus.pdf', lessonPlan: 'files/aiml-ai3001-lessonplan.pdf', assessment: 'files/aiml-ai3001-assessment.pdf' },
@@ -541,11 +553,15 @@
       'B.Tech. CSE (Cloud Computing)': {
         about: {
           title: 'About Cloud Computing',
-          description: 'The B.Tech. CSE (Cloud Computing) program emphasizes cloud technologies, distributed systems, and scalable infrastructure for modern computing environments.'
+          description: 'The course covers core concepts of Computer Science and Engineering with introduction to cloud domain and covers varieties of industry required subjects on Cloud Computing and Cloud Infrastructure. The course is in-line with world leaders in cloud computing like Amazon AWS, Microsoft Azure, etc.'
         },
         vision: {
-          description: 'Our vision is to train experts in cloud computing who can design and manage scalable, secure, and efficient cloud-based systems.'
+          description: 'The course covers core concepts of Computer Science and Engineering with introduction to cloud domain and covers varieties of industry required subjects on Cloud Computing and Cloud Infrastructure. The course is in-line with world leaders in cloud computing like Amazon AWS, Microsoft Azure, etc.'
         },
+        opportunities: {
+          description: 'Cloud Consultant, Cloud Engineer, DevOps Developers, DevOps Engineer, Cloud Architect, Cloud System Administrator, Cloud Infrastructure Engineer, Cloud Network Engineer, Cloud Security Consultant'
+        },
+        intake: 30,
         semesters: {
           1: [
             { code: 'CC3001', name: 'Cloud Computing Basics', syllabus: 'files/cc-cc3001-syllabus.pdf', lessonPlan: 'files/cc-cc3001-lessonplan.pdf', assessment: 'files/cc-cc3001-assessment.pdf' }
@@ -562,11 +578,15 @@
       'B.Tech. CSE (Cyber Security)': {
         about: {
           title: 'About Cyber Security',
-          description: 'The B.Tech. CSE (Cyber Security) program trains students in securing digital systems, covering cryptography, network security, and ethical hacking.'
+          description: 'B.Tech. CSE (Cyber Security) is a four years of undergraduate programme, with an aim to provide knowledge and environment to learn advancement in security domain as a whole. As the era is moving towards digitization in many sectors, such as government, military, industries like healthcare, manufacturing, finance and IT companies; the essential of cyber security professionals is utmost to protect the data from cyber breaches. This program inculcates security service culture and empowers students to serve as a cyber security professional in various private and government sectors. . The aim of the programme is to make students competent to identify software vulnerabilities and design security solutions to reduce breaching of resources. The programme curriculum is structured in a way to provide core concepts of software development for enabling students to design and develop software or applications and advance concepts of cyber security such as ethical hacking, cyber forensics, blockchain technology, cyber law, applications and cloud security and penetration testing.'
         },
         vision: {
-          description: 'Our vision is to produce cybersecurity professionals who safeguard digital infrastructure against emerging threats.'
+          description: 'B.Tech. CSE (Cyber Security) is a four years of undergraduate programme, with an aim to provide knowledge and environment to learn advancement in security domain as a whole. As the era is moving towards digitization in many sectors, such as government, military, industries like healthcare, manufacturing, finance and IT companies; the essential of cyber security professionals is utmost to protect the data from cyber breaches. This program inculcates security service culture and empowers students to serve as a cyber security professional in various private and government sectors. . The aim of the programme is to make students competent to identify software vulnerabilities and design security solutions to reduce breaching of resources. The programme curriculum is structured in a way to provide core concepts of software development for enabling students to design and develop software or applications and advance concepts of cyber security such as ethical hacking, cyber forensics, blockchain technology, cyber law, applications and cloud security and penetration testing.'
         },
+        opportunities: {
+          description: 'Network Security Engineer, Cyber Security Analyst, Security Architect, Cyber Security Manager, Chief Information Security Officer (CISO), Information Security Manager, Cybersecurity Engineer, Application Security Engineer, Ethical Hackers, Cloud Security Engineer, Cybersecurity Consultant.'
+        },
+        intake: 30,
         semesters: {
           1: [
             { code: 'CY3001', name: 'Introduction to Cyber Security', syllabus: 'files/cy-cy3001-syllabus.pdf', lessonPlan: 'files/cy-cy3001-lessonplan.pdf', assessment: 'files/cy-cy3001-assessment.pdf' }
@@ -583,11 +603,15 @@
       'B.Tech. Computer Engineering (CE)': {
         about: {
           title: 'About Computer Engineering',
-          description: 'The B.Tech. in Computer Engineering (CE) program combines hardware and software engineering, focusing on system design and embedded technologies.'
+          description: 'The course is designed with the aim to develop core competence in the field and to prepare the students to carry out design & development work, as well as take up challenges of industries. The curriculum is designed keeping industrial demands as well as the rapid development in the industry.'
         },
         vision: {
-          description: 'Our vision is to cultivate engineers who excel in designing integrated hardware and software solutions for cutting-edge technologies.'
+          description: 'The course is designed with the aim to develop core competence in the field and to prepare the students to carry out design & development work, as well as take up challenges of industries. The curriculum is designed keeping industrial demands as well as the rapid development in the industry.'
         },
+        opportunities: {
+          description: 'Computer Engineer, IT Developer, Mobile Application Developer, Computer Programmer, Machine Learning Engineer, Web Developer, Full stack developer.'
+        },
+        intake: 60,
         semesters: {
           1: [
             { code: 'CE3001', name: 'Digital Logic Design', syllabus: 'files/ce-ce3001-syllabus.pdf', lessonPlan: 'files/ce-ce3001-lessonplan.pdf', assessment: 'files/ce-ce3001-assessment.pdf' }
@@ -604,11 +628,15 @@
       'B.Tech. CE (Software Engineering)': {
         about: {
           title: 'About Software Engineering',
-          description: 'The B.Tech. CE (Software Engineering) program specializes in software development methodologies, agile practices, and large-scale system design.'
+          description: 'The course is designed to accelerate career opportunities in the field of computer engineering and information technology covering core concepts of Computer Science and Engineering. The course is focused to prepare students for problem solving, innovation and development related to computer science. The specialization in Software Engineering opens a wide opportunity for student in IT industries around the globe.'
         },
         vision: {
-          description: 'Our vision is to develop software engineers who lead in creating robust, scalable, and user-centric software solutions.'
+          description: 'The course is designed to accelerate career opportunities in the field of computer engineering and information technology covering core concepts of Computer Science and Engineering. The course is focused to prepare students for problem solving, innovation and development related to computer science. The specialization in Software Engineering opens a wide opportunity for student in IT industries around the globe.'
         },
+        opportunities: {
+          description: 'Software developer, Full stack developer, Software Tester, Software Engineer, IT developer, Computer Programmer, Software Analyst, IT Technical Support Officer, Database Administrator, Game Developer, Software and Infrastructure Developer.'
+        },
+        intake: 30,
         semesters: {
           1: [
             { code: 'SE3001', name: 'Software Engineering Principles', syllabus: 'files/se-se3001-syllabus.pdf', lessonPlan: 'files/se-se3001-lessonplan.pdf', assessment: 'files/se-se3001-assessment.pdf' }
@@ -625,11 +653,15 @@
       'Integrated M. Tech. CSE': {
         about: {
           title: 'About Integrated M. Tech. CSE',
-          description: 'The Integrated M.Tech. CSE program offers an accelerated path to advanced computing expertise, combining undergraduate and postgraduate studies.'
+          description: 'This course is a five-year program designed to provide an in-depth understanding of core computer science concepts along with advanced technical and research skills. The curriculum is crafted to bridge the gap between foundational learning and specialized industry demands, equipping students with expertise in cutting-edge technologies and preparing them for both professional and academic excellence. The program emphasizes innovation, project-based learning, and industry exposure, enabling students to emerge as highly skilled professionals in the tech landscape.'
         },
         vision: {
-          description: 'Our vision is to create advanced computing experts who drive research and innovation in computer science.'
+          description: 'This course is a five-year program designed to provide an in-depth understanding of core computer science concepts along with advanced technical and research skills. The curriculum is crafted to bridge the gap between foundational learning and specialized industry demands, equipping students with expertise in cutting-edge technologies and preparing them for both professional and academic excellence. The program emphasizes innovation, project-based learning, and industry exposure, enabling students to emerge as highly skilled professionals in the tech landscape.'
         },
+        opportunities: {
+          description: 'Software Developer, Data Scientist, Research Engineer, Systems Architect, AI/ML Engineer, Full Stack Developer, Software Consultant, Cybersecurity Analyst, Database Administrator, Academic Researcher'
+        },
+        intake: 60,
         semesters: {
           1: [
             { code: 'IM3001', name: 'Advanced Programming', syllabus: 'files/im-im3001-syllabus.pdf', lessonPlan: 'files/im-im3001-lessonplan.pdf', assessment: 'files/im-im3001-assessment.pdf' }
@@ -665,15 +697,27 @@
       const program = decodeURIComponent(urlParams.get('program') || 'B.Tech. Computer Science and Engineering');
       const courseTitleElement = document.getElementById('course-title');
       const aboutTitleElement = document.getElementById('about-title');
-      const aboutDescriptionElement = document.getElementById('about-description');
-      const visionDescriptionElement = document.getElementById('vision-description');
+      const programIntakeElement = document.getElementById('program-intake');
+      const programDescriptionElement = document.getElementById('program-description');
+      const courseNameElement = document.getElementById('course-name');
+      const opportunitiesDescriptionElement = document.getElementById('opportunities-description');
 
+      // Update the course title
       courseTitleElement.textContent = program;
-      const courseInfo = courseData[program] || courseData['B.Tech. Computer Science and Engineering'];
-      aboutTitleElement.textContent = courseInfo.about.title;
-      aboutDescriptionElement.textContent = courseInfo.about.description;
-      visionDescriptionElement.textContent = courseInfo.vision.description;
 
+      // Get the course info from courseData, default to B.Tech. CSE if not found
+      const courseInfo = courseData[program] || courseData['B.Tech. Computer Science and Engineering'];
+
+      // Update the "About" section
+      aboutTitleElement.textContent = courseInfo.about.title;
+      programDescriptionElement.textContent = courseInfo.about.description;
+
+      // Update the "Program" section
+      programIntakeElement.textContent = courseInfo.intake;
+      courseNameElement.textContent = program;
+      opportunitiesDescriptionElement.textContent = courseInfo.opportunities.description;
+
+      // Populate semester data
       for (let sem = 1; sem <= 8; sem++) {
         const semesterCard = document.getElementById(`semester-${sem}`);
         const subjects = courseInfo.semesters[sem] || [];

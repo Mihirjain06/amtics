@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,25 @@
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f9f9f9;
+    }
+
+    /* Hero Section Styles (Copied from Publications.html) */
+    .hero-section {
+      background: #5c4fc4 !important;
+      color: white;
+      padding: 15px 12px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-section h1 {
+      font-size: 35px;
+      margin-top: 20px;
+    }
+
+    .hero-section p {
+      font-size: 15px;
+      margin-top: -4px;
     }
 
     .projects-section {
@@ -34,29 +54,40 @@
     }
 
     /* Apply different border colors to project cards based on their parent div */
-    .row > div:nth-child(1) .project-card {
-      border-left: 5px solid #3b3285; /* Blue for first card */
+    .row>div:nth-child(1) .project-card {
+      border-left: 5px solid #3b3285;
+      /* Blue for first card */
     }
 
-    .row > div:nth-child(2) .project-card {
-      border-left: 5px solid #d32f2f; /* Red for second card */
+    .row>div:nth-child(2) .project-card {
+      border-left: 5px solid #d32f2f;
+      /* Red for second card */
     }
 
-    .row > div:nth-child(3) .project-card {
-      border-left: 5px solid #2e7d32; /* Green for third card */
+    .row>div:nth-child(3) .project-card {
+      border-left: 5px solid #2e7d32;
+      /* Green for third card */
     }
 
-    .row > div:nth-child(4) .project-card {
-      border-left: 5px solid #f57c00; /* Orange for fourth card */
+    .row>div:nth-child(4) .project-card {
+      border-left: 5px solid #f57c00;
+      /* Orange for fourth card */
     }
+
+      .row>div:nth-child(5) .project-card {
+      border-left: 5px solid #3b3285;
+      /* Orange for fourth card */
+    }
+
 
     .card.project-card:hover {
       transform: translateY(-5px);
     }
 
-
     .card.project-card .card-body {
       padding: 25px;
+      position: relative;
+      min-height: 200px;
     }
 
     .project-title {
@@ -66,16 +97,34 @@
       margin-bottom: 10px;
     }
 
+    .publication-type {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      background: #3b3285;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 12px;
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
     .project-description {
       font-size: 0.95rem;
       color: #555;
       line-height: 1.6;
+      margin-bottom: 50px;
     }
 
     .project-meta {
       font-size: 0.85rem;
       color: #777;
-      margin-top: 15px;
+      position: absolute;
+      bottom: 40px;
+      left: 25px;
+      right: 25px;
+      margin: 0;
     }
 
     .project-icon {
@@ -95,22 +144,30 @@
     }
   </style>
 </head>
+
 <body>
   <div id="navbar-container"></div>
+
+  <!-- Hero Section (Added, inspired by Publications.html) -->
+  <section class="hero-section">
+    <h1>Ongoing Projects</h1>
+    <p>Explore the innovative projects driving technological advancements at AMTICS.</p>
+  </section>
 
   <!-- Ongoing Projects Section -->
   <section class="projects-section">
     <div class="container">
-      <h2 class="section-title">Ongoing Projects at AMTICS</h2>
       <div class="row g-4 justify-content-center">
         <div class="col-12 col-md-6">
-          <div class="card project-card h-100">
+          <div class="card project-card h-60">
             <div class="card-body">
-              <h3 class="project-title">Smart Healthcare Diagnostics</h3>
+              <span class="publication-type">Completed</span>
+              <h3 class="project-title">Automatic Chemical Smiles to 3D Mol file converter.</h3>
               <p class="project-description">
-                Developing AI-powered diagnostic tools for real-time disease detection using advanced imaging and predictive analytics.
+                The GUI-based automatic script helps you to fetch the smiles from your excel file and create a 3D mol
+                structure in the working directory.
               </p>
-              <div class="project-meta">Lead: Dr. Priya Mehra | Start Date: Jan 2024</div>
+              <div class="project-meta">Dr. Vishvajit Bakrola | December 2020</div>
               <!-- <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
               </div> -->
@@ -119,13 +176,14 @@
         </div>
 
         <div class="col-12 col-md-6">
-          <div class="card project-card h-100">
+          <div class="card project-card h-60">
             <div class="card-body">
-              <h3 class="project-title">Intelligent Automation Systems</h3>
+              <span class="publication-type">Ongoing</span>
+              <h3 class="project-title">Smart Garage Application</h3>
               <p class="project-description">
-                Building autonomous systems for industrial automation, integrating machine learning and sensor fusion technologies.
+                Funded by SSIP Cell, Uka Tarsadia University
               </p>
-              <div class="project-meta">Lead: Prof. Arjun Desai | Start Date: Mar 2024</div>
+              <div class="project-meta">Dr. Vishvajit Bakrola | March 2020 | Funding Amount: 36000.00</div>
               <!-- <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
               </div> -->
@@ -134,13 +192,15 @@
         </div>
 
         <div class="col-12 col-md-6">
-          <div class="card project-card h-100">
+          <div class="card project-card h-60">
             <div class="card-body">
-              <h3 class="project-title">AI-Enhanced Network Security</h3>
+              <span class="publication-type">In Prototyping Stage</span>
+              <h3 class="project-title"> Smart Street Light System</h3>
               <p class="project-description">
-                Creating AI-driven solutions to detect and mitigate cyber threats in real-time for enterprise and IoT networks.
+                Funded by Ministry of Electronics and Information Technology with C-DAC and IITM. Under Swadeshi
+                Microprocessor Challenge.
               </p>
-              <div class="project-meta">Lead: Dr. Sanjay Rao | Start Date: Nov 2023</div>
+              <div class="project-meta">Dr. Vishvajit Bakrola | August 2020 | Funding Amount: 1,00,000.00</div>
               <!-- <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
               </div> -->
@@ -149,13 +209,30 @@
         </div>
 
         <div class="col-12 col-md-6">
-          <div class="card project-card h-100">
+          <div class="card project-card h-60">
             <div class="card-body">
-              <h3 class="project-title">Scalable Cloud AI Frameworks</h3>
+              <span class="publication-type">In Ideation Stage</span>
+              <h3 class="project-title">Automatic Solar Panel Cleaning Robot</h3>
               <p class="project-description">
-                Designing optimized cloud-based AI frameworks for efficient data processing and low-latency model deployment.
+                Funded by SSIP Cell, Uka Tarsadia University
               </p>
-              <div class="project-meta">Lead: Prof. Kavita Sharma | Start Date: Feb 2024</div>
+              <div class="project-meta">Dr. Vishvajit Bakrola | March 2021 | Funding Amount: 1,00,000.00</div>
+              <!-- <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="card project-card h-60">
+            <div class="card-body">
+              <span class="publication-type">In Ideation Stage</span>
+              <h3 class="project-title"> Artificial Intelligence based Predictive Battery Management System (BMS)</h3>
+              <p class="project-description">
+                Funded by B.U. Patel Research Promotion Scheme by Uka Tarsadia University.
+              </p>
+              <div class="project-meta">Dr. Vishvajit Bakrola | July 2021| Funding Amount: 75,000.00</div>
               <!-- <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div> -->
@@ -171,4 +248,5 @@
   <script src="js/loadheaderfooter.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

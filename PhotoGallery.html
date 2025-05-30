@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMTICS | Photo Gallery</title>
-       <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -23,27 +24,16 @@
 
         .gallery-header {
             text-align: center;
-            padding: 3.5rem 1.5rem;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            padding: 0.5rem 1rem;
+            background: #5c4fc4 !important;
             color: #fff;
             position: relative;
             overflow: hidden;
         }
 
-        .gallery-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/cubes.png');
-            opacity: 0.15;
-            z-index: 0;
-        }
 
         .gallery-header h1 {
-            font-size: 2.7rem;
+            font-size: 2rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -53,7 +43,7 @@
         }
 
         .gallery-header p {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: #e9d5ff;
             font-weight: 400;
             position: relative;
@@ -85,21 +75,21 @@
         }
 
         .year-filter button:hover {
-            background: #f59e0b;
-            color: #1f2937;
+            background: #5c4fc4;
+            color: #FFFFFF;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .year-filter button.active {
-            background: #f59e0b;
-            color: #1f2937;
+            background: #5c4fc4;
+            color: #FFFFFF;
             transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+
         }
 
         .gallery-container {
-            max-width: 1600px; /* Increased from 1450px for wider images */
+            max-width: 1600px;
             margin: 0 auto;
             padding: 2rem 1rem;
         }
@@ -130,16 +120,33 @@
             border-radius: 2px;
         }
 
+        .event-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .event-container {
+            flex: 1;
+            min-width: 0;
+            max-width: calc(50% - 0.6rem);
+            background: #fff;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
         .event-title {
             font-size: 1.6rem;
             font-weight: 600;
             color: #2d3748;
-            background: rgba(255, 255, 255, 0.95);
+            border: none;
             padding: 0.8rem 1.5rem;
-            border-radius: 10px;
             text-align: center;
-            margin: 1.5rem 0 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 0 1rem;
             transition: transform 0.3s ease;
         }
 
@@ -148,14 +155,16 @@
         }
 
         .gallery-section {
-            column-count: 2; /* Reduced from 3 for wider images */
-            column-gap: 1.2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
             padding: 1rem 0;
+            flex-grow: 1;
         }
 
         .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 1.2rem;
+            width: 250px;
+            height: 200px;
             position: relative;
             border-radius: 12px;
             overflow: hidden;
@@ -166,7 +175,8 @@
 
         .gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
             border-radius: 12px;
             transition: transform 0.4s ease, opacity 0.4s ease;
@@ -220,8 +230,8 @@
         }
 
         .lightbox img {
-            max-width: 92%; /* Increased from 90% for wider images */
-            max-height: 75%; /* Reduced from 80% to balance caption space */
+            max-width: 92%;
+            max-height: 75%;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             animation: zoomIn 0.4s ease;
@@ -243,17 +253,12 @@
             transform: translateY(-50%);
             font-size: 2rem;
             color: #fff;
-            background: rgba(37, 99, 235, 0.8);
             padding: 0.6rem;
             border-radius: 50%;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
         }
 
-        .lightbox-nav:hover {
-            background: #f59e0b;
-            transform: translateY(-50%) scale(1.1);
-        }
 
         .lightbox-prev {
             left: 1.5rem;
@@ -269,61 +274,101 @@
             right: 1.5rem;
             font-size: 2rem;
             color: #fff;
-            background: rgba(37, 99, 235, 0.8);
+
             padding: 0.4rem 0.8rem;
             border-radius: 50%;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
         }
 
-        .lightbox-close:hover {
-            background: #f59e0b;
-            transform: scale(1.1);
-        }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .gallery-section {
-                column-count: 1; /* Single column for wider images */
+            .event-container {
+                max-width: calc(50% - 0.6rem);
             }
+
+            .gallery-section {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .gallery-item {
+                width: 200px;
+                height: 160px;
+            }
+
             .gallery-container {
-                max-width: 1200px; /* Adjusted for responsiveness */
+                max-width: 1200px;
             }
         }
 
         @media (max-width: 992px) {
-            .gallery-section {
-                column-count: 1;
+            .event-row {
+                flex-direction: column;
             }
+
+            .event-container {
+                max-width: 100%;
+            }
+
             .gallery-header h1 {
                 font-size: 2.2rem;
             }
+
             .gallery-year h2 {
                 font-size: 1.7rem;
             }
+
             .event-title {
                 font-size: 1.4rem;
             }
         }
 
         @media (max-width: 768px) {
-            .gallery-section {
-                column-count: 1;
+            .event-row {
+                flex-direction: column;
             }
+
+            .event-container {
+                max-width: 100%;
+            }
+
+            .gallery-section {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+
+            .gallery-item {
+                width: 180px;
+                height: 144px;
+            }
+
             .year-filter button {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
+
             .lightbox img {
                 max-width: 95%;
                 max-height: 70%;
@@ -331,29 +376,49 @@
         }
 
         @media (max-width: 576px) {
-            .gallery-section {
-                column-count: 1;
+            .event-row {
+                flex-direction: column;
             }
+
+            .event-container {
+                max-width: 100%;
+            }
+
+            .gallery-section {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .gallery-item {
+                width: 150px;
+                height: 120px;
+            }
+
             .gallery-header h1 {
                 font-size: 1.8rem;
             }
+
             .gallery-header p {
                 font-size: 1rem;
             }
+
             .gallery-year h2 {
                 font-size: 1.5rem;
             }
+
             .event-title {
                 font-size: 1.2rem;
             }
+
             .year-filter button {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.85rem;
             }
+
             .lightbox img {
                 max-width: 95%;
                 max-height: 65%;
             }
+
             .lightbox-close {
                 top: 1rem;
                 right: 1rem;
@@ -362,6 +427,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="navbar-container"></div>
     <div class="gallery-header">
@@ -387,44 +453,26 @@
 
     <script>
         const years = {
+            2025: {
+                events: [
+                    { title: 'Utkarsh', imageCount: 10, eventFolder: 'Utkarsh' }
+                ]
+            },
+            2024: {
+                events: [
+                    { title: 'Pravaah', imageCount: 10, eventFolder: 'Pravaah' },
+                    { title: 'Utkarsh', imageCount: 7, eventFolder: 'Utkarsh' },
+                ]
+            },
             2023: {
                 events: [
-                    { title: 'Independence Day Celebration', imageCount: 4, eventFolder: 'Independence Day Celebration' },
-                    { title: 'Parent’s Meet', imageCount: 5, eventFolder: 'Parents Meet 2023' },
-                    { title: 'Orientation Program', imageCount: 5, eventFolder: 'Orientation Program 2023' },
-                    { title: 'Fresher’s Radiance', imageCount: 5, eventFolder: 'Freshers Radiance 2023' },
-                    { title: 'Social Meet', imageCount: 4, eventFolder: 'Social Meet' },
-                    { title: 'Sports Day', imageCount: 4, eventFolder: 'Sports Day' },
-                    { title: 'IT Mania', imageCount: 7, eventFolder: 'ITMania' }
+                     { title: 'Pravaah', imageCount: 8, eventFolder: 'Pravaah' },
+                    { title: 'Utkarsh', imageCount: 6, eventFolder: 'Utkarsh' },
                 ]
             },
             2022: {
                 events: [
-                    { title: 'Knowledge Fair [on the occasion of Teacher’s Day]', imageCount: 7, eventFolder: 'Knowledge Fair' },
-                    { title: 'Poster Making Competition', imageCount: 3, eventFolder: 'Poster Making' },
-                    { title: 'Megh Mahotsav', imageCount: 6, eventFolder: 'MeghMahotsav' },
-                    { title: 'Freshers Party', imageCount: 9, eventFolder: 'Freshers Party' },
-                    { title: 'TechVision 2022', imageCount: 15, eventFolder: 'TechVision' }
-                ]
-            },
-            2020: {
-                events: [
-                    { title: 'Independence Day Celebration', imageCount: 12, eventFolder: 'Independence Day Celebration' },
-                    { title: 'Sports Days', imageCount: 32, eventFolder: 'Sports Days' },
-                    { title: 'Student Orientation', imageCount: 36, eventFolder: 'Student Orientation' }
-                ]
-            },
-            2016: {
-                events: [
-                    { title: 'BLISS - Annual Day on 23th March, 2016', imageCount: 13, eventFolder: 'Bliss2016' }
-                ]
-            },
-            2015: {
-                events: [
-                    { title: 'ALUMNI MEET ON 12th AUGUST 2015', imageCount: 15, eventFolder: 'AlumniMeet' },
-                    { title: 'Seminar on Open Source Web Application Development Framework CodeIgniter', imageCount: 24, eventFolder: 'OpenSourceCodeIgnitore' },
-                    { title: 'Teachers Day organized by Faculty of Computer Science and Technology', imageCount: 14, eventFolder: 'Teachers Day 2015' },
-                    { title: 'Event 2015', imageCount: 39, eventFolder: '2015' }
+                    { title: 'Pravaah', imageCount: 12, eventFolder: 'Pravaah' }
                 ]
             }
         };
@@ -453,11 +501,11 @@
             });
         }
 
-        // Generate masonry gallery
+        // Generate gallery sections
         const galleryContainer = document.getElementById('gallery-container');
         sortedYears.forEach(year => {
             const yearSection = document.createElement('div');
-            yearSection.classList.add('gallery-section');
+            yearSection.classList.add('gallery-year-section');
             yearSection.id = `year-${year}`;
 
             const yearHeader = document.createElement('div');
@@ -465,30 +513,74 @@
             yearHeader.innerHTML = `<h2>${year}</h2>`;
             yearSection.appendChild(yearHeader);
 
-            years[year].events.forEach(event => {
-                const eventTitle = document.createElement('div');
-                eventTitle.classList.add('event-title');
-                eventTitle.textContent = event.title;
-                yearSection.appendChild(eventTitle);
+            // Group events into pairs
+            const events = years[year].events;
+            for (let i = 0; i < events.length; i += 2) {
+                const eventRow = document.createElement('div');
+                eventRow.classList.add('event-row');
 
-                const eventSection = document.createElement('div');
-                eventSection.classList.add('gallery-section');
+                // First event in the pair
+                const event1 = events[i];
+                if (event1) {
+                    const eventContainer1 = document.createElement('div');
+                    eventContainer1.classList.add('event-container');
 
-                for (let i = 1; i <= event.imageCount; i++) {
-                    const imgPath = `PhotoGallery/${year}/${event.eventFolder}/${i}.jpg`;
-                    const galleryItem = document.createElement('div');
-                    galleryItem.classList.add('gallery-item');
-                    // Randomize height for masonry effect
-                    const randomHeight = Math.floor(Math.random() * (400 - 250 + 1)) + 250;
-                    galleryItem.innerHTML = `
-                        <img src="${imgPath}" alt="${event.title} - Image ${i}" style="height: ${randomHeight}px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/600x${randomHeight}?text=Image+Not+Found';">
-                        <div class="caption">${event.title} - Image ${i}</div>
-                    `;
-                    galleryItem.onclick = () => openLightbox(year, event.eventFolder, i - 1, event.title);
-                    eventSection.appendChild(galleryItem);
+                    const eventTitle1 = document.createElement('div');
+                    eventTitle1.classList.add('event-title');
+                    eventTitle1.textContent = event1.title;
+                    eventContainer1.appendChild(eventTitle1);
+
+                    const eventSection1 = document.createElement('div');
+                    eventSection1.classList.add('gallery-section');
+
+                    for (let j = 1; j <= event1.imageCount; j++) {
+                        const imgPath = `PhotoGallery/${year}/${event1.eventFolder}/${j}.jpg`;
+                        const galleryItem = document.createElement('div');
+                        galleryItem.classList.add('gallery-item');
+                        galleryItem.innerHTML = `
+                            <img src="${imgPath}" alt="${event1.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found';">
+                            <div class="caption">${event1.title} - Image ${j}</div>
+                        `;
+                        galleryItem.onclick = () => openLightbox(year, event1.eventFolder, j - 1, event1.title);
+                        eventSection1.appendChild(galleryItem);
+                    }
+
+                    eventContainer1.appendChild(eventSection1);
+                    eventRow.appendChild(eventContainer1);
                 }
-                yearSection.appendChild(eventSection);
-            });
+
+                // Second event in the pair
+                const event2 = events[i + 1];
+                if (event2) {
+                    const eventContainer2 = document.createElement('div');
+                    eventContainer2.classList.add('event-container');
+
+                    const eventTitle2 = document.createElement('div');
+                    eventTitle2.classList.add('event-title');
+                    eventTitle2.textContent = event2.title;
+                    eventContainer2.appendChild(eventTitle2);
+
+                    const eventSection2 = document.createElement('div');
+                    eventSection2.classList.add('gallery-section');
+
+                    for (let j = 1; j <= event2.imageCount; j++) {
+                        const imgPath = `PhotoGallery/${year}/${event2.eventFolder}/${j}.jpg`;
+                        const galleryItem = document.createElement('div');
+                        galleryItem.classList.add('gallery-item');
+                        galleryItem.innerHTML = `
+                            <img src="${imgPath}" alt="${event2.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found';">
+                            <div class="caption">${event2.title} - Image ${j}</div>
+                        `;
+                        galleryItem.onclick = () => openLightbox(year, event2.eventFolder, j - 1, event2.title);
+                        eventSection2.appendChild(galleryItem);
+                    }
+
+                    eventContainer2.appendChild(eventSection2);
+                    eventRow.appendChild(eventContainer2);
+                }
+
+                yearSection.appendChild(eventRow);
+            }
 
             galleryContainer.appendChild(yearSection);
         });
@@ -518,32 +610,7 @@
             lightbox.style.display = 'flex';
         }
 
-        // Load header and footer
-        function loadHeaderFooter() {
-            const navbarContainer = document.getElementById('navbar-container');
-            const footerContainer = document.getElementById('footer-container');
-            if (navbarContainer) {
-                const xhrNavbar = new XMLHttpRequest();
-                xhrNavbar.open('GET', 'navbar.html', true);
-                xhrNavbar.onreadystatechange = function () {
-                    if (xhrNavbar.readyState === 4 && xhrNavbar.status === 200) {
-                        navbarContainer.innerHTML = xhrNavbar.responseText;
-                    }
-                };
-                xhrNavbar.send();
-            }
-            if (footerContainer) {
-                const xhrFooter = new XMLHttpRequest();
-                xhrFooter.open('GET', 'footer.html', true);
-                xhrFooter.onreadystatechange = function () {
-                    if (xhrFooter.readyState === 4 && xhrFooter.status === 200) {
-                        footerContainer.innerHTML = xhrFooter.responseText;
-                    }
-                };
-                xhrFooter.send();
-            }
-        }
-
+        
         function changeImage(direction) {
             currentImageIndex = (currentImageIndex + direction + currentImages.length) % currentImages.length;
             const lightboxImg = document.getElementById('lightbox-img');
@@ -573,4 +640,5 @@
     </script>
     <script src="/js/loadheaderfooter.js"></script>
 </body>
+
 </html>

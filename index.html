@@ -188,21 +188,21 @@
         </div>
     </div>
 
-    <section class="news-section">
+    <section class="news-section py-5">
         <h2 class="text-start mb-2">News & Announcements</h2>
 
         <!-- Filter buttons -->
-        <div class="news-filters mb-3">
-            <button class="active" data-filter="all">All</button>
-            <button data-filter="announcement">Announcement</button>
-            <button data-filter="event">Event</button>
-            <button data-filter="achievement">Achievement</button>
-            <button data-filter="research">Research</button>
+        <div class="news-filters mb-3 d-flex gap-2 flex-wrap">
+            <button class="btn active" data-filter="all">All</button>
+            <button class="btn" data-filter="announcement">Announcement</button>
+            <button class="btn" data-filter="event">Event</button>
+            <button class="btn" data-filter="achievement">Achievement</button>
+            <button class="btn" data-filter="research">Research</button>
         </div>
 
         <!-- News cards container with navigation arrows -->
-        <div class="news-grid-container position-relative">
-            <div class="news-row" id="news-row">
+        <div class="news-grid-container position-static">
+            <div class="news-row d-flex flex-nowrap" id="news-row">
                 <!-- Card 1 -->
                 <article class="news-card research">
                     <div class="news-header">
@@ -212,8 +212,11 @@
                     </div>
                     <h3>Department Receives $5M Research Grant</h3>
                     <time datetime="2023-06-15">June 15, 2023</time>
-                    <p class="news-content">Our CS department has been awarded a $5 million grant from the NSF to advance research in quantum computing algorithms and applications.Our CS department has been awarded a $5 million grant from the NSF to advance research in quantum computing algorithms and applications.</p>
-                    <a href="news-details.html?id=1" class="read-more">Read more →</a>
+                    <p class="news-content">Our CS department has been awarded a $5 million grant from the NSF to
+                        advance research in quantum computing algorithms and applications.Our CS department has been
+                        awarded a $5 million grant from the NSF to advance research in quantum computing algorithms and
+                        applications.</p>
+                    <a href="#?id=1" class="read-more">Read more →</a>
                 </article>
 
                 <!-- Card 2 -->
@@ -225,8 +228,11 @@
                     </div>
                     <h3>New AI and Machine Learning Specialization Announced</h3>
                     <time datetime="2023-06-10">June 10, 2023</time>
-                    <p class="news-content">Starting Fall 2023, the department will offer a new specialization in AI and Machine Learning for undergraduates. Applications are now open. This program aims to equip students with cutting-edge skills in artificial intelligence, machine learning, and data science to prepare them for industry demands.</p>
-                    <a href="news-details.html?id=2" class="read-more">Read more →</a>
+                    <p class="news-content">Starting Fall 2023, the department will offer a new specialization in AI and
+                        Machine Learning for undergraduates. Applications are now open. This program aims to equip
+                        students with cutting-edge skills in artificial intelligence, machine learning, and data science
+                        to prepare them for industry demands.</p>
+                    <a href="#?id=2" class="read-more">Read more →</a>
                 </article>
 
                 <!-- Card 3 -->
@@ -238,8 +244,9 @@
                     </div>
                     <h3>Annual CS Department Symposium</h3>
                     <time datetime="2023-05-25">May 25, 2023</time>
-                    <p class="news-content">Join us for the Annual CS Department Symposium on July 15–16, 2023. This year’s theme is “Computing for Sustainable Futures.” Registration is required.</p>
-                    <a href="news-details.html?id=3" class="read-more">Read more →</a>
+                    <p class="news-content">Join us for the Annual CS Department Symposium on July 15–16, 2023. This
+                        year’s theme is “Computing for Sustainable Futures.” Registration is required.</p>
+                    <a href="#?id=3" class="read-more">Read more →</a>
                 </article>
 
                 <!-- Card 4 -->
@@ -251,14 +258,21 @@
                     </div>
                     <h3>Student Team Wins Hackathon</h3>
                     <time datetime="2023-07-01">July 1, 2023</time>
-                    <p class="news-content">Our student team secured first place in the National Hackathon, showcasing innovative solutions in cybersecurity.</p>
-                    <a href="news-details.html?id=4" class="read-more">Read more →</a>
+                    <p class="news-content">Our student team secured first place in the National Hackathon, showcasing
+                        innovative solutions in cybersecurity.</p>
+                    <a href="#?id=4" class="read-more">Read more →</a>
                 </article>
             </div>
 
             <!-- Navigation Arrows -->
-            <button class="news-nav-arrow news-nav-prev" aria-label="Previous News"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="news-nav-arrow news-nav-next" aria-label="Next News"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="news-nav-arrow news-nav-prev btn  top-50 start-0 translate-middle-y"
+                aria-label="Previous News">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="news-nav-arrow news-nav-next btn top-50 end-0 translate-middle-y"
+                aria-label="Next News">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
@@ -333,68 +347,61 @@
         </script>
 
         <script>
-         document.addEventListener("DOMContentLoaded", function () {
-            const buttons = document.querySelectorAll(".news-filters button");
-            const cards = document.querySelectorAll(".news-card");
-            const newsGridContainer = document.querySelector(".news-grid-container");
-            const prevArrow = document.querySelector(".news-nav-prev");
-            const nextArrow = document.querySelector(".news-nav-next");
+            document.addEventListener("DOMContentLoaded", function () {
+                const buttons = document.querySelectorAll(".news-filters button");
+                const cards = document.querySelectorAll(".news-card");
+                const newsGridContainer = document.querySelector(".news-grid-container");
+                const prevBtn = document.querySelector(".news-nav-prev");
+                const nextBtn = document.querySelector(".news-nav-next");
 
-            // Filter functionality
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    buttons.forEach(btn => btn.classList.remove("active"));
-                    button.classList.add("active");
+                // Filter functionality
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        buttons.forEach(btn => btn.classList.remove("active"));
+                        button.classList.add("active");
 
-                    const filter = button.getAttribute("data-filter");
+                        const filter = button.getAttribute("data-filter");
 
-                    cards.forEach(card => {
-                        card.style.display = filter === "all" || card.classList.contains(filter) ? "flex" : "none";
+                        cards.forEach(card => {
+                            card.style.display = filter === "all" || card.classList.contains(filter) ? "flex" : "none";
+                        });
+
+                        // Reset scroll position
+                        newsGridContainer.scrollLeft = 0;
+                        updateButtonState();
                     });
-
-                    // Reset scroll position
-                    newsGridContainer.scrollLeft = 0;
-                    updateArrows();
                 });
+
+                // Scroll amount (width of one card + gap)
+                const scrollAmount = 350 + 16; // Card max-width (350px) + gap (16px)
+
+                // Scroll left
+                prevBtn.addEventListener('click', function () {
+                    newsGridContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    updateButtonState();
+                });
+
+                // Scroll right
+                nextBtn.addEventListener('click', function () {
+                    newsGridContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    updateButtonState();
+                });
+
+                // Update button state (disable when at start/end)
+                function updateButtonState() {
+                    const scrollLeft = newsGridContainer.scrollLeft;
+                    const maxScroll = newsGridContainer.scrollWidth - newsGridContainer.clientWidth;
+
+                    prevBtn.disabled = scrollLeft <= 0;
+                    nextBtn.disabled = scrollLeft >= maxScroll - 1; // Small buffer for rounding
+                }
+
+                // Initial state check
+                updateButtonState();
+
+                // Update on scroll (e.g., manual scrolling)
+                newsGridContainer.addEventListener('scroll', updateButtonState);
             });
-
-            // Update arrow states
-            function updateArrows() {
-                const visibleCards = Array.from(cards).filter(card => card.style.display !== "none");
-                const containerWidth = newsGridContainer.offsetWidth;
-                const cardWidth = cards[0] ? cards[0].offsetWidth + 16 : 0; // Include gap
-                const totalWidth = visibleCards.length * cardWidth;
-
-                // Disable arrows at boundaries
-                prevArrow.disabled = newsGridContainer.scrollLeft <= 0;
-                nextArrow.disabled = newsGridContainer.scrollLeft + containerWidth >= totalWidth - 1; // Small buffer
-            }
-
-            // Navigation arrow functionality
-            nextArrow.addEventListener("click", () => {
-                const cardWidth = cards[0] ? cards[0].offsetWidth + 16 : 0;
-                if (cardWidth === 0) return;
-                newsGridContainer.scrollBy({ left: cardWidth, behavior: "smooth" });
-                setTimeout(updateArrows, 300); // Update arrows after scroll animation
-            });
-
-            prevArrow.addEventListener("click", () => {
-                const cardWidth = cards[0] ? cards[0].offsetWidth + 16 : 0;
-                if (cardWidth === 0) return;
-                newsGridContainer.scrollBy({ left: -cardWidth, behavior: "smooth" });
-                setTimeout(updateArrows, 300); // Update arrows after scroll animation
-            });
-
-            // Update arrows on scroll and resize
-            newsGridContainer.addEventListener("scroll", updateArrows);
-            window.addEventListener("resize", () => {
-                newsGridContainer.scrollLeft = 0; // Reset scroll on resize
-                updateArrows();
-            });
-
-            // Initial arrow state
-            updateArrows();
-        });
         </script>
 
         <script>
@@ -466,4 +473,5 @@
 
         <script src="./js/loadheaderfooter.js"></script>
 </body>
+
 </html>

@@ -20,7 +20,6 @@
       padding: 20px 5px;
     }
 
-
     .hero-section {
       background: #5c4fc4 !important;
       color: white;
@@ -75,24 +74,24 @@
     }
 
     /* Apply different border colors to publication cards based on their parent div */
-    .row>div:nth-child(1) .publication-card {
+    .row>div:nth-child(4n+1) .publication-card {
       border-left: 6px solid #3b3285;
-      /* Blue for first card */
+      /* Blue for cards 1, 5, 9, ... */
     }
 
-    .row>div:nth-child(2) .publication-card {
+    .row>div:nth-child(4n+2) .publication-card {
       border-left: 6px solid #d32f2f;
-      /* Red for second card */
+      /* Red for cards 2, 6, 10, ... */
     }
 
-    .row>div:nth-child(3) .publication-card {
+    .row>div:nth-child(4n+3) .publication-card {
       border-left: 6px solid #2e7d32;
-      /* Green for third card */
+      /* Green for cards 3, 7, 11, ... */
     }
 
-    .row>div:nth-child(4) .publication-card {
+    .row>div:nth-child(4n) .publication-card {
       border-left: 6px solid #f57c00;
-      /* Orange for fourth card */
+      /* Orange for cards 4, 8, 12, ... */
     }
 
     .card.publication-card:hover {
@@ -110,6 +109,16 @@
       margin-bottom: 15px;
       display: flex;
       align-items: center;
+    }
+
+    .publication-title a {
+      color: #3b3285;
+      text-decoration: none;
+      transition: text-decoration 0.3s ease;
+    }
+
+    .publication-title a:hover {
+      text-decoration: underline;
     }
 
     .publication-authors {
@@ -186,7 +195,7 @@
 <body>
   <div id="navbar-container"></div>
 
-  <!-- Hero Section (from Why AMTICS? code) -->
+  <!-- Hero Section -->
   <section class="hero-section">
     <h1>Publications</h1>
     <p>Discover the cutting-edge research and scholarly contributions from our faculty and students.</p>
@@ -196,13 +205,19 @@
   <section class="publications-section">
     <div class="container">
       <div class="row g-2 justify-content-center">
+        <!-- Existing Cards -->
         <div class="col-12 col-md-12">
           <div class="card publication-card">
             <div class="card-body">
-              <h3 class="publication-title">SAHAAYAK 2023 -- the Multi Domain Bilingual Parallel Corpus of Sanskrit to Hindi for Machine Translation</h3>
-              <p class="publication-authors">Bakrola, Vishvajitsinh, and Jitendra Nasariwala. "SAHAAYAK 2023--the Multi Domain Bilingual Parallel Corpus of Sanskrit to Hindi for Machine Translation." arXiv preprint arXiv:2307.00021 (2023).</p>
-                
-              </a>
+              <h3 class="publication-title">
+                <a href="https://arxiv.org/pdf/2307.00021" target="_blank">
+                  SAHAAYAK 2023 -- the Multi Domain Bilingual Parallel Corpus of Sanskrit to Hindi for Machine
+                  Translation
+                </a>
+              </h3>
+              <p class="publication-authors">Bakrola, Vishvajitsinh, and Jitendra Nasariwala. "SAHAAYAK 2023--the Multi
+                Domain Bilingual Parallel Corpus of Sanskrit to Hindi for Machine Translation." arXiv preprint
+                arXiv:2307.00021 (2023).</p>
             </div>
           </div>
         </div>
@@ -210,13 +225,16 @@
         <div class="col-12 col-md-12">
           <div class="card publication-card">
             <div class="card-body">
-              <span class="publication-type">Conference</span>
-              <h3 class="publication-title">Autonomous Robotics with Reinforcement Learning</h3>
-              <p class="publication-authors">Desai, A., Singh, V., Kapoor, R.</p>
-              <p class="publication-venue">IEEE International Conference on Robotics, 2024</p>
-              <a href="https://doi.org/10.1109/ICR.2024.456" class="publication-doi" target="_blank">
-              
-              </a>
+              <h3 class="publication-title">
+                <a href="https://ijettjournal.org/Volume-69/Issue-9/IJETT-V69I9P227.pdf" target="_blank">
+                  Attention-based Sequence to Sequence Learning for Machine Translation of Low Resourced Indic Languages
+                  – A case of Sanskrit to Hindi
+                </a>
+              </h3>
+              <p class="publication-authors">Bakarola, Vishvajit, and Jitendra Nasriwala. "Attention based Sequence to
+                Sequence Learning for Machine Translation of Low Resourced Indic Languages--A case of Sanskrit to
+                Hindi." arXiv preprint arXiv:2110.00435 (2021).</p>
+
             </div>
           </div>
         </div>
@@ -224,13 +242,16 @@
         <div class="col-12 col-md-12">
           <div class="card publication-card">
             <div class="card-body">
-              <span class="publication-type">Journal</span>
-              <h3 class="publication-title">AI-Driven Cybersecurity Frameworks</h3>
-              <p class="publication-authors">Rao, S., Joshi, M., Sharma, K.</p>
-              <p class="publication-venue">Cybersecurity Review, Vol. 8, No. 2, 2023</p>
-              <a href="https://doi.org/10.1000/csr.2023.789" class="publication-doi" target="_blank">
-              
-              </a>
+              <h3 class="publication-title">
+                <a href="https://link.springer.com/chapter/10.1007/978-981-16-2877-1_52" target="_blank">
+                  Attention-Based Neural Machine Translation Approach for Low-Resourced Indic Languages—A Case of
+                  Sanskrit to Hindi Translation
+                </a>
+              </h3>
+              <p class="publication-authors">Bakarola, Vishvajit, and Jitendra Nasriwala. "Attention-based neural
+                machine translation approach for low-resourced Indic languages—a case of Sanskrit to Hindi translation."
+                Smart Systems: Innovations in Computing: Proceedings of SSIC 2021. Singapore: Springer Singapore, 2021.
+                565-572.</p>
             </div>
           </div>
         </div>
@@ -238,13 +259,258 @@
         <div class="col-12 col-md-12">
           <div class="card publication-card">
             <div class="card-body">
-              <span class="publication-type">Conference</span>
-              <h3 class="publication-title">Optimizing Cloud-Based ML Pipelines</h3>
-              <p class="publication-authors">Sharma, K., Patel, P., Rao, S.</p>
-              <p class="publication-venue">ACM Cloud Computing Conference, 2024</p>
-              <a href="https://doi.org/10.1145/CCC.2024.012" class="publication-doi" target="_blank">
-              
-              </a>
+              <h3 class="publication-title">
+                <a href="https://www.biorxiv.org/content/10.1101/2020.03.30.014555v1.article-metrics" target="_blank">
+                  deepMINE - Natural Language Processing based Automatic Literature Mining and Research Summarization
+                  for Early Stage Comprehension in Pandemic Situations Specifically for COVID-19
+                </a>
+              </h3>
+              <p class="publication-authors">Joshi, Bhrugesh, et al. "deepMINE-natural language processing based
+                automatic literature mining and research summarization for early-stage comprehension in pandemic
+                situations specifically for COVID-19." bioRxiv (2020): 2020-03.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  Farmer-to-Customer Direct Crop Selling Techniques: A Review
+                </a>
+              </h3>
+              <p class="publication-authors">Aakash Parmar, NishabenJasoliya, Nehaben Patel, Sakshi Vaidya and Dharti
+                Patel, “Farmer-to-Customer Direct Crop Selling Techniques: A Review”, International Journal of Advance
+                Science and Technology (IJAST), KCC College of Technology, Chennai, Vol. 19, pp. 7556-7562, June 2020.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="https://link.springer.com/chapter/10.1007/978-981-13-9942-8_65" target="_blank">
+                  Computational Representation of Paninian Rules of Sanskrit Grammar for Dictionary-Independent Machine
+                  Translation
+                </a>
+              </h3>
+              <p class="publication-authors">Bakarola, Vishvajit, and Jitendra Nasriwala. "Computational Representation
+                of Paninian Rules of Sanskrit Grammar for Dictionary-Independent Machine Translation." Advances in
+                Computing and Data Sciences: Third International Conference, ICACDS 2019, Ghaziabad, India, April 12–13,
+                2019, Revised Selected Papers, Part II 3. Springer Singapore, 2019.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  Neural Machine Translation System of Indic Languages - An Attention based Approach
+                </a>
+              </h3>
+              <p class="publication-authors">Shah, Parth, and Vishvajit Bakrola. "Neural machine translation system of
+                indic languages-an attention based approach." 2019 Second International Conference on Advanced
+                Computational and Communication Paradigms (ICACCP). IEEE, 2019.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  Simulating the Paninian System of Word Formation in Sanskrit with Computational Linguistics for
+                  effective Machine Translation.
+                </a>
+              </h3>
+              <p class="publication-authors">Bakarola, Vishvajit, and Jitendra Nasriwala. "Computational Representation
+                of Paninian Rules of Sanskrit Grammar for Dictionary-Independent Machine Translation." Advances in
+                Computing and Data Sciences: Third International Conference, ICACDS 2019, Ghaziabad, India, April 12–13,
+                2019, Revised Selected Papers, Part II 3. Springer Singapore, 2019.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  A Review on Random Forest: An Ensemble Classifier
+                </a>
+              </h3>
+              <p class="publication-authors">
+                Aakash Parmar, Rakesh Katariya and Vatsal Patel, “A Review on Random Forest: An Ensemble Classifier”,
+                International Conference on Intelligent Data Communication Technologies and Internet of Things
+                (ICICI2018), Coimbatore, Springer, Cham, Vol. 26, August 2018.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  An Efficient Approach of Knowledge Representation using Paninian Rules of Sanskrit Grammar
+                </a>
+              </h3>
+              <p class="publication-authors">Panchal, Bhavin, Vishvajit Bakrola, and Dipak Dabhi. "An efficient approach
+                of knowledge representation using Paninian rules of Sanskrit grammar." Recent Findings in Intelligent
+                Computing Techniques: Proceedings of the 5th ICACNI 2017, Volume 3. Springer Singapore, 2018.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  An Approach of Knowledge Representation with Dhatu-Roop using Paninian Framework of Sanskrit Grammar
+                </a>
+              </h3>
+              <p class="publication-authors">Panchal, Bhavin, Vishvajit Bakrola, and Dipak Dabhi. "An approach of
+                Knowledge representation with dhAtu-roop using Paninian framework of Sanskrit Grammar."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="https://link.springer.com/chapter/10.1007/978-981-10-8657-1_62" target="_blank">
+                  Neural Machine Translation system for IndicLanguages using Deep Neural Architecture
+                </a>
+              </h3>
+              <p class="publication-authors">Shah, Parth, Vishvajit Bakarola, and Supriya Pati. "Neural machine
+                translation system for indic languages using deep neural architecture." International Conference on Next
+                Generation Computing Technologies. Singapore: Springer Singapore, 2017.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="https://link.springer.com/chapter/10.1007/978-981-10-8633-5_53" target="_blank">
+                  Optimal Approach of Image Recognition using Deep ConvolutionalArchitecture
+                </a>
+              </h3>
+              <p class="publication-authors">Shah, Parth, Vishvajit Bakrola, and Supriya Pati. "Optimal approach for
+                image recognition using deep convolutional architecture." Recent Findings in Intelligent Computing
+                Techniques: Proceedings of the 5th ICACNI 2017, Volume 3. Springer Singapore, 2018.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="https://ieeexplore.ieee.org/document/8276124" target="_blank">
+                  Image Captioning Using Deep Neural Architecture
+                </a>
+              </h3>
+              <p class="publication-authors">Shah, Parth, Vishvajit Bakrola, and Supriya Pati. "Image captioning using
+                deep neural architectures." 2017 International Conference on Innovations in Information, Embedded and
+                Communication Systems (ICIIECS). IEEE, 2017.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#" >
+                  Machine Learning Techniques for Rainfall Prediction: A Review
+                </a>
+              </h3>
+              <p class="publication-authors">Aakash Parmar, Kinjal Mistree and Mithila Sompura, “Machine Learning
+                Techniques for Rainfall Prediction: A Review”, IEEE Sponsored 4th International Conference on Innovation
+                in Information, Embedded and Communication Systems (ICIIECS), Coimbatore, Vol. 3, pp. 425-430, March
+                2017.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#" >
+                  A Study on Computational Representation of Panian Grammar based on Natural Language Processing
+                </a>
+              </h3>
+              <p class="publication-authors">Dhimar, Twisha, and Mr Vishvajit Bakrola. "A Study on Computational
+                Representation of Pāṇinian Grammar based on Natural Language Processing."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  Brain Computer Interface for detecting Brain activity and controlling an external object
+                </a>
+              </h3>
+              <p class="publication-authors">Brain Computer Interface for detecting Brain activity and controlling an
+                external object</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#">
+                  Home Automation System based on voice recognition
+                </a>
+              </h3>
+              <p class="publication-authors">Dhara Patel,
+                Vishvajit Bakrola, NCRAES 2015</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="#" >
+                  Intelligent Flood control system
+                </a>
+              </h3>
+              <p class="publication-authors">Khushbu Desai,
+                Vishvajit Bakrola, NCRAES 2015</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="card publication-card">
+            <div class="card-body">
+              <h3 class="publication-title">
+                <a href="https://rjwave.org/ijedr/" target="_blank">
+                  Development of 8085 microprocessor based outputport and implementation using real components
+                </a>
+              </h3>
+              <p class="publication-authors">Bakrola, Vishvajit. "Development of 8085 microprocessor based output port
+                and implementation using real components." (2014).</p>
             </div>
           </div>
         </div>

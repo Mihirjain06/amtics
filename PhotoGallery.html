@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,23 +21,25 @@
             overflow-x: hidden;
         }
 
-        .hero-section {
-            background: #5c4fc4 !important;
-            color: white;
-            padding: 15px 12px;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-        }
+        
 
-        .hero-section h1 {
-            font-size: 35px;
-            margin-top: 20px;
-        }
+    .hero-section {
+      background: #5c4fc4 !important;
+      color: white;
+      padding: 15px 12px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-        .hero-section p {
-            font-size: 15px;
-            margin-top: -4px;
-        }
+    .hero-section h1 {
+      font-size: 35px;
+      margin-top: 20px;
+    }
+
+    .hero-section p {
+      font-size: 15px;
+      margin-top: -4px;
+    }
 
         .year-filter {
             background: rgba(255, 255, 255, 0.95);
@@ -65,17 +66,17 @@
         }
 
         .year-filter button:hover {
-            background: #5c4fc4;
-            color: #FFFFFF;
+            background: #f59e0b;
+            color: #1f2937;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .year-filter button.active {
-            background: #5c4fc4;
-            color: #FFFFFF;
+            background: #f59e0b;
+            color: #1f2937;
             transform: scale(1.05);
-
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
         }
 
         .gallery-container {
@@ -112,31 +113,42 @@
 
         .event-row {
             display: flex;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1.2rem;
             margin-bottom: 2rem;
         }
 
         .event-container {
-            flex: 1;
-            min-width: 0;
-            max-width: calc(50% - 0.6rem);
-            background: #fff;
-            border-radius: 12px;
-            padding: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
+        }
+
+        .event-container.paired {
+            width: 48%;
+        }
+
+        .event-container.single {
+            width: 100%;
+        }
+
+        .event-container:nth-child(odd) {
+            margin-top: 0.5rem;
+        }
+
+        .event-container:nth-child(even) {
+            margin-top: 2rem;
         }
 
         .event-title {
             font-size: 1.6rem;
             font-weight: 600;
             color: #2d3748;
-            border: none;
+            background: rgba(255, 255, 255, 0.95);
             padding: 0.8rem 1.5rem;
+            border-radius: 10px;
             text-align: center;
-            margin: 0 0 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -144,17 +156,16 @@
             transform: translateY(-3px);
         }
 
+        /* Grid Layout */
         .gallery-section {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            padding: 1rem 0;
-            flex-grow: 1;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: 100px;
+            gap: 10px;
+            padding: 0;
         }
 
         .gallery-item {
-            width: 250px;
-            height: 200px;
             position: relative;
             border-radius: 12px;
             overflow: hidden;
@@ -163,13 +174,28 @@
             cursor: pointer;
         }
 
+        .gallery-item.tall {
+            grid-row: span 3;
+            grid-column: span 1;
+        }
+
+        .gallery-item.wide {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+
+        .gallery-item.square {
+            grid-row: span 2;
+            grid-column: span 1;
+        }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
             display: block;
             border-radius: 12px;
             transition: transform 0.4s ease, opacity 0.4s ease;
+            object-fit: cover;
         }
 
         .gallery-item:hover {
@@ -189,8 +215,8 @@
             right: 0;
             background: linear-gradient(to top, rgba(37, 99, 235, 0.9), transparent);
             color: #fff;
-            padding: 0.8rem;
-            font-size: 0.9rem;
+            padding: 0.6rem;
+            font-size: 0.8rem;
             font-weight: 500;
             text-align: center;
             opacity: 0;
@@ -203,7 +229,6 @@
             transform: translateY(0);
         }
 
-        /* Lightbox Styles */
         .lightbox {
             display: none;
             position: fixed;
@@ -220,16 +245,17 @@
         }
 
         .lightbox img {
-            max-width: 92%;
-            max-height: 75%;
+            max-width: 70%;
+            max-height: 60%;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             animation: zoomIn 0.4s ease;
+            object-fit: contain;
         }
 
         .lightbox-caption {
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             background: rgba(37, 99, 235, 0.85);
             padding: 0.8rem 1.5rem;
             border-radius: 8px;
@@ -264,149 +290,115 @@
             right: 1.5rem;
             font-size: 2rem;
             color: #fff;
-
             padding: 0.4rem 0.8rem;
             border-radius: 50%;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
         }
 
+        .lightbox-close:hover {
+            background: #f59e0b;
+            transform: scale(1.1);
+        }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
-        /* Responsive Design */
         @media (max-width: 1200px) {
-            .event-container {
-                max-width: calc(50% - 0.6rem);
+            .event-container.paired {
+                width: 48%;
             }
-
+            .event-container.single {
+                width: 100%;
+            }
             .gallery-section {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-
-            .gallery-item {
-                width: 200px;
-                height: 160px;
-            }
-
-            .gallery-container {
-                max-width: 1200px;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-auto-rows: 80px;
             }
         }
 
         @media (max-width: 992px) {
-            .event-row {
-                flex-direction: column;
+            .event-container.paired {
+                width: 100%;
             }
-
-            .event-container {
-                max-width: 100%;
+            .event-container.single {
+                width: 100%;
             }
-
-
+            .event-container:nth-child(odd) {
+                margin-top: 0.5rem;
+            }
+            .event-container:nth-child(even) {
+                margin-top: 2rem;
+            }
             .gallery-year h2 {
                 font-size: 1.7rem;
             }
-
             .event-title {
                 font-size: 1.4rem;
             }
         }
 
         @media (max-width: 768px) {
-            .event-row {
-                flex-direction: column;
+            .event-container.paired {
+                width: 100%;
             }
-
-            .event-container {
-                max-width: 100%;
+            .event-container.single {
+                width: 100%;
             }
-
-            .gallery-section {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-
-            .gallery-item {
-                width: 180px;
-                height: 144px;
-            }
-
             .year-filter button {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
-
             .lightbox img {
-                max-width: 95%;
-                max-height: 70%;
+                max-width: 80%;
+                max-height: 55%;
+            }
+            .gallery-section {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                grid-auto-rows: 60px;
             }
         }
 
         @media (max-width: 576px) {
-            .event-row {
-                flex-direction: column;
+            .event-container.paired {
+                width: 100%;
             }
-
-            .event-container {
-                max-width: 100%;
+            .event-container.single {
+                width: 100%;
             }
-
-            .gallery-section {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-
-            .gallery-item {
-                width: 150px;
-                height: 120px;
-            }
-
             .gallery-year h2 {
                 font-size: 1.5rem;
             }
-
             .event-title {
                 font-size: 1.2rem;
             }
-
             .year-filter button {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.85rem;
             }
-
             .lightbox img {
-                max-width: 95%;
-                max-height: 65%;
+                max-width: 85%;
+                max-height: 50%;
             }
-
             .lightbox-close {
                 top: 1rem;
                 right: 1rem;
                 font-size: 1.6rem;
             }
+            .gallery-section {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                grid-auto-rows: 50px;
+            }
         }
     </style>
 </head>
-
 <body>
     <div id="navbar-container"></div>
     <div class="hero-section">
@@ -459,7 +451,13 @@
         let currentImages = [];
         let currentImageIndex = 0;
 
-        // Generate year filter buttons
+        const gridPatterns = ['tall', 'wide', 'square'];
+
+        function getGridPattern(index) {
+            const patternIndex = (index % 5 + Math.floor(index / 5)) % gridPatterns.length;
+            return gridPatterns[patternIndex];
+        }
+
         const yearFilter = document.getElementById('year-filter');
         const sortedYears = Object.keys(years).sort((a, b) => b - a);
         sortedYears.forEach(year => {
@@ -473,14 +471,12 @@
             yearFilter.appendChild(button);
         });
 
-        // Highlight active year button
         function highlightYearButton(selectedYear) {
             yearFilter.querySelectorAll('button').forEach(button => {
                 button.classList.toggle('active', button.textContent === selectedYear);
             });
         }
 
-        // Generate gallery sections
         const galleryContainer = document.getElementById('gallery-container');
         sortedYears.forEach(year => {
             const yearSection = document.createElement('div');
@@ -492,17 +488,18 @@
             yearHeader.innerHTML = `<h2>${year}</h2>`;
             yearSection.appendChild(yearHeader);
 
-            // Group events into pairs
             const events = years[year].events;
+            const isSingleEvent = events.length === 1;
+
             for (let i = 0; i < events.length; i += 2) {
                 const eventRow = document.createElement('div');
                 eventRow.classList.add('event-row');
 
-                // First event in the pair
                 const event1 = events[i];
                 if (event1) {
                     const eventContainer1 = document.createElement('div');
                     eventContainer1.classList.add('event-container');
+                    eventContainer1.classList.add(isSingleEvent ? 'single' : 'paired');
 
                     const eventTitle1 = document.createElement('div');
                     eventTitle1.classList.add('event-title');
@@ -516,9 +513,11 @@
                         const imgPath = `PhotoGallery/${year}/${event1.eventFolder}/${j}.jpg`;
                         const galleryItem = document.createElement('div');
                         galleryItem.classList.add('gallery-item');
+                        galleryItem.classList.add(getGridPattern(j - 1));
+
                         galleryItem.innerHTML = `
-                            <img src="${imgPath}" alt="${event1.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found';">
-                            <div class="caption">${event1.title} - Image ${j}</div>
+                            <img src="${imgPath}" alt="${event1.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Found';">
+                            <div class="caption">${event1.title} </div>
                         `;
                         galleryItem.onclick = () => openLightbox(year, event1.eventFolder, j - 1, event1.title);
                         eventSection1.appendChild(galleryItem);
@@ -528,11 +527,11 @@
                     eventRow.appendChild(eventContainer1);
                 }
 
-                // Second event in the pair
                 const event2 = events[i + 1];
                 if (event2) {
                     const eventContainer2 = document.createElement('div');
                     eventContainer2.classList.add('event-container');
+                    eventContainer2.classList.add('paired');
 
                     const eventTitle2 = document.createElement('div');
                     eventTitle2.classList.add('event-title');
@@ -546,9 +545,11 @@
                         const imgPath = `PhotoGallery/${year}/${event2.eventFolder}/${j}.jpg`;
                         const galleryItem = document.createElement('div');
                         galleryItem.classList.add('gallery-item');
+                        galleryItem.classList.add(getGridPattern(j - 1));
+
                         galleryItem.innerHTML = `
-                            <img src="${imgPath}" alt="${event2.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found';">
-                            <div class="caption">${event2.title} - Image ${j}</div>
+                            <img src="${imgPath}" alt="${event2.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Found';">
+                            <div class="caption">${event2.title}</div>
                         `;
                         galleryItem.onclick = () => openLightbox(year, event2.eventFolder, j - 1, event2.title);
                         eventSection2.appendChild(galleryItem);
@@ -564,14 +565,12 @@
             galleryContainer.appendChild(yearSection);
         });
 
-        // Filter images by year
         function filterImagesByYear(selectedYear) {
             sortedYears.forEach(year => {
                 document.getElementById(`year-${year}`).style.display = year === selectedYear ? 'block' : 'none';
             });
         }
 
-        // Lightbox functionality
         function openLightbox(year, eventFolder, index, eventTitle) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -579,7 +578,7 @@
 
             currentImages = Array.from({ length: years[year].events.find(e => e.eventFolder === eventFolder).imageCount }, (_, i) => ({
                 src: `PhotoGallery/${year}/${eventFolder}/${i + 1}.jpg`,
-                alt: `${eventTitle} - Image ${i + 1}`
+                alt: `${eventTitle}`
             }));
             currentImageIndex = index;
 
@@ -588,7 +587,6 @@
             lightboxCaption.textContent = currentImages[index].alt;
             lightbox.style.display = 'flex';
         }
-
 
         function changeImage(direction) {
             currentImageIndex = (currentImageIndex + direction + currentImages.length) % currentImages.length;
@@ -603,7 +601,6 @@
             document.getElementById('lightbox').style.display = 'none';
         }
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (document.getElementById('lightbox').style.display === 'flex') {
                 if (e.key === 'ArrowLeft') changeImage(-1);
@@ -612,12 +609,10 @@
             }
         });
 
-        // Initialize
         filterImagesByYear(sortedYears[0]);
         highlightYearButton(sortedYears[0]);
         loadHeaderFooter();
     </script>
     <script src="/js/loadheaderfooter.js"></script>
 </body>
-
 </html>

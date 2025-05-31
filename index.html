@@ -192,76 +192,66 @@
         <h2 class="text-start mb-2">News & Announcements</h2>
 
         <!-- Filter buttons -->
-        <div class="news-filters mb-3 d-flex gap-2 flex-wrap">
-            <button class="btn active" data-filter="all">All</button>
-            <button class="btn" data-filter="announcement">Announcement</button>
-            <button class="btn" data-filter="event">Event</button>
-            <button class="btn" data-filter="achievement">Achievement</button>
-            <button class="btn" data-filter="research">Research</button>
+        <div class="news-filters mb-3">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="announcement">Announcements</button>
+            <button data-filter="student">Student</button>
+            <button data-filter="examination">Examination</button>
+            <button data-filter="ascademic">Academic</button>
+            <!-- <button data-filter="research">XYZ</button> -->
         </div>
 
         <!-- News cards container with navigation arrows -->
         <div class="news-grid-container position-static">
             <div class="news-row d-flex flex-nowrap" id="news-row">
                 <!-- Card 1 -->
-                <article class="news-card research">
+                <article class="news-card announcement">
                     <div class="news-header">
                         <i class="fa-solid fa-flask"></i>
-                        <span class="category">Research</span>
+                        <span class="category">Announcement</span>
                         <span class="badge">Important</span>
                     </div>
-                    <h3>Department Receives $5M Research Grant</h3>
-                    <time datetime="2023-06-15">June 15, 2023</time>
-                    <p class="news-content">Our CS department has been awarded a $5 million grant from the NSF to
-                        advance research in quantum computing algorithms and applications.Our CS department has been
-                        awarded a $5 million grant from the NSF to advance research in quantum computing algorithms and
-                        applications.</p>
+                    <h3>AMTICS initiating with new vertical in Bioscience</h3>
+                    <time datetime="2023-06-15">May 23, 2025</time>
+                    <p class="news-content">AMTICS launches B.Tech. in Computer Science and Bioscience, offering B group
+                        students a new
+                        pathway into engineering. This innovative program blends biology with technology, opening doors
+                        to careers in bioinformatics, healthcare, and life sciences.</p>
                     <a href="news-detail.html?id=1" class="read-more">Read more →</a>
                 </article>
 
                 <!-- Card 2 -->
-                <article class="news-card announcement">
+                <article class="news-card student">
                     <div class="news-header">
                         <i class="fa-solid fa-bullhorn"></i>
-                        <span class="category">Announcement</span>
+                        <span class="category">Student</span>
                         <span class="badge">Important</span>
                     </div>
-                    <h3>New AI and Machine Learning Specialization Announced</h3>
-                    <time datetime="2023-06-10">June 10, 2023</time>
-                    <p class="news-content">Starting Fall 2023, the department will offer a new specialization in AI and
-                        Machine Learning for undergraduates. Applications are now open. This program aims to equip
-                        students with cutting-edge skills in artificial intelligence, machine learning, and data science
-                        to prepare them for industry demands.</p>
+                    <h3>Fees Notice - Due date July 15, 2025</h3>
+                    <time datetime="2023-06-10">May 15, 2025</time>
+                    <p class="news-content">All students of 3rd, 5th, and 7th semesters are hereby instructed to pay
+                        their semester fees on
+                        or before July 15, 2025. Timely payment is mandatory to avoid any inconvenience.</p>
                     <a href="news-detail.html?id=2" class="read-more">Read more →</a>
                 </article>
 
                 <!-- Card 3 -->
-                <article class="news-card event">
+                <article class="news-card announcement">
                     <div class="news-header">
                         <i class="fa-solid fa-calendar"></i>
-                        <span class="category">Event</span>
+                        <span class="category">Announcement</span>
                         <span class="badge">Important</span>
                     </div>
-                    <h3>Annual CS Department Symposium</h3>
-                    <time datetime="2023-05-25">May 25, 2023</time>
-                    <p class="news-content">Join us for the Annual CS Department Symposium on July 15–16, 2023. This
-                        year’s theme is “Computing for Sustainable Futures.” Registration is required.</p>
+                    <h3>ACPC Mock-round Choice Filling from June 03, 2025</h3>
+                    <time datetime="2023-05-25">May 29, 2023</time>
+                    <p class="news-content">The ACPC Merit List will be announced on June 03, 2025. The Mock Round
+                        Choice Filling will be
+                        open from June 03 to June 05, 2025. All eligible students are advised to participate within the
+                        given dates. Don’t miss this important opportunity!</p>
                     <a href="news-detail.html?id=3" class="read-more">Read more →</a>
                 </article>
 
-                <!-- Card 4 -->
-                <article class="news-card achievement">
-                    <div class="news-header">
-                        <i class="fa-solid fa-trophy"></i>
-                        <span class="category">Achievement</span>
-                        <span class="badge">Important</span>
-                    </div>
-                    <h3>Student Team Wins Hackathon</h3>
-                    <time datetime="2023-07-01">July 1, 2023</time>
-                    <p class="news-content">Our student team secured first place in the National Hackathon, showcasing
-                        innovative solutions in cybersecurity.</p>
-                    <a href="news-detail.html?id=4" class="read-more">Read more →</a>
-                </article>
+
             </div>
 
             <!-- Navigation Arrows -->
@@ -269,64 +259,56 @@
                 aria-label="Previous News">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
-            <button class="news-nav-arrow news-nav-next btn top-50 end-0 translate-middle-y"
-                aria-label="Next News">
+            <button class="news-nav-arrow news-nav-next btn top-50 end-0 translate-middle-y" aria-label="Next News">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
     </section>
 
     <div class="container-fluid">
-        <h2 class="text-start">Our Gallery</h2>
+        <h2 class="text-start">AMTICS@Glimpse</h2>
         <div class="slider-wrapper">
             <div class="scrolling-wrapper" id="image-slider">
-                <img src="images/1.jpg" alt="Image 1">
-                <img src="images/2.jpg" alt="Image 2">
-                <img src="images/3.jpg" alt="Image 3">
-                <img src="images/4.jpg" alt="Image 4">
-                <img src="images/5.jpg" alt="Image 5">
+                <!-- Original image set -->
+                <img src="glimpse photos/1.png" alt="Image 1">
+                <img src="glimpse photos/2.png" alt="Image 2">
+                <img src="glimpse photos/3.jpg" alt="Image 3">
+                <img src="glimpse photos/4.jpg" alt="Image 4">
+                <img src="glimpse photos/5.jpg" alt="Image 5">
+                <img src="glimpse photos/6.png" alt="Image 6">
+                <img src="glimpse photos/7.JPG" alt="Image 7">
+                <img src="glimpse photos/8.JPG" alt="Image 8">
+                <img src="glimpse photos/9.JPG" alt="Image 9">
+                <img src="glimpse photos/10.JPG" alt="Image 10">
+                <img src="glimpse photos/11.png" alt="Image 11">
+                <img src="glimpse photos/12.JPG" alt="Image 12">
+                <img src="glimpse photos/13.JPG" alt="Image 13">
+                <img src="glimpse photos/14.JPG" alt="Image 14">
+                <img src="glimpse photos/15.JPG" alt="Image 15">
+                <img src="glimpse photos/16.png" alt="Image 16">
             </div>
         </div>
 
         <!-- Quick Links Section -->
         <section id="quick-links">
-            <h1>Quick Links</h1>
             <div class="quick-links-container">
-                <div class="quick-link-card">
-                    <i class="fa-solid fa-users"></i>
-                    <h3>Faculty Directory</h3>
-                    <p>Meet our world-class faculty and researchers</p>
-                    <a href="Staff.html">Visit <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="quick-link-card">
-                    <i class="fa-solid fa-flask"></i>
-                    <h3>Research Labs</h3>
-                    <p>Explore our cutting-edge research facilities</p>
-                    <a href="RDC.html">Visit <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
                 <div class="quick-link-card">
                     <i class="fa-solid fa-book"></i>
                     <h3>Student Projects</h3>
                     <p>Discover innovative projects by our students</p>
-                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#">Read More<i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="quick-link-card">
                     <i class="fa-solid fa-newspaper"></i>
                     <h3>Newsletter</h3>
                     <p>Read our latest department newsletter</p>
-                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="quick-link-card">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>Academic Programs</h3>
-                    <p>Learn about our degree programs and courses</p>
-                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="NewsEvents.html">Read More<i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="quick-link-card">
                     <i class="fa-solid fa-calendar-alt"></i>
                     <h3>Events Calendar</h3>
                     <p>View upcoming department events and seminars</p>
-                    <a href="#">Visit <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#">Read More<i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>

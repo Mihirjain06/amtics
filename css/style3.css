@@ -133,7 +133,7 @@ body {
 
 /* Hover effects for desktop */
 @media (min-width: 769px) {
-    .nav-item.dropdown:hover > .dropdown-menu,
+    /* .nav-item.dropdown:hover > .dropdown-menu, */
     .dropdown-submenu:hover > .dropdown-menu {
         display: block;
         opacity: 1;

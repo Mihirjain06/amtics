@@ -11,7 +11,6 @@
     <meta name="author" content="Asha M. Tarsadia Institute of Computer Science and Technology">
     <meta name="robots" content="index, follow">
     <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
-
     <meta property="og:title" content="AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology">
     <meta property="og:description"
         content="Join AMTICS, a top-ranked NAAC accredited institute offering B.Tech. and M.Tech. programs in Computer Science and Engineering">
@@ -37,7 +36,6 @@
     <meta name="language" content="English">
     <meta name="copyright"
         content="AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology | Uka Tarsadia University, Bardoli">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -71,7 +69,6 @@
             ]
         }
     </script>
-
     <style>
         @media (max-width: 767px) {
             .university-name {
@@ -84,8 +81,17 @@
 <body>
     <div id="navbar-container"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- Announcement Container -->
+    <div class="announcement-container">
+        <div class="announcement-label">ANNOUNCEMENTS</div>
+        <div class="announcement-content">
+            <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                <span id="announcement-marquee"></span>
+            </marquee>
+        </div>
+    </div>
+
     <div id="bannerCarousel" class="carousel slide banner" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('SlideShowImage/1.jpg');"
@@ -95,7 +101,6 @@
             <div class="carousel-item" style="background-image: url('SlideShowImage/3.jpg');" data-bs-interval="6000">
             </div>
         </div>
-
         <div class="carousel-content">
             <h1>Be Wise. Choose Right.</h1>
             <p>Make Career in Modern-Day Technologies with us!</p>
@@ -163,11 +168,10 @@
                     <h3>VISION</h3>
                 </div>
                 <div class="text-content">
-                    <p>Become a cradle for innovation through nurturing excellence and imparting knowledge to handle
-                        and respond to societal challenges.</p>
+                    <p>Become a cradle for innovation through nurturing excellence and imparting knowledge to handle and
+                        respond to societal challenges.</p>
                 </div>
             </div>
-
             <!-- MISSION BOX -->
             <div class="info-box mission">
                 <div class="heading-row">
@@ -178,8 +182,8 @@
                 </div>
                 <div class="text-content">
                     <p>1. To become centre of excellence in the field of Computer Science and Technology by fostering
-                        humanitarian values, critical thinking, and creativity for problem solving in
-                        faculties and students.</p>
+                        humanitarian values, critical thinking, and creativity for problem solving in faculties and
+                        students.</p>
                     <p>2. Establish an innovation ecosystem through skill-based technical education.</p>
                     <p>3. Develop a socially responsible, highly skilled task force and future leaders to meet national
                         challenges.</p>
@@ -188,74 +192,22 @@
         </div>
     </div>
 
+    <!-- News & Announcements Section -->
     <section class="news-section py-5">
         <h2 class="text-start mb-2">News & Announcements</h2>
-
         <!-- Filter buttons -->
         <div class="news-filters mb-3">
-            <button class="active" data-filter="all">All</button>
+            <button class="is-active" data-filter="all">All</button>
             <button data-filter="announcement">Announcements</button>
             <button data-filter="student">Student</button>
             <button data-filter="examination">Examination</button>
-            <button data-filter="ascademic">Academic</button>
-            <!-- <button data-filter="research">XYZ</button> -->
+            <button data-filter="academic">Academic</button>
         </div>
-
         <!-- News cards container with navigation arrows -->
         <div class="news-grid-container position-static">
-            <div class="news-row d-flex flex-nowrap" id="news-row">
-                <!-- Card 1 -->
-                <article class="news-card announcement">
-                    <div class="news-header">
-                        <i class="fa-solid fa-flask"></i>
-                        <span class="category">Announcement</span>
-                        <span class="badge">Important</span>
-                    </div>
-                    <h3>AMTICS initiating with new vertical in Bioscience</h3>
-                    <time datetime="2023-06-15">May 23, 2025</time>
-                    <p class="news-content">AMTICS launches B.Tech. in Computer Science and Bioscience, offering B group
-                        students a new
-                        pathway into engineering. This innovative program blends biology with technology, opening doors
-                        to careers in bioinformatics, healthcare, and life sciences.</p>
-                    <a href="news-detail.html?id=1" class="read-more">Read more →</a>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="news-card student">
-                    <div class="news-header">
-                        <i class="fa-solid fa-bullhorn"></i>
-                        <span class="category">Student</span>
-                        <span class="badge">Important</span>
-                    </div>
-                    <h3>Fees Notice - Due date July 15, 2025</h3>
-                    <time datetime="2023-06-10">May 15, 2025</time>
-                    <p class="news-content">All students of 3rd, 5th, and 7th semesters are hereby instructed to pay
-                        their semester fees on
-                        or before July 15, 2025. Timely payment is mandatory to avoid any inconvenience.</p>
-                    <a href="news-detail.html?id=2" class="read-more">Read more →</a>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="news-card announcement">
-                    <div class="news-header">
-                        <i class="fa-solid fa-calendar"></i>
-                        <span class="category">Announcement</span>
-                        <span class="badge">Important</span>
-                    </div>
-                    <h3>ACPC Mock-round Choice Filling from June 03, 2025</h3>
-                    <time datetime="2023-05-25">May 29, 2023</time>
-                    <p class="news-content">The ACPC Merit List will be announced on June 03, 2025. The Mock Round
-                        Choice Filling will be
-                        open from June 03 to June 05, 2025. All eligible students are advised to participate within the
-                        given dates. Don’t miss this important opportunity!</p>
-                    <a href="news-detail.html?id=3" class="read-more">Read more →</a>
-                </article>
-
-
-            </div>
-
+            <div class="news-row d-flex flex-nowrap" id="news-row"></div>
             <!-- Navigation Arrows -->
-            <button class="news-nav-arrow news-nav-prev btn  top-50 start-0 translate-middle-y"
+            <button class="news-nav-arrow news-nav-prev btn top-50 start-0 translate-middle-y"
                 aria-label="Previous News">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
@@ -269,7 +221,6 @@
         <h2 class="text-start">AMTICS@Glimpse</h2>
         <div class="slider-wrapper">
             <div class="scrolling-wrapper" id="image-slider">
-                <!-- Original image set -->
                 <img src="glimpse photos/1.png" alt="Image 1">
                 <img src="glimpse photos/2.png" alt="Image 2">
                 <img src="glimpse photos/3.jpg" alt="Image 3">
@@ -315,104 +266,131 @@
 
         <div id="footer-container"></div>
 
+
+        <!-- Replace the `<script>` section in your HTML with this -->
         <script>
+
             window.addEventListener('DOMContentLoaded', () => {
+                // Image slider
                 const slider = document.getElementById('image-slider');
-                const images = Array.from(slider.children);
+                if (slider) {
+                    const images = Array.from(slider.children);
+                    images.forEach((img) => {
+                        const clone = img.cloneNode(true);
+                        slider.appendChild(clone);
+                    });
+                }
 
-                // Clone each image and append to the slider
-                images.forEach((img) => {
-                    const clone = img.cloneNode(true);
-                    slider.appendChild(clone);
-                });
-            });
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
+                // News section
                 const buttons = document.querySelectorAll(".news-filters button");
-                const cards = document.querySelectorAll(".news-card");
+                const newsRow = document.getElementById('news-row');
                 const newsGridContainer = document.querySelector(".news-grid-container");
                 const prevBtn = document.querySelector(".news-nav-prev");
                 const nextBtn = document.querySelector(".news-nav-next");
+                const marqueeContainer = document.getElementById('announcement-marquee');
+
+                // Combine announcement.js and localStorage data
+                let newsCards = [...newsData, ...JSON.parse(localStorage.getItem('newsCards') || '[]')];
+
+                // Ensure each card has an ID
+                newsCards = newsCards.map((card, index) => ({
+                    ...card,
+                    id: card.id || `news-${index + 1}` // Fallback ID if not present
+                }));
+
+                // Filter out cards older than 7 days
+                const sevenDaysAgo = new Date();
+                sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+                newsCards = newsCards.filter(card => {
+                    const cardDate = card.createdAt ? new Date(card.createdAt) : new Date(card.datetime);
+                    return cardDate >= sevenDaysAgo;
+                });
+
+                // Sort by date (newest first) and limit to 5 cards
+                newsCards = newsCards.sort((a, b) => new Date(b.datetime) - new Date(a.datetime)).slice(0, 5);
+
+                // Update localStorage to reflect filtered and limited cards
+                localStorage.setItem('newsCards', JSON.stringify(newsCards.filter(card => card.createdAt)));
+
+                // Render news cards
+                newsRow.innerHTML = ''; // Clear existing cards
+                newsCards.forEach(card => {
+                    const cardElement = document.createElement('article');
+                    cardElement.className = `news-card ${card.category.toLowerCase()}`;
+                    cardElement.innerHTML = `
+                <div class="news-header">
+                    <i class="${card.icon}"></i>
+                    <span class="category">${card.category}</span>
+                    <span class="badge">Important</span>
+                </div>
+                <h3>${card.title}</h3>
+                <time datetime="${card.datetime}">${new Date(card.datetime).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+                <p class="news-content">${card.content}</p>
+                <a href="news-detail.html?id=${card.id}" class="read-more">Read more →</a>
+            `;
+                    newsRow.appendChild(cardElement);
+                });
+
+                // Update marquee
+                marqueeContainer.innerHTML = newsCards.map(card =>
+                    `<span class="announcement-item">${card.title} - <a href="news-detail.html?id=${card.id}">Details</a></span>   |  `
+                ).join('');
 
                 // Filter functionality
                 buttons.forEach(button => {
                     button.addEventListener("click", () => {
-                        buttons.forEach(btn => btn.classList.remove("active"));
-                        button.classList.add("active");
-
+                        buttons.forEach(btn => btn.classList.remove("is-active"));
+                        button.classList.add("is-active");
                         const filter = button.getAttribute("data-filter");
+                        const cards = document.querySelectorAll(".news-row .news-card");
 
                         cards.forEach(card => {
-                            card.style.display = filter === "all" || card.classList.contains(filter) ? "flex" : "none";
+                            const shouldShow = filter === "all" || card.classList.contains(filter.toLowerCase());
+                            card.style.display = shouldShow ? "" : "none";
                         });
 
                         // Reset scroll position
-                        newsGridContainer.scrollLeft = 0;
+                        if (newsGridContainer) {
+                            newsGridContainer.scrollLeft = 0;
+                        }
                         updateButtonState();
                     });
                 });
 
                 // Scroll amount (width of one card + gap)
-                const scrollAmount = 350 + 16; // Card max-width (350px) + gap (16px)
+                const scrollAmount = 316; // 300px (min-width) + 16px (gap)
 
                 // Scroll left
-                prevBtn.addEventListener('click', function () {
-                    newsGridContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                    updateButtonState();
-                });
-
-                // Scroll right
-                nextBtn.addEventListener('click', function () {
-                    newsGridContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                    updateButtonState();
-                });
-
-                // Update button state (disable when at start/end)
-                function updateButtonState() {
-                    const scrollLeft = newsGridContainer.scrollLeft;
-                    const maxScroll = newsGridContainer.scrollWidth - newsGridContainer.clientWidth;
-
-                    prevBtn.disabled = scrollLeft <= 0;
-                    nextBtn.disabled = scrollLeft >= maxScroll - 1; // Small buffer for rounding
-                }
-
-                // Initial state check
-                updateButtonState();
-
-                // Update on scroll (e.g., manual scrolling)
-                newsGridContainer.addEventListener('scroll', updateButtonState);
-            });
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Navbar toggle
-                const menuToggle = document.getElementById('menuToggle');
-                const navbarNav = document.getElementById('navbarNav');
-                if (menuToggle && navbarNav) {
-                    menuToggle.addEventListener('click', () => {
-                        navbarNav.classList.toggle('collapse');
-                        navbarNav.classList.toggle('show');
+                if (prevBtn && newsGridContainer) {
+                    prevBtn.addEventListener('click', () => {
+                        newsGridContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                        updateButtonState();
                     });
                 }
 
-                // Simple slideshow (if using mySlides class)
-                let slideIndex = 0;
-                function showSlides() {
-                    const slides = document.getElementsByClassName("mySlides");
-                    if (!slides.length) return;
-                    for (let i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-                    slideIndex++;
-                    if (slideIndex > slides.length) {
-                        slideIndex = 1;
-                    }
-                    slides[slideIndex - 1].style.display = "block";
+                // Scroll right
+                if (nextBtn && newsGridContainer) {
+                    nextBtn.addEventListener('click', () => {
+                        newsGridContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        updateButtonState();
+                    });
                 }
-                setInterval(showSlides, 2000);
+
+                // Update button state
+                function updateButtonState() {
+                    if (!newsGridContainer) return;
+                    const scrollLeft = newsGridContainer.scrollLeft;
+                    const maxScroll = newsGridContainer.scrollWidth - newsGridContainer.clientWidth;
+
+                    if (prevBtn) prevBtn.disabled = scrollLeft <= 0;
+                    if (nextBtn) nextBtn.disabled = scrollLeft >= maxScroll - 5;
+                }
+
+                // Initial state and updates
+                updateButtonState();
+                if (newsGridContainer) {
+                    newsGridContainer.addEventListener('scroll', updateButtonState);
+                }
 
                 // Bootstrap carousel animation
                 const carouselElement = document.getElementById('bannerCarousel');
@@ -420,7 +398,6 @@
                     carouselElement.addEventListener('slid.bs.carousel', () => {
                         const activeItem = document.querySelector('.carousel-item.active');
                         if (!activeItem) return;
-
                         const elements = activeItem.querySelectorAll('.animate');
                         elements.forEach(el => {
                             el.style.opacity = '0';
@@ -433,11 +410,10 @@
                     });
                 }
 
-                // Responsive stats section repositioning
+                // Responsive stats section
                 function moveStatsSection() {
                     const stats = document.querySelector('.stats-section');
                     const banner = document.querySelector('.banner');
-
                     if (window.innerWidth < 768) {
                         if (stats && banner && banner.nextSibling !== stats) {
                             banner.parentNode.insertBefore(stats, banner.nextSibling);
@@ -452,8 +428,10 @@
                 window.addEventListener('resize', moveStatsSection);
             });
         </script>
-
-        <script src="./js/loadheaderfooter.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+        <script src="js/announcement.js"></script>
+        <script src="js/loadheaderfooter.js"></script>
 </body>
 
 </html>

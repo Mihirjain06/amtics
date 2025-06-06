@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonial Details | AMTICS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .hero-section {
+      background: #5c4fc4 !important;
+      color: white;
+      padding: 15px 12px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-section h1 {
+      font-size: 35px;
+      margin-top: 20px;
+    }
+
+    .testimonial-section {
+      padding: 70px 20px;
+      background-color: transparent;
+    }
+
+    .testimonial-card {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 6px solid #3b3285;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: #333;
+      font-size: 1.2rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .testimonial-role {
+      font-size: 1rem;
+      color: #777;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .testimonial-class {
+      font-size: 1rem;
+      color: #777;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      font-size: 1rem;
+      color: #777;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .testimonial-quote p {
+      margin-bottom: 10px;
+    }
+
+    .back-link {
+      color: #3b3285;
+      font-size: 0.9rem;
+      font-family: 'Montserrat', sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 576px) {
+      .hero-section {
+        padding: 60px 15px;
+      }
+
+      .hero-section h1 {
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+      }
+
+      .testimonial-section {
+        padding: 40px 15px;
+      }
+
+      .testimonial-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .testimonial-image {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Testimonial Details</h1>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img id="testimonial-image" src="" alt="Student" class="testimonial-image">
+          <div class="testimonial-info">
+            <div id="testimonial-author" class="testimonial-author"></div>
+            <div id="testimonial-role" class="testimonial-role"></div>
+            <div id="testimonial-class" class="testimonial-class"></div>
+          </div>
+        </div>
+        <div id="testimonial-quote" class="testimonial-quote"></div>
+        <a href="testimonials.html" class="back-link">Back to Testimonials</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <script src="js/loadheaderfooter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const testimonials = {
+      'dhwani_kedar': {
+        image: 'testinomial/image1.png',
+        author: 'Ms. Dhwani Kedar',
+        role: 'B.Tech. Computer Science and Engineering',
+        class: 'Class of 2021',
+        quote: '<p>My journey at Asha M. Tarsadia Institute of Computer Science and Technology has been transformative, filled with opportunities that fostered growth and excellence. As a Computer Science and Engineering student, I appreciate how AMTICS not only developed my technical and practical skills but also instilled confidence and prepared me for the professional world.</p><p>The experiences and opportunities I had here have been instrumental in my personal and professional development, enabling me to thrive in my field.</p><p>Thank you</p>'
+      },
+      'kushagra_peter': {
+        image: 'testinomial/image2.jpeg',
+        author: 'Mr. Kushagra Peter',
+        role: 'B.Tech. Computer Science and Engineering',
+        class: 'Class of 2021',
+        quote: '<p>I remember coming into this college after lockdown because I hadn\'t gotten a good score in any competitive exam. The Lockdown made it worse. And at that time, a college which was just in the process of getting established, barely had a decided name, had less than 200 students, less than 10 dedicated faculty members was the only one that felt within reach. It was close to home, and had Computer science in its name, and at the time, that was all I wanted. Little did I know this was not just a college without a name, it was a college which was destined to build a reputation of resilience and strength.</p><p>I came here to get a piece of paper saying “B.Tech CSE”, and to be honest I didn\'t even expect anything until my first few interactions with Prof. Jay Patel and Dr. Vishvajit Bakrola.</p><p>I suddenly realized I was not in a tiny little institute in a random university in the corner of south Gujarat.</p><p>I was a part of a child project of visionary professors, aiming to rise through the ranks, not just in inter-university tournaments, but in every aspect.</p><p>I saw that an institution which was limited to 3 rooms in its beginning still dared to participate in university tournaments and send students to national competitions.</p><p>I saw that an institution with 5 professors and 120 students still dared to plan an entire Tech-Fest which would go on to become our legacy.</p><p>I saw that a few sports enthusiasts and our beloved Prof. Jay Patel could sit in a small cabin and plan something which is now as huge as Utkarsh, which now has player auctions, intricate prize and award systems, leadership hierarchies and multiple parallel streams of well organized tournaments.</p><p>I came to AMTICS to get a degree and maybe learn some coding on the way…</p><p>But 4 years later, when I look in the mirror, I see a man who isn\'t afraid to stand in a crowd of thousands and speak his mind. I see a man who isn\'t afraid to coordinate events with thousands of participants. I see a man not afraid to dream big and go on to achieve them.</p><p>The whole world keeps repeating “Dream big! Dream big!”</p><p>But AMTICS taught us that those big dreams are meant to be accomplished, not just dreamt. And yes, I learnt to code as well haha</p>'
+      },
+      'saurabh_yadav': {
+        image: 'testinomial/image3.png',
+        author: 'Mr. Saurabh Yadav',
+        role: 'B.Tech. Computer Science and Engineering',
+        class: 'Class of 2021',
+        quote: '<p>My time at AMTICS has been transformational and has merged my skills and knowledge from school with real-world experience. The organization offered me a structured experience and timetable, and I grew excited about validation outside of the organization and by doing things externally. As being part of events like PRAVAAH and Tecxplore, I learned to navigate uncertainty, collaborate with diverse perspectives, and manage real expectations, crafting monumental experiences with intricate logistics.</p><p>For all the challenges that I faced, each one helped me learn more. I have grown to be thankful for every effort made, learned something from each mistake, and put on some really unique iterations that foster improvement.</p><p>I also share with the number of lasting mentorships I have had the pleasure of enjoying, the work-related and lifetime friendships I have formed through time spent on campus, and of course the daily chai breaks.</p><p>However, the most significant things I learned were empathy, building rapport, trust, and learning how to address adversity with resolution. Although AMTICS has allowed me to grown as a competent and caring individual with a good technical skillset, and an open curiosity about wherever that may ultimately take me next - I am also thriving in my new role as a Software Development Engineer at \'La Net Team Software Solutions\'.</p>'
+      },
+      'arpit_bhanderi': {
+        image: 'testinomial/image4.jpeg',
+        author: 'Mr. Arpit Bhanderi',
+        role: 'B.Tech. Computer Science and Engineering',
+        class: 'Class of 2022',
+        quote: '<p>Honestly, when I first came to this college after completing my Diploma, I thought it was going to be all about studying. But yaar, it turned out to be so much more! For me, it wasn’t just about lectures and assignments, it was the sports, the events, the endless chai breaks, and those long campus walks made it truly special.</p><p>I met people who vibed like me, thought like me and some who completely challenged my way of thinking (in a good way). Made friends for life, and juniors who (hopefully) looked up to me.</p><p>And the professors hats off to them. They didn’t just stick to textbooks. They constantly pushed us out of our comfort zones. Whether it was presenting in front of 100 people or managing an entire fest, they made sure we were ready for the real world.</p><p>College life taught me that growth doesn’t only happen in classrooms. It happens on the field, on stage, in the chaos of organizing an event, and in those small unexpected moments where you step up and try something new.</p><p>So yeah, AMTICS gave me more than a degree. It gave me confidence, unforgettable memories, lifelong friendships, and some wild stories I’ll probably be telling for the next 20 years. It truly went from ‘Yaar, aaj vapas college jaana hai…’ to ‘Yaar, kaash ek baar phir college jaa pate!’</p>'
+      },
+      'kartik_ballal': {
+        image: 'testinomial/image5.png',
+        author: 'Mr. Kartik Ballal',
+        role: 'B.Tech. Computer Science and Engineering',
+        class: 'Class of 2021',
+        quote: '<p>AMTICS is more than just an academic institution—I didn’t just survive college; I grew. It’s the people, the culture, and the quirky little moments that made it unforgettable. My journey at AMTICS has been nothing short of transformative. Beyond equipping me with a solid technical foundation, the institute has been instrumental in shaping my personality and overall development.</p>'
+      },
+      'karishma_jariwala': {
+        image: 'testinomial/image6.jpeg',
+        author: 'Ms. Karishma Jariwala',
+        role: 'B.Tech. Computer Science and Engineering',
+        class: 'Class of 2021',
+        quote: '<p>I feel immensely privileged to be a part of Asha M. Tarsadia institute of computer science and Technology, where I got multiple opportunities to grow and explore. Meeting diverse people and experiencing their cultures pushed me to grow as an individual. People say you live your best days in college and it indeed proved absolutely right for me.</p>'
+      },
+      'erumnaz': {
+        image: 'testinomial/image7.jpeg',
+        author: 'Ms. Erumnaz',
+        role: 'B.Tech. Computer Science and Engineering',
+        class: 'Class of 2022',
+        quote: '<p>I had completed my diploma during the COVID pandemic, which, honestly, felt like a real obstacle. With everything online: classes, quizzes, exams, it didn’t feel like real learning. Most of us passed with first class and distinction, thanks to the \'Corona Curriculum\' of open-book exams and no strict supervision, we passed, but deep down, we knew the real learning was missing.</p>'
+      }
+    };
+
+    // Get the name from the URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+
+    // Populate the testimonial content
+    if (testimonials[name]) {
+      document.getElementById('testimonial-image').src = testimonials[name].image;
+      document.getElementById('testimonial-image').alt = testimonials[name].author;
+      document.getElementById('testimonial-author').textContent = testimonials[name].author;
+      document.getElementById('testimonial-role').textContent = testimonials[name].role;
+      document.getElementById('testimonial-class').textContent = testimonials[name].class;
+      document.getElementById('testimonial-quote').innerHTML = testimonials[name].quote;
+    } else {
+      document.getElementById('testimonial-quote').innerHTML = '<p>Testimonial not found.</p>';
+    }
+  </script>
+</body>
+
+</html>

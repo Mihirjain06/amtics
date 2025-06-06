@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMTICS | Photo Gallery</title>
     <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:wght@400;600;700" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -148,6 +151,7 @@
             border-radius: 10px;
             text-align: center;
             margin-bottom: 1rem;
+            margin-top: -2rem;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
@@ -400,7 +404,7 @@
     </style>
 </head>
 <body>
-    <div id="navbar-container"></div>
+     <div id="navbar-container"></div>
     <div class="hero-section">
         <h1>Photo Gallery</h1>
         <p>Relive the Moments of AMTICS Events</p>
@@ -420,7 +424,7 @@
         <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">❯</span>
     </div>
 
-    <div id="footer-container"></div>
+  <div id="footer-container"></div>
 
     <script>
         const years = {
@@ -485,7 +489,6 @@
 
             const yearHeader = document.createElement('div');
             yearHeader.classList.add('gallery-year');
-            yearHeader.innerHTML = `<h2>${year}</h2>`;
             yearSection.appendChild(yearHeader);
 
             const events = years[year].events;
@@ -613,6 +616,7 @@
         highlightYearButton(sortedYears[0]);
         loadHeaderFooter();
     </script>
-    <script src="/js/loadheaderfooter.js"></script>
+    <script src="js/loadheaderfooter.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

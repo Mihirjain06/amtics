@@ -1,17 +1,26 @@
+ async function loadLayout() {
+    try {
+      const [navbarRes, footerRes] = await Promise.all([
+        fetch('navbar.html'),
+        fetch('footer.html')
+      ]);
 
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('navbar-container').innerHTML = html;
-      });
- 
+      const [navbarHTML, footerHTML] = await Promise.all([
+        navbarRes.text(),
+        footerRes.text()
+      ]);
 
+      insertAndFade('navbar-container', navbarHTML);
+      insertAndFade('footer-container', footerHTML);
+    } catch (err) {
+      console.error('Error loading layout:', err);
+    }
+  }
 
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('footer-container').innerHTML = html;
-    });
+  function insertAndFade(id, html) {
+    const el = document.getElementById(id);
+    el.innerHTML = html;
+    el.classList.add('loaded');
+  }
 
-
-    
+  document.addEventListener('DOMContentLoaded', loadLayout);

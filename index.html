@@ -193,21 +193,74 @@
     </div>
 
     <!-- News & Announcements Section -->
-    <section class="news-section py-5">
+     <section class="news-section py-5">
         <h2 class="text-start mb-2">News & Announcements</h2>
+
         <!-- Filter buttons -->
         <div class="news-filters mb-3">
-            <button class="is-active" data-filter="all">All</button>
+            <button class="active" data-filter="all">All</button>
             <button data-filter="announcement">Announcements</button>
             <button data-filter="student">Student</button>
             <button data-filter="examination">Examination</button>
             <button data-filter="academic">Academic</button>
+            <!-- <button data-filter="research">XYZ</button> -->
         </div>
+
         <!-- News cards container with navigation arrows -->
         <div class="news-grid-container position-static">
-            <div class="news-row d-flex flex-nowrap" id="news-row"></div>
+            <div class="news-row d-flex flex-nowrap" id="news-row">
+                <!-- Card 1 -->
+                <article class="news-card announcement">
+                    <div class="news-header">
+                        <i class="fa-solid fa-flask"></i>
+                        <span class="category">Announcement</span>
+                        <span class="badge">Important</span>
+                    </div>
+                    <h3>AMTICS initiating with new vertical in Bioscience</h3>
+                    <time datetime="2023-06-15">May 23, 2025</time>
+                    <p class="news-content">AMTICS launches B.Tech. in Computer Science and Bioscience, offering B group
+                        students a new
+                        pathway into engineering. This innovative program blends biology with technology, opening doors
+                        to careers in bioinformatics, healthcare, and life sciences.</p>
+                    <a href="news-detail.html?id=1" class="read-more">Read more →</a>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="news-card student">
+                    <div class="news-header">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <span class="category">Student</span>
+                        <span class="badge">Important</span>
+                    </div>
+                    <h3>Fees Notice - Due date July 15, 2025</h3>
+                    <time datetime="2023-06-10">May 15, 2025</time>
+                    <p class="news-content">All students of 3rd, 5th, and 7th semesters are hereby instructed to pay
+                        their semester fees on
+                        or before July 15, 2025. Timely payment is mandatory to avoid any inconvenience.</p>
+                    <a href="news-detail.html?id=2" class="read-more">Read more →</a>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="news-card announcement">
+                    <div class="news-header">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="category">Announcement</span>
+                        <span class="badge">Important</span>
+                    </div>
+                    <h3>ACPC Mock-round Choice Filling from June 03, 2025</h3>
+                    <time datetime="2023-05-25">May 29, 2023</time>
+                    <p class="news-content">The ACPC Merit List will be announced on June 03, 2025. The Mock Round
+                        Choice Filling will be
+                        open from June 03 to June 05, 2025. All eligible students are advised to participate within the
+                        given dates. Don’t miss this important opportunity!</p>
+                    <a href="news-detail.html?id=3" class="read-more">Read more →</a>
+                </article>
+
+
+            </div>
+
             <!-- Navigation Arrows -->
-            <button class="news-nav-arrow news-nav-prev btn top-50 start-0 translate-middle-y"
+            <button class="news-nav-arrow news-nav-prev btn  top-50 start-0 translate-middle-y"
                 aria-label="Previous News">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>

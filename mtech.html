@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated M.Tech in CSE at AMTICS</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: #5c4fc4 !important;
+            color: white;
+            padding: 15px 12px;
+            text-align: center;
+            border-left: 5px solid #facc15;
+        }
+
+        .hero-section h1 {
+            font-size: 35px;
+            margin-top: 20px;
+        }
+
+        .hero-section p {
+            font-size: 15px;
+            margin-top: -4px;
+        }
+
+        .cta-button {
+            background: #facc15;
+            color: #1e3a8a; 
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .hero-section .cta-button:hover {
+            background: #eab308;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 1rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #3b3285;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content-section h4 {
+            font-size: 1.25rem;
+            color: #3b3285;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section ul li {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .content-section ul li::before {
+            content: "-";
+            font-size: 1.2rem;
+        }
+
+        .content-section a {
+            color: #3b3285;
+            text-decoration: none;
+        }
+
+        .content-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* Section-Specific Left Borders */
+        #objectives .card {
+            border-left: 5px solid #10b981;
+        }
+
+        #why-choose .card {
+            border-left: 5px solid #f97316;
+        }
+
+        #careers .card {
+            border-left: 5px solid #8b5cf6;
+        }
+
+        #about-amtics .card {
+            border-left: 5px solid #ec4899;
+        }
+
+        #admissions .card {
+            border-left: 5px solid #dc2626;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 28px;
+            }
+
+            .hero-section p {
+                font-size: 14px;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Why Integrated M.Tech. in<br>Computer Science and Engineering (5 Years)?</h1>
+        <p>Accelerate your journey. Amplify your impact.</p>
+    </section>
+
+    <!-- About the Program (No Card) -->
+    <section id="about" class="content-section container">
+        <h2>About the Program</h2>
+        <p>The Integrated M.Tech in Computer Science and Engineering at Asha M. Tarsadia Institute of Computer Science and Technology (AMTICS) is a unique, future-focused academic offering under Uka Tarsadia University (UTU). This 5-year program seamlessly combines undergraduate and postgraduate education, providing students with a Master’s degree in just five years, following the guidelines of AICTE. It effectively saves one full academic year while bypassing the hassle of separate entrance exams and admissions.</p>
+        <p>Beyond academic efficiency, the program offers early and consistent exposure to research, allowing students to work on research projects, publish papers, and explore innovations in domains like AI, Neuromorphic Computing, AI in healthcare, Blockchain, Data Science, Cybersecurity, and IoT. This strong foundation opens doors to vibrant career opportunities in R&D labs, tech companies, startups, higher education, and global research ecosystems, making it an ideal choice for students aspiring to lead in both industry and innovation.</p>
+    </section>
+
+    <!-- Key Objectives (Card) -->
+    <section id="objectives" class="content-section container">
+        <div class="card">
+            <div class="card-body">
+                <h2>Key Objectives</h2>
+                <ul>
+                    <li>Provide early exposure to advanced computing concepts, research methodologies, and emerging technologies.</li>
+                    <li>Encourage critical thinking, innovation, and problem-solving through hands-on projects and industry interaction.</li>
+                    <li>Prepare students for careers in cutting-edge research, high-end product development, and leadership roles in industry.</li>
+                    <li>Equip learners with the academic foundation for pursuing Ph.D., global certifications, or entrepreneurship in tech domains.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose (Card) -->
+    <section id="why-choose" class="content-section container">
+        <div class="card">
+            <div class="card-body">
+                <h2>Why Choose This Integrated Program?</h2>
+                <h4>Time & Effort Efficient</h4>
+                <ul>
+                    <li>Complete your postgraduate degree in just 5 years instead of 6.</li>
+                    <li>No need to appear for separate postgraduate entrance tests or go through another admission cycle.</li>
+                </ul>
+                <h4>Research-Centric Curriculum</h4>
+                <ul>
+                    <li>Structured to build a strong foundation in Computer Science, followed by advanced coursework in areas such as:</li>
+                    <li>Artificial Intelligence & Machine Learning</li>
+                    <li>Cloud & Edge Computing</li>
+                    <li>Cybersecurity & Blockchain</li>
+                    <li>Data Science & Big Data</li>
+                    <li>Internet of Things (IoT)</li>
+                    <li>High Performance Computing</li>
+                </ul>
+                <h4>Early Access to Industry & Innovation</h4>
+                <ul>
+                    <li>Hands-on labs, real-time projects, internships, and tech-focused hackathons.</li>
+                    <li>Faculty-guided research projects leading to papers, patents, or prototypes.</li>
+                    <li>Collaboration with R&D divisions and startup incubation cells.</li>
+                </ul>
+                <h4>Holistic Academic Environment</h4>
+                <ul>
+                    <li>Learn under the guidance of highly qualified and research-active faculty.</li>
+                    <li>Access to Virtual Labs as a Nodal Centre under IIT Delhi, enhancing practical exposure via simulations and online experiments.</li>
+                    <li>Strong emphasis on ethics, teamwork, communication skills, and professional development.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Opportunities (Card) -->
+    <section id="careers" class="content-section container">
+        <div class="card">
+            <div class="card-body">
+                <h2>Career Opportunities</h2>
+                <p>Graduates of this integrated program are well-equipped to enter:</p>
+                <ul>
+                    <li>Research & Development (R&D) Labs</li>
+                    <li>Top MNCs & Tech Giants (Google, TCS, Infosys, etc.)</li>
+                    <li>Product-Based Startups</li>
+                    <li>Government Research Bodies (DRDO, ISRO, CDAC)</li>
+                    <li>Ph.D. Programs in India and Abroad</li>
+                    <li>Academic Institutions & Think Tanks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About AMTICS (Card) -->
+    <section id="about-amtics" class="content-section container">
+        <div class="card">
+            <div class="card-body">
+                <h2>About AMTICS</h2>
+                <p>Asha M. Tarsadia Institute of Computer Science and Technology (AMTICS) is one of the best institutes under Uka Tarsadia University in south Gujarat region near Surat City, offering innovative and industry-aligned programs in the field of Computer Science and Engineering. With a student-first culture, modern infrastructure, and a commitment to excellence, AMTICS nurtures talent into future-ready engineers and researchers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions (Card) -->
+    <section id="admissions" class="content-section container">
+        <div class="card">
+            <div class="card-body">
+                <h2>Admissions Open</h2>
+                <p>Seats are limited. Take the first step toward a smarter academic journey!</p>
+                <p><strong>Apply at:</strong> <a href="https://app.utu.ac.in/adminq/AdmissionInquirys.aspx" target="_blank">https://app.utu.ac.in/adminq/AdmissionInquirys.aspx</a></p>
+                <p><strong>Call us at:</strong> +91-9879277992</p>
+                <a href="https://app.utu.ac.in/adminq/AdmissionInquirys.aspx" class="cta-button">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script src="js/loadheaderfooter.js"></script>
+
+</body>
+</html>

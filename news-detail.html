@@ -67,6 +67,7 @@
 
         #news-image-container {
             position: relative;
+            margin-bottom: 1.5rem;
         }
 
         .news-content {
@@ -88,9 +89,24 @@
             width: 100%;
             max-height: 200px;
             border-radius: 8px;
-            margin-bottom: 1.5rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             object-fit: cover;
+        }
+
+        .file-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #3b3285;
+            text-decoration: none;
+        }
+
+        .file-link:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-weight: 600;
         }
 
         @media (max-width: 576px) {
@@ -121,7 +137,7 @@
             <div id="news-image-container"></div>
             <time id="news-date" class="d-block mb-3 text-muted"></time>
             <p id="news-content" class="news-content"></p>
-            <a id="back-link" href="News&Events.html" class="back-link">← Back to Home</a>
+            <a id="back-link" href="index.html" class="back-link">← Back to Home</a>
         </div>
     </section>
 
@@ -130,81 +146,54 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/loadheaderfooter.js"></script>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const newsId = parseInt(urlParams.get('id'));
+        const API_URL = 'https://localhost:7000';
 
-        function parseDateToISO(dateStr) {
+        async function loadNewsDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('id');
+            if (!newsId) {
+                document.getElementById('news-detail').innerHTML = '<p class="error-message">News ID not provided.</p>';
+                return;
+            }
+
             try {
-                const date = new Date(dateStr);
-                if (isNaN(date)) throw new Error('Invalid date');
-                return date.toISOString().split('T')[0];
-            } catch (e) {
-                return dateStr;
-            }
-        }
+                const response = await fetch(`${API_URL}/api/news/${newsId}`);
+                if (response.ok) {
+                    const news = await response.json();
+                    document.getElementById('news-icon').className = news.icon || 'fa-solid fa-calendar';
+                    document.getElementById('news-category').textContent = news.category;
+                    document.getElementById('news-title').textContent = news.title;
+                    document.getElementById('news-date').textContent = new Date(news.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                    document.getElementById('news-content').textContent = news.content;
 
-        let newsItem = null;
-        const newsCards = JSON.parse(localStorage.getItem('newsCards') || '[]');
-        if (newsCards.length > 0) {
-            newsItem = newsCards.find(item => item.id === newsId);
-        }
-
-        function populateNewsDetails(item) {
-            if (item) {
-                document.getElementById('news-icon').className = item.icon || 'fa-solid fa-newspaper';
-                document.getElementById('news-category').textContent = item.category || 'Event';
-                document.getElementById('news-title').textContent = item.title;
-                document.getElementById('news-date').textContent = item.date;
-                document.getElementById('news-date').setAttribute('datetime', parseDateToISO(item.date));
-                document.getElementById('news-content').textContent = item.content;
-
-                const imageContainer = document.getElementById('news-image-container');
-
-                if (item.image && item.image.trim() !== '') {
-                    const img = new Image();
-                    img.src = item.image;
-                    img.className = 'news-image';
-
-                    img.onload = function () {
-                        imageContainer.appendChild(img);
-                        imageContainer.style.display = 'block';
-                    };
-
-                    img.onerror = function () {
-                        imageContainer.style.display = 'none';
-                    };
+                    const imageContainer = document.getElementById('news-image-container');
+                    if (news.filePath) {
+                        const fileExt = news.filePath.split('.').pop().toLowerCase();
+                        if (['jpg', 'jpeg', 'png'].includes(fileExt)) {
+                            const img = document.createElement('img');
+                            img.src = `${API_URL}/${news.filePath}`;
+                            img.className = 'news-image';
+                            img.alt = news.title;
+                            imageContainer.appendChild(img);
+                        } else {
+                            const fileLink = document.createElement('a');
+                            fileLink.href = `${API_URL}/${news.filePath}`;
+                            fileLink.className = 'file-link';
+                            fileLink.textContent = `Download ${news.filePath.split('/').pop()}`;
+                            fileLink.target = '_blank';
+                            imageContainer.appendChild(fileLink);
+                        }
+                    }
                 } else {
-                    imageContainer.style.display = 'none';
+                    document.getElementById('news-detail').innerHTML = '<p class="error-message">News not found.</p>';
                 }
-
-            } else {
-                document.getElementById('news-detail').innerHTML = `
-                    <h1>News Not Found</h1>
-                    <p>Sorry, the news item you are looking for does not exist.</p>
-                    <a href="index.html" class="back-link">← Back to Home</a>
-                `;
+            } catch (error) {
+                console.error('Error loading news:', error);
+                document.getElementById('news-detail').innerHTML = '<p class="error-message">Error loading news.</p>';
             }
         }
 
-        if (newsItem) {
-            populateNewsDetails(newsItem);
-        } else {
-            const scriptSrc = (newsId >= 21 && newsId <= 27) ? 'js/announcement.js' : 'js/newsdata.js';
-            const script = document.createElement('script');
-            script.src = scriptSrc;
-            script.onload = function () {
-                newsItem = newsData.find(item => item.id === newsId);
-                populateNewsDetails(newsItem);
-            };
-            script.onerror = function () {
-                document.getElementById('news-detail').innerHTML = `
-                    <h1>Error Loading News</h1>
-                    <p>Sorry, there was an error loading the news data.</p>
-                    <a href="index.html" class="back-link">← Back to Home</a>
-                `;
-            };
-            document.head.appendChild(script);
-        }
+        window.addEventListener('DOMContentLoaded', loadNewsDetails);
     </script>
 </body>
 </html>

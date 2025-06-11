@@ -1,6 +1,6 @@
 const newsData = [
     {
-        id: 1,
+        id: 11,
         title: "One Day Workshop on Intellectual Property Rights (IPR)",
         date: "26th April, 2024",
         year: "2024",
@@ -11,7 +11,7 @@ const newsData = [
         image: "images/16.png"
     },
     {
-        id: 2,
+        id: 12,
         title: "One Day Workshop on Chatbot Development with Python – Integrating the Power of LLMs",
         date: "27th July, 2024",
         year: "2024",
@@ -22,7 +22,7 @@ const newsData = [
         image: "images/news2.jpg"
     },
     {
-        id: 3,
+        id: 13,
         title: "Excuse me AMTICS! Magazine Launch Ceremony",
         date: "18th July, 2024",
         year: "2024",
@@ -33,7 +33,7 @@ const newsData = [
         image: "images/news3.jpg"
     },
     {
-        id: 4,
+        id: 14,
         title: "World Youth Skill Day 2024",
         date: "15th July, 2024",
         year: "2024",
@@ -44,7 +44,7 @@ const newsData = [
         image: "images/news4.jpg"
     },
     {
-        id: 5,
+        id: 15,
         title: "National Statistics Day 2024",
         date: "27th June, 2024",
         year: "2024",
@@ -55,7 +55,7 @@ const newsData = [
         image: "images/news5.jpg"
     },
     {
-        id: 6,
+        id: 16,
         title: "Workshop on Bootcamp on Flutter Development",
         date: "11th July, 2024",
         year: "2024",
@@ -66,7 +66,7 @@ const newsData = [
         image: "images/news6.jpg"
     },
     {
-        id: 7,
+        id: 17,
         title: "MoU Signing Ceremony",
         date: "26th June, 2024",
         year: "2024",
@@ -77,7 +77,7 @@ const newsData = [
         image: "images/news7.jpg"
     },
     {
-        id: 8,
+        id: 18,
         title: "Expert Talk on Path to Professional Success",
         date: "26th June, 2024",
         year: "2024",
@@ -88,7 +88,7 @@ const newsData = [
         image: "images/news8.jpg"
     },
     {
-        id: 9,
+        id: 19,
         title: "One Day Workshop on Mobile App Development with iOS & 3D Printing and EV Technology",
         date: "29th April, 2024",
         year: "2024",
@@ -99,7 +99,7 @@ const newsData = [
         image: "images/news9.jpg"
     },
     {
-        id: 10,
+        id: 20,
         title: "An E-Session on Spirituo-Professional Practices from Shreemad Bhagvad Geeta",
         date: "12th April, 2024",
         year: "2024",
@@ -110,7 +110,7 @@ const newsData = [
         image: "images/news10.jpg"
     },
     {
-        id: 11,
+        id: 21,
         title: "Workshop on Distributed Version Control with Git and GitHub",
         date: "13th April, 2024",
         year: "2024",
@@ -121,7 +121,7 @@ const newsData = [
         image: "images/news11.jpg"
     },
     {
-        id: 12,
+        id: 22,
         title: "PRAVAAH 2023",
         date: "2023",
         year: "2023",
@@ -132,7 +132,7 @@ const newsData = [
         image: "images/news12.jpg"
     },
     {
-        id: 13,
+        id: 23,
         title: "Glimpse of Earth Day 2022",
         date: "2022",
         year: "2022",
@@ -143,7 +143,7 @@ const newsData = [
         image: "images/news13.jpg"
     },
     {
-        id: 14,
+        id: 24,
         title: "Two Day Workshop on Multimedia and Graphics with Smart Phone Applications",
         date: "29th & 30th Sept 2021",
         year: "2021",

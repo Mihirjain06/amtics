@@ -170,6 +170,16 @@ body {
     font-weight: 400;
 }
 
+.fa-caret-right {
+    margin-right: 5px;
+    /* Reduced from 10px to minimize space */
+    font-size: 20px;
+    /* Adjust icon size if needed */
+    line-height: 24px;
+    /* Match the height to align vertically */
+    margin-left: -3px;
+}
+
 .announcement-content marquee {
     display: flex;
     align-items: center;
@@ -180,7 +190,6 @@ body {
     display: inline-block;
     font-size: 13px;
     color: #333;
-    white-space: nowrap;
 }
 
 .announcement-item a {
@@ -192,6 +201,27 @@ body {
 
 .announcement-item a:hover {
     text-decoration: underline;
+}
+
+.marquee-container {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee linear infinite;
+    will-change: transform; /* Optimize animation performance */
+}
+
+.announcement-item {
+    margin-right: 2em; /* Adjust spacing between items */ 
+    margin-left: 2em; 
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Move only half the content width for seamless loop */
+    }
 }
 
 /* Mobile-only adjustments */
@@ -347,8 +377,7 @@ body {
     }
 }
 
-Hide scrollbar
-html::-webkit-scrollbar,
+Hide scrollbar html::-webkit-scrollbar,
 body::-webkit-scrollbar {
     display: none;
 }
@@ -1081,12 +1110,12 @@ body::-webkit-scrollbar {
     color: #f39c12;
 }
 
-.news-card.event {
+.news-card.examination {
     border-left: 4px solid #3498db;
     color: #3498db;
 }
 
-.news-card.achievement {
+.news-card.academic {
     border-left: 4px solid #27ae60;
     color: #27ae60;
 }
@@ -1538,44 +1567,68 @@ footer .university-logo {
     footer {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding: 20px;
+        text-align: center;
+        margin: 0 auto;
     }
 
     .footer-col {
         text-align: center;
         margin-bottom: 20px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .footer-col h3 {
         font-size: 15px;
+        margin: 0 auto;
     }
 
     .logo-name {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         text-align: center;
+        margin: 0 auto;
     }
 
     footer .university-logo {
         width: 80px;
+        display: block;
+        margin: 0 auto;
     }
 
     .pro-link {
+        display: flex;
         justify-content: center;
+        align-items: center;
+        margin: 0 auto;
     }
 
     footer .copyright {
         flex-direction: column;
         font-size: 12px;
+        text-align: center;
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 576px) {
     .footer-col {
         flex: 1 1 100%;
+        text-align: center;
+        margin: 0 auto;
     }
 
     footer {
         padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
     }
 
     footer .university-name,
@@ -1583,15 +1636,25 @@ footer .university-logo {
     footer .email,
     footer .phone {
         text-align: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+        margin-bottom: 25px;
     }
 
     .logo-name {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
     }
 
     .pro-link i {
         font-size: 16px;
         width: 30px;
         height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

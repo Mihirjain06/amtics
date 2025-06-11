@@ -30,7 +30,7 @@
     <meta name="geo.placename" content="Surat, India">
     <meta name="language" content="en">
     <meta name="copyright" content="AMTICS | Asha M. Tarsadia Institute of Technology | Uka Tarsadia University, Bardoli">
-    <link rel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet" integrity="sha512-5Hs4dF2AEPkpNTA7RUiOi+bjRS3NeM2ECkwzUIxC1Qj/FLycGTbNapWQB4tP889k5T5Ju8fs4b1P5z/iB4nQ/" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs4dF2AEPkpNTA7RUiOi+bjRS3NeM2ECkwzUIxC1Qj/FLycGTbNapWQB4tP889k5T5Ju8fs4b1P5z/iB4nQ/" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="geo.region" content="IN-GJ">
@@ -88,7 +88,8 @@
     </div>
 
     <div id="bannerCarousel" class="carousel slide banner" data-bs-ride="carousel">
-        <div class="carousel-inner">
+        <div class="carousel-inner" id="bannerCarouselInner">
+            <!-- Dynamic images will be loaded here -->
             <div class="carousel-item active" style="background-image: url('SlideShowImage/1.jpg');" data-bs-interval="6000"></div>
             <div class="carousel-item" style="background-image: url('SlideShowImage/2.jpg');" data-bs-interval="6000"></div>
             <div class="carousel-item" style="background-image: url('SlideShowImage/3.jpg');" data-bs-interval="6000"></div>
@@ -208,22 +209,23 @@
         <h2 class="text-start">AMTICS@Glimpse</h2>
         <div class="slider-wrapper">
             <div class="scrolling-wrapper" id="image-slider">
-                <img src="glimpse photos/1.png" alt="Image 1">
-                <img src="glimpse photos/2.png" alt="Image 2">
-                <img src="glimpse photos/3.jpg" alt="Image 3">
-                <img src="glimpse photos/4.jpg" alt="Image 4">
-                <img src="glimpse photos/5.jpg" alt="Image 5">
-                <img src="glimpse photos/6.png" alt="Image 6">
-                <img src="glimpse photos/7.JPG" alt="Image 7">
-                <img src="glimpse photos/8.JPG" alt="Image 8">
-                <img src="glimpse photos/9.JPG" alt="Image 9">
-                <img src="glimpse photos/10.JPG" alt="Image 10">
-                <img src="glimpse photos/11.png" alt="Image 11">
-                <img src="glimpse photos/12.JPG" alt="Image 12">
-                <img src="glimpse photos/13.JPG" alt="Image 13">
-                <img src="glimpse photos/14.JPG" alt="Image 14">
-                <img src="glimpse photos/15.JPG" alt="Image 15">
-                <img src="glimpse photos/16.png" alt="Image 16">
+                <!-- Dynamic images will be loaded here -->
+                <img src="glimpse photos/1.jpg" alt="Placeholder 1">
+                <img src="glimpse photos/2.jpg" alt="Placeholder 2">
+                <img src="glimpse photos/3.jpg" alt="Placeholder 3">
+                <img src="glimpse photos/4.jpg" alt="Placeholder 4">
+                <img src="glimpse photos/5.jpg" alt="Placeholder 5">
+                <img src="glimpse photos/6.jpg" alt="Placeholder 6">
+                <img src="glimpse photos/7.jpg" alt="Placeholder 7">
+                <img src="glimpse photos/8.jpg" alt="Placeholder 8">
+                <img src="glimpse photos/9.jpg" alt="Placeholder 9">
+                <img src="glimpse photos/10.jpg" alt="Placeholder 10">
+                <img src="glimpse photos/11.jpg" alt="Placeholder 11">
+                <img src="glimpse photos/12.jpg" alt="Placeholder 12">
+                <img src="glimpse photos/13.jpg" alt="Placeholder 13">
+                <img src="glimpse photos/14.jpg" alt="Placeholder 14">
+                <img src="glimpse photos/15.jpg" alt="Placeholder 15">
+                <img src="glimpse photos/16.jpg" alt="Placeholder 16">
             </div>
         </div>
 
@@ -254,163 +256,233 @@
         <div id="footer-container"></div>
 
         <script>
-   const API_URL = 'https://localhost:7000';
+            const API_URL = 'https://localhost:7000';
 
-        async function fetchAndRenderNews() {
-            const newsRow = document.getElementById('news-row');
-            const marqueeContainer = document.getElementById('news-content');
+            // Fetch and render photos for Banner Carousel and Amtics@Glimpse
+            async function fetchAndRenderPhotos() {
+                try {
+                    const response = await fetch(`${API_URL}/api/photos/all`);
+                    if (response.ok) {
+                        const photos = await response.json();
 
-            try {
-                const response = await fetch(`${API_URL}/api/news/recent`);
-                if (response.ok) {
-                    let newsCards = await response.json();
-                    // Limit to 5 most recent news items
-                    newsCards = newsCards.slice(0, 5).map((card, index) => ({
-                        ...card,
-                        id: card.id || `news-${index + 1}`
-                    }));
+                        // Banner Carousel
+                        const bannerPhotos = photos.filter(p => p.section === 'Banner-Carousel');
+                        const carouselInner = document.getElementById('bannerCarouselInner');
+                        carouselInner.innerHTML = '';
+                        if (bannerPhotos.length === 0) {
+                            // Fallback to placeholder images
+                            carouselInner.innerHTML = `
+                                <div class="carousel-item active" style="background-image: url('SlideShowImage/1.jpg');" data-bs-interval="6000"></div>
+                                <div class="carousel-item" style="background-image: url('SlideShowImage/2.jpg');" data-bs-interval="6000"></div>
+                                <div class="carousel-item" style="background-image: url('SlideShowImage/3.jpg');" data-bs-interval="6000"></div>
+                            `;
+                        } else {
+                            bannerPhotos.forEach((photo, index) => {
+                                const div = document.createElement('div');
+                                div.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+                                div.style.backgroundImage = `url('${API_URL}/${photo.filePath}')`;
+                                div.setAttribute('data-bs-interval', '6000');
+                                carouselInner.appendChild(div);
+                            });
+                        }
 
-                    // Render news cards
-                    newsRow.innerHTML = '';
-                    newsCards.forEach(card => {
-                        const cardElement = document.createElement('article');
-                        cardElement.className = `news-card ${card.category.toLowerCase()}`;
-                        cardElement.innerHTML = `
-                            <div class="news-header">
-                                <i class="${card.icon}"></i>
-                                <span class="category">${card.category}</span>
-                                <span class="badge">Important</span>
-                            </div>
-                            <h3>${card.title}</h3>
-                            <time datetime="${card.datetime}">${new Date(card.datetime).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
-                            <p class="news-content">${card.content}</p>
-                            <a href="news-detail.html?id=${card.id}" class="read-more">Read more →</a>
-                        `;
-                        newsRow.appendChild(cardElement);
-                    });
-
-                    // Update marquee
-                    marqueeContainer.innerHTML = newsCards.length > 0
-                        ? newsCards.map(card => `<span class="announcement-item"><a href="news-detail.html?id=${card.id}">${card.title}</a></span>`).join(' <span class="announcement-item" style="color: #800000;">   |   </span> ') + ' <span class="announcement-item">                     </span> '
-                        : '<span class="announcement-item">No recent announcements</span>';
-                } else {
-                    console.error('Failed to fetch news:', response.status);
-                    marqueeContainer.innerHTML = '<span class="announcement-item">Failed to load announcements</span>';
-                }
-            } catch (error) {
-                console.error('Error fetching news:', error);
-                marqueeContainer.innerHTML = '<span class="announcement-item">Error loading announcements</span>';
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', async () => {
-            // Image slider
-            const slider = document.getElementById('image-slider');
-            if (slider) {
-                const images = Array.from(slider.children);
-                images.forEach((img) => {
-                    const clone = img.cloneNode(true);
-                    slider.appendChild(clone);
-                });
-            }
-
-            // Fetch and render news
-            await fetchAndRenderNews();
-
-            // News section
-            const buttons = document.querySelectorAll(".news-filters button");
-            const newsRow = document.getElementById('news-row');
-            const newsGridContainer = document.querySelector(".news-grid-container");
-            const prevBtn = document.querySelector(".news-nav-prev");
-            const nextBtn = document.querySelector(".news-nav-next");
-
-            // Filter functionality
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    buttons.forEach(btn => btn.classList.remove("is-active"));
-                    button.classList.add("is-active");
-                    const filter = button.getAttribute("data-filter").toLowerCase();
-                    const cards = document.querySelectorAll(".news-row .news-card");
-
-                    cards.forEach(card => {
-                        const shouldShow = filter === "all" || card.classList.contains(filter);
-                        card.style.display = shouldShow ? "" : "none";
-                    });
-
-                    if (newsGridContainer) {
-                        newsGridContainer.scrollLeft = 0;
+                        // Amtics@Glimpse
+                        const glimpsePhotos = photos.filter(p => p.section === 'AmticsGlimpse');
+                        const slider = document.getElementById('image-slider');
+                        slider.innerHTML = '';
+                        if (glimpsePhotos.length === 0) {
+                            // Fallback to placeholder images
+                            slider.innerHTML = `
+                                <img src="glimpse photos/1.jpg" alt="Placeholder 1">
+                                <img src="glimpse photos/2.jpg" alt="Placeholder 2">
+                                <img src="glimpse photos/3.jpg" alt="Placeholder 3">
+                                <img src="glimpse photos/4.jpg" alt="Placeholder 4">
+                                <img src="glimpse photos/5.jpg" alt="Placeholder 5">
+                                <img src="glimpse photos/6.jpg" alt="Placeholder 6">
+                                <img src="glimpse photos/7.jpg" alt="Placeholder 7">
+                                <img src="glimpse photos/8.jpg" alt="Placeholder 8">
+                                <img src="glimpse photos/9.jpg" alt="Placeholder 9">
+                                <img src="glimpse photos/10.jpg" alt="Placeholder 10">
+                                <img src="glimpse photos/11.jpg" alt="Placeholder 11">
+                                <img src="glimpse photos/12.jpg" alt="Placeholder 12">
+                                <img src="glimpse photos/13.jpg" alt="Placeholder 13">
+                                <img src="glimpse photos/14.jpg" alt="Placeholder 14">
+                                <img src="glimpse photos/15.jpg" alt="Placeholder 15">
+                                <img src="glimpse photos/16.jpg" alt="Placeholder 16">
+                            `;
+                        } else {
+                            glimpsePhotos.forEach((photo, index) => {
+                                const img = document.createElement('img');
+                                img.src = `${API_URL}/${photo.filePath}`;
+                                img.alt = `Glimpse ${index + 1}`;
+                                slider.appendChild(img);
+                            });
+                        }
+                        // Clone images for infinite scroll
+                        const images = Array.from(slider.children);
+                        images.forEach(img => {
+                            const clone = img.cloneNode(true);
+                            slider.appendChild(clone);
+                        });
+                    } else {
+                        console.error('Failed to fetch photos:', response.status);
                     }
-                    updateButtonState();
+                } catch (error) {
+                    console.error('Error fetching photos:', error);
+                }
+            }
+
+            async function fetchAndRenderNews() {
+                const newsRow = document.getElementById('news-row');
+                const marqueeContainer = document.getElementById('news-content');
+
+                try {
+                    const response = await fetch(`${API_URL}/api/news/recent`);
+                    if (response.ok) {
+                        let newsCards = await response.json();
+                        // Limit to 5 most recent news items
+                        newsCards = newsCards.slice(0, 5).map((card, index) => ({
+                            ...card,
+                            id: card.id || `news-${index + 1}`
+                        }));
+
+                        // Render news cards
+                        newsRow.innerHTML = '';
+                        newsCards.forEach(card => {
+                            const cardElement = document.createElement('article');
+                            cardElement.className = `news-card ${card.category.toLowerCase()}`;
+                            cardElement.innerHTML = `
+                                <div class="news-header">
+                                    <i class="${card.icon}"></i>
+                                    <span class="category">${card.category}</span>
+                                    <span class="badge">Important</span>
+                                </div>
+                                <h3>${card.title}</h3>
+                                <time datetime="${card.datetime}">${new Date(card.datetime).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+                                <p class="news-content">${card.content}</p>
+                                <a href="news-detail.html?id=${card.id}" class="read-more">Read more →</a>
+                            `;
+                            newsRow.appendChild(cardElement);
+                        });
+
+                        // Update marquee
+                        marqueeContainer.innerHTML = newsCards.length > 0
+                            ? newsCards.map(card => `<span class="announcement-item"><a href="news-detail.html?id=${card.id}">${card.title}</a></span>`).join(' <span class="announcement-item" style="color: #800000;"> &nbsp;&nbsp;|&nbsp;&nbsp; </span> ') + ' <span class="announcement-item"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span> '
+                            : '<span class="announcement-item">No recent announcements</span>';
+                    } else {
+                        console.error('Failed to fetch news:', response.status);
+                        marqueeContainer.innerHTML = '<span class="announcement-item">Failed to load announcements</span>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching news:', error);
+                    marqueeContainer.innerHTML = '<span class="announcement-item">Error loading announcements</span>';
+                }
+            }
+
+            window.addEventListener('DOMContentLoaded', async () => {
+                // Fetch and render photos
+                await fetchAndRenderPhotos();
+
+                // Image slider (already handled in fetchAndRenderPhotos)
+                const slider = document.getElementById('image-slider');
+
+                // Fetch and render news
+                await fetchAndRenderNews();
+
+                // News section
+                const buttons = document.querySelectorAll(".news-filters button");
+                const newsRow = document.getElementById('news-row');
+                const newsGridContainer = document.querySelector(".news-grid-container");
+                const prevBtn = document.querySelector(".news-nav-prev");
+                const nextBtn = document.querySelector(".news-nav-next");
+
+                // Filter functionality
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        buttons.forEach(btn => btn.classList.remove("is-active"));
+                        button.classList.add("is-active");
+                        const filter = button.getAttribute("data-filter").toLowerCase();
+                        const cards = document.querySelectorAll(".news-row .news-card");
+
+                        cards.forEach(card => {
+                            const shouldShow = filter === "all" || card.classList.contains(filter);
+                            card.style.display = shouldShow ? "" : "none";
+                        });
+
+                        if (newsGridContainer) {
+                            newsGridContainer.scrollLeft = 0;
+                        }
+                        updateButtonState();
+                    });
                 });
+
+                const scrollAmount = 316;
+
+                if (prevBtn && newsGridContainer) {
+                    prevBtn.addEventListener('click', () => {
+                        newsGridContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                        updateButtonState();
+                    });
+                }
+
+                if (nextBtn && newsGridContainer) {
+                    nextBtn.addEventListener('click', () => {
+                        newsGridContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        updateButtonState();
+                    });
+                }
+
+                function updateButtonState() {
+                    if (!newsGridContainer) return;
+                    const scrollLeft = newsGridContainer.scrollLeft;
+                    const maxScroll = newsGridContainer.scrollWidth - newsGridContainer.clientWidth;
+
+                    if (prevBtn) prevBtn.disabled = scrollLeft <= 0;
+                    if (nextBtn) nextBtn.disabled = scrollLeft >= maxScroll - 5;
+                }
+
+                updateButtonState();
+                if (newsGridContainer) {
+                    newsGridContainer.addEventListener('scroll', updateButtonState);
+                }
+
+                // Bootstrap carousel animation
+                const carouselElement = document.getElementById('bannerCarousel');
+                if (carouselElement) {
+                    carouselElement.addEventListener('slid.bs.carousel', () => {
+                        const activeItem = document.querySelector('.carousel-item.active');
+                        if (!activeItem) return;
+                        const elements = activeItem.querySelectorAll('.animate');
+                        elements.forEach(el => {
+                            el.style.opacity = '0';
+                            el.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                el.style.opacity = '1';
+                                el.style.transform = 'scale(1)';
+                            }, 100);
+                        });
+                    });
+                }
+
+                function moveStatsSection() {
+                    const stats = document.querySelector('.stats-section');
+                    const banner = document.querySelector('.banner');
+                    if (window.innerWidth < 768) {
+                        if (stats && banner && banner.nextSibling !== stats) {
+                            banner.parentNode.insertBefore(stats, banner.nextSibling);
+                        }
+                    } else {
+                        if (stats && banner && !banner.contains(stats)) {
+                            banner.appendChild(stats);
+                        }
+                    }
+                }
+                moveStatsSection();
+                window.addEventListener('resize', moveStatsSection);
             });
-
-            const scrollAmount = 316;
-
-            if (prevBtn && newsGridContainer) {
-                prevBtn.addEventListener('click', () => {
-                    newsGridContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                    updateButtonState();
-                });
-            }
-
-            if (nextBtn && newsGridContainer) {
-                nextBtn.addEventListener('click', () => {
-                    newsGridContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                    updateButtonState();
-                });
-            }
-
-            function updateButtonState() {
-                if (!newsGridContainer) return;
-                const scrollLeft = newsGridContainer.scrollLeft;
-                const maxScroll = newsGridContainer.scrollWidth - newsGridContainer.clientWidth;
-
-                if (prevBtn) prevBtn.disabled = scrollLeft <= 0;
-                if (nextBtn) nextBtn.disabled = scrollLeft >= maxScroll - 5;
-            }
-
-            updateButtonState();
-            if (newsGridContainer) {
-                newsGridContainer.addEventListener('scroll', updateButtonState);
-            }
-
-            // Bootstrap carousel animation
-            const carouselElement = document.getElementById('bannerCarousel');
-            if (carouselElement) {
-                carouselElement.addEventListener('slid.bs.carousel', () => {
-                    const activeItem = document.querySelector('.carousel-item.active');
-                    if (!activeItem) return;
-                    const elements = activeItem.querySelectorAll('.animate');
-                    elements.forEach(el => {
-                        el.style.opacity = '0';
-                        el.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            el.style.opacity = '1';
-                            el.style.transform = 'scale(1)';
-                        }, 100);
-                    });
-                });
-            }
-
-            function moveStatsSection() {
-                const stats = document.querySelector('.stats-section');
-                const banner = document.querySelector('.banner');
-                if (window.innerWidth < 768) {
-                    if (stats && banner && banner.nextSibling !== stats) {
-                        banner.parentNode.insertBefore(stats, banner.nextSibling);
-                    }
-                } else {
-                    if (stats && banner && !banner.contains(stats)) {
-                        banner.appendChild(stats);
-                    }
-                }
-            }
-            moveStatsSection();
-            window.addEventListener('resize', moveStatsSection);
-        });
-    </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script defer src="js/loadheaderfooter.js"></script>
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+        <script defer src="js/loadheaderfooter.js"></script>
 </body>
 </html>

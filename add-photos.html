@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Photos | AMTICS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-        crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&Lato:wght@400;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&Lato:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --form-primary-color: #3b3285;
@@ -359,7 +357,7 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-control" required placeholder="Password" />
                     </div>
-                    <div id="errorMessage" class="error-message" style="display: none;">Invalid credentials.</div>
+                    <div id="errorMessage" class="error-message" style="display: none;"></div>
                     <button type="button" id="loginButton" class="btn-login">Sign In</button>
                 </form>
             </div>
@@ -402,218 +400,219 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-const API_URL = 'https://localhost:7000';
-let currentUser = { username: '', password: '' };
-let loginModal = null;
+    <script>
+        const API_URL = 'https://localhost:7000';
+        let currentUser = { username: '', password: '' };
+        let loginModal = null;
 
-// Populate year dropdown (2020 to current year)
-function populateYearDropdown() {
-  const yearSelect = document.getElementById('photoYear');
-  const currentYear = new Date().getFullYear();
-  for (let year = 2020; year <= currentYear; year++) {
-    const option = document.createElement('option');
-    option.value = year;
-    option.textContent = year;
-    yearSelect.appendChild(option);
-  }
-}
+        // Populate year dropdown (2020 to current year)
+        function populateYearDropdown() {
+            const yearSelect = document.getElementById('photoYear');
+            const currentYear = new Date().getFullYear();
+            for (let year = 2020; year <= currentYear; year++) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            }
+        }
 
-// Toggle year dropdown visibility
-document.addEventListener('DOMContentLoaded', () => {
-  const sectionSelect = document.getElementById('photoSection');
-  const yearContainer = document.getElementById('yearContainer');
-  sectionSelect.addEventListener('change', () => {
-    yearContainer.style.display = sectionSelect.value === 'PhotoGallery' ? 'block' : 'none';
-    if (sectionSelect.value !== 'PhotoGallery') {
-      document.getElementById('photoYear').value = '';
-    }
-  });
-  populateYearDropdown();
-});
+        // Toggle year dropdown visibility
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionSelect = document.getElementById('photoSection');
+            const yearContainer = document.getElementById('yearContainer');
+            sectionSelect.addEventListener('change', () => {
+                yearContainer.style.display = sectionSelect.value === 'PhotoGallery' ? 'block' : 'none';
+                if (sectionSelect.value !== 'PhotoGallery') {
+                    document.getElementById('photoYear').value = '';
+                }
+            });
+            populateYearDropdown();
+        });
 
-async function login() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-  console.log('Login attempt:', { username, password }); // Debug login input
+            console.log('Login attempt:', { username }); // Debug login input
 
-  try {
-    const res = await fetch(`${API_URL}/api/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
+            try {
+                const res = await fetch(`${API_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
 
-    if (res.ok) {
-      currentUser = { username, password };
-      localStorage.setItem('isAuthenticated', 'true');
-      localStorage.setItem('username', username);
-      localStorage.setItem('password', password);
-      console.log('Login successful, currentUser:', currentUser); // Debug after login
-      loginModal.hide();
-      document.getElementById('photoContainer').style.display = 'block';
-      loadPhotoList();
-    } else {
-      const errorText = await res.text();
-      console.error('Login failed:', errorText); // Debug login error
-      document.getElementById('errorMessage').style.display = 'block';
-    }
-  } catch (error) {
-    console.error('Login error:', error);
-    document.getElementById('errorMessage').style.display = 'block';
-  }
-}
+                if (res.ok) {
+                    currentUser = { username, password };
+                    localStorage.setItem('isAuthenticated', 'true');
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('password', password);
+                    console.log('Login successful, currentUser:', currentUser); // Debug after login
+                    loginModal.hide();
+                    document.getElementById('photoContainer').style.display = 'block';
+                    loadPhotoList();
+                } else {
+                    const errorText = await res.text();
+                    console.error('Login failed:', errorText); // Debug login error
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('errorMessage').textContent = errorText || 'Invalid credentials. Please try again.';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('errorMessage').textContent = 'Network error. Please check your connection.';
+            }
+        }
 
-async function loadPhotoList() {
-  const photoTableBody = document.getElementById('photoTableBody');
-  try {
-    const response = await fetch(`${API_URL}/api/photos/all`);
-    if (response.ok) {
-      const photos = await response.json();
-      photoTableBody.innerHTML = '';
-      if (photos.length === 0) {
-        photoTableBody.innerHTML = '<tr><td colspan="5">No photos found.</td></tr>';
-        return;
-      }
+        async function loadPhotoList() {
+            const photoTableBody = document.getElementById('photoTableBody');
+            try {
+                const response = await fetch(`${API_URL}/api/photos/all`);
+                if (response.ok) {
+                    const photos = await response.json();
+                    photoTableBody.innerHTML = '';
+                    if (photos.length === 0) {
+                        photoTableBody.innerHTML = '<tr><td colspan="5">No photos found.</td></tr>';
+                        return;
+                    }
 
-      photos.forEach(photo => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${photo.id}</td>
-          <td>${photo.section}</td>
-          <td>${photo.year || '-'}</td>
-          <td><img src="${API_URL}/${photo.filePath}" class="photo-preview" alt="Preview"></td>
-          <td>
-            <button class="action-btn delete-btn" onclick="deletePhoto(${photo.id})" title="Delete">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </td>
-        `;
-        photoTableBody.appendChild(row);
-      });
-    } else {
-      photoTableBody.innerHTML = '<tr><td colspan="5">Error loading photos.</td></tr>';
-    }
-  } catch (error) {
-    console.error('Error loading photo list:', error);
-    photoTableBody.innerHTML = '<tr><td colspan="5">Error loading photos.</td></tr>';
-  }
-}
+                    photos.forEach(photo => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${photo.id}</td>
+                            <td>${photo.section}</td>
+                            <td>${photo.year || '-'}</td>
+                            <td><img src="${API_URL}/${photo.filePath}" class="photo-preview" alt="Preview" onerror="this.src='https://via.placeholder.com/100x50?text=Image+Not+Found';"></td>
+                            <td>
+                                <button class="action-btn delete-btn" onclick="deletePhoto(${photo.id})" title="Delete">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        `;
+                        photoTableBody.appendChild(row);
+                    });
+                } else {
+                    const errorText = await response.text();
+                    photoTableBody.innerHTML = `<tr><td colspan="5">Error loading photos: ${errorText || 'Unknown error'}</td></tr>`;
+                }
+            } catch (error) {
+                console.error('Error loading photo list:', error);
+                photoTableBody.innerHTML = '<tr><td colspan="5">Error loading photos: Network error</td></tr>';
+            }
+        }
 
-async function deletePhoto(id) {
-  if (confirm('Are you sure you want to delete this photo?')) {
-    try {
-      const response = await fetch(`${API_URL}/api/photos/${id}?username=${encodeURIComponent(currentUser.username)}&password=${encodeURIComponent(currentUser.password)}`, {
-        method: 'DELETE'
-      });
-      if (response.ok) {
-        alert('Photo deleted successfully!');
-        loadPhotoList();
-      } else {
-        const errorText = await response.text();
-        alert(`Error deleting photo: ${errorText || 'Unknown error'}`);
-      }
-    } catch (error) {
-      console.error('Error deleting photo:', error);
-      alert('Error deleting photo');
-    }
-  }
-}
+        async function deletePhoto(id) {
+            if (confirm('Are you sure you want to delete this photo?')) {
+                try {
+                    const response = await fetch(`${API_URL}/api/photos/${id}?username=${encodeURIComponent(currentUser.username)}&password=${encodeURIComponent(currentUser.password)}`, {
+                        method: 'DELETE'
+                    });
+                    if (response.ok) {
+                        alert('Photo deleted successfully!');
+                        loadPhotoList();
+                    } else {
+                        const errorText = await response.text();
+                        alert(`Error deleting photo: ${errorText || 'Unknown error'}`);
+                    }
+                } catch (error) {
+                    console.error('Error deleting photo:', error);
+                    alert('Error deleting photo: Network error');
+                }
+            }
+        }
 
-document.getElementById('loginButton').onclick = login;
+        document.getElementById('loginButton').onclick = login;
 
-document.getElementById('logoutButton').onclick = () => {
-  localStorage.clear();
-  location.reload();
-};
+        document.getElementById('logoutButton').onclick = () => {
+            localStorage.clear();
+            location.reload();
+        };
 
-document.getElementById('photoForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const section = document.getElementById('photoSection').value;
-  const year = section === 'PhotoGallery' ? document.getElementById('photoYear').value : null;
-  const file = document.getElementById('photoFile').files[0];
+        document.getElementById('photoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const section = document.getElementById('photoSection').value;
+            const year = section === 'PhotoGallery' ? document.getElementById('photoYear').value : null;
+            const file = document.getElementById('photoFile').files[0];
 
-  if (!file) {
-    alert('Please select a photo.');
-    return;
-  }
+            if (!file) {
+                alert('Please select a photo.');
+                return;
+            }
 
-  if (section === 'PhotoGallery' && !year) {
-    alert('Please select a year for Photo Gallery.');
-    return;
-  }
+            if (section === 'PhotoGallery' && !year) {
+                alert('Please select a year for Photo Gallery.');
+                return;
+            }
 
-  // Debug credentials and request
-  console.log('Uploading photo with credentials:', {
-    username: currentUser.username,
-    password: currentUser.password,
-    section,
-    year
-  });
+            console.log('Uploading photo with credentials:', {
+                username: currentUser.username,
+                section,
+                year
+            });
 
-  try {
-    const formData = new FormData();
-    formData.append('file', file);
-    const queryParams = new URLSearchParams({
-      section,
-      username: currentUser.username,
-      password: currentUser.password
-    });
-    if (year) queryParams.append('year', year);
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                const queryParams = new URLSearchParams({
+                    section,
+                    username: currentUser.username,
+                    password: currentUser.password
+                });
+                if (year) queryParams.append('year', year);
 
-    const requestUrl = `${API_URL}/api/photos/upload?${queryParams.toString()}`;
-    console.log('Request URL:', requestUrl); // Debug request URL
+                const requestUrl = `${API_URL}/api/photos/upload?${queryParams.toString()}`;
+                console.log('Request URL:', requestUrl); // Debug request URL
 
-    const response = await fetch(requestUrl, {
-      method: 'POST',
-      body: formData
-    });
+                const response = await fetch(requestUrl, {
+                    method: 'POST',
+                    body: formData
+                });
 
-    if (response.ok) {
-      alert('Photo uploaded successfully!');
-      document.getElementById('photoForm').reset();
-      document.getElementById('yearContainer').style.display = 'none';
-      loadPhotoList();
-    } else {
-      const contentType = response.headers.get('content-type');
-      let errorMessage = 'Unknown error';
-      if (contentType && contentType.includes('application/json')) {
-        const errorData = await response.json();
-        errorMessage = errorData.errors ? JSON.stringify(errorData.errors) : errorData.message || 'Invalid response';
-      } else {
-        errorMessage = await response.text();
-      }
-      console.error('Upload error response:', errorMessage, 'Status:', response.status); // Debug error
-      alert(`Error uploading photo: ${errorMessage}`);
-    }
-  } catch (error) {
-    console.error('Error uploading photo:', error);
-    alert(`Error uploading photo: ${error.message || 'Network error'}`);
-  }
-});
+                if (response.ok) {
+                    alert('Photo uploaded successfully!');
+                    document.getElementById('photoForm').reset()
+                    document.getElementById('yearContainer').style.display = 'none';
+                    loadPhotoList();
+                } else {
+                    const contentType = response.headers.get('content-type');
+                    let errorMessage = 'Unknown error';
+                    if (contentType && contentType.includes('application/json')) {
+                        const errorData = await response.json();
+                        errorMessage = errorData.errors ? JSON.stringify(errorData.errors) : errorData.message || 'Invalid response';
+                    } else {
+                        errorMessage = await response.text();
+                    }
+                    console.error('Upload error response:', errorMessage, 'Status:', response.status); // Debug error
+                    alert(`Error uploading photo: ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error('Error uploading photo:', error);
+                alert(`Error uploading photo: ${error.message || 'Network error'}`);
+            }
+        });
 
-window.addEventListener('DOMContentLoaded', () => {
-  loginModal = new bootstrap.Modal(document.getElementById('loginModal'), { keyboard: false });
-  if (localStorage.getItem('isAuthenticated') === 'true') {
-    currentUser = {
-      username: localStorage.getItem('username') || '',
-      password: localStorage.getItem('password') || ''
-    };
-    console.log('Loaded from localStorage:', currentUser); // Debug localStorage
-    if (!currentUser.username || !currentUser.password) {
-      console.warn('Invalid localStorage credentials, clearing storage');
-      localStorage.clear();
-      loginModal.show();
-    } else {
-      document.getElementById('photoContainer').style.display = 'block';
-      loadPhotoList();
-    }
-  } else {
-    loginModal.show();
-  }
-});
-</script>
+        window.addEventListener('DOMContentLoaded', () => {
+            loginModal = new bootstrap.Modal(document.getElementById('loginModal'), { keyboard: false });
+            if (localStorage.getItem('isAuthenticated') === 'true') {
+                currentUser = {
+                    username: localStorage.getItem('username') || '',
+                    password: localStorage.getItem('password') || ''
+                };
+                console.log('Loaded from localStorage:', currentUser); // Debug localStorage
+                if (!currentUser.username || !currentUser.password) {
+                    console.warn('Invalid localStorage credentials, clearing storage');
+                    localStorage.clear();
+                    loginModal.show();
+                } else {
+                    document.getElementById('photoContainer').style.display = 'block';
+                    loadPhotoList();
+                }
+            } else {
+                loginModal.show();
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMTICS | Photo Gallery</title>
     <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link rel="icon" href="images/amtics_favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:wght@400;600;700" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:wght@400;600;700" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -24,25 +23,23 @@
             overflow-x: hidden;
         }
 
-        
+        .hero-section {
+            background: #5c4fc4 !important;
+            color: white;
+            padding: 15px 12px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-    .hero-section {
-      background: #5c4fc4 !important;
-      color: white;
-      padding: 15px 12px;
-      text-align: center;
-      font-family: 'Montserrat', sans-serif;
-    }
+        .hero-section h1 {
+            font-size: 35px;
+            margin-top: 20px;
+        }
 
-    .hero-section h1 {
-      font-size: 35px;
-      margin-top: 20px;
-    }
-
-    .hero-section p {
-      font-size: 15px;
-      margin-top: -4px;
-    }
+        .hero-section p {
+            font-size: 15px;
+            margin-top: -4px;
+        }
 
         .year-filter {
             background: rgba(255, 255, 255, 0.95);
@@ -160,7 +157,6 @@
             transform: translateY(-3px);
         }
 
-        /* Grid Layout */
         .gallery-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -278,7 +274,6 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
         }
-
 
         .lightbox-prev {
             left: 1.5rem;
@@ -404,7 +399,7 @@
     </style>
 </head>
 <body>
-     <div id="navbar-container"></div>
+    <div id="navbar-container"></div>
     <div class="hero-section">
         <h1>Photo Gallery</h1>
         <p>Relive the Moments of AMTICS Events</p>
@@ -424,34 +419,11 @@
         <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">❯</span>
     </div>
 
-  <div id="footer-container"></div>
+    <div id="footer-container"></div>
 
     <script>
-        const years = {
-            2025: {
-                events: [
-                    { title: 'Utkarsh', imageCount: 10, eventFolder: 'Utkarsh' }
-                ]
-            },
-            2024: {
-                events: [
-                    { title: 'Pravaah', imageCount: 10, eventFolder: 'Pravaah' },
-                    { title: 'Utkarsh', imageCount: 7, eventFolder: 'Utkarsh' },
-                ]
-            },
-            2023: {
-                events: [
-                    { title: 'Pravaah', imageCount: 8, eventFolder: 'Pravaah' },
-                    { title: 'Utkarsh', imageCount: 6, eventFolder: 'Utkarsh' },
-                ]
-            },
-            2022: {
-                events: [
-                    { title: 'Pravaah', imageCount: 12, eventFolder: 'Pravaah' }
-                ]
-            }
-        };
-
+        const API_URL = 'https://localhost:7000';
+        let years = {};
         let currentImages = [];
         let currentImageIndex = 0;
 
@@ -462,114 +434,226 @@
             return gridPatterns[patternIndex];
         }
 
-        const yearFilter = document.getElementById('year-filter');
-        const sortedYears = Object.keys(years).sort((a, b) => b - a);
-        sortedYears.forEach(year => {
-            const button = document.createElement('button');
-            button.textContent = year;
-            button.setAttribute('aria-label', `Filter gallery by year ${year}`);
-            button.onclick = () => {
-                filterImagesByYear(year);
-                highlightYearButton(year);
-            };
-            yearFilter.appendChild(button);
-        });
+        async function fetchPhotos() {
+            try {
+                // Initialize with static photos to preserve existing data
+                years = {
+                    2025: {
+                        events: [
+                            {
+                                title: 'Utkarsh',
+                                eventFolder: 'Utkarsh',
+                                imageCount: 10,
+                                images: Array.from({ length: 10 }, (_, i) => ({
+                                    src: `PhotoGallery/2025/Utkarsh/${i + 1}.jpg`,
+                                    alt: `Utkarsh - Image ${i + 1}`
+                                }))
+                            }
+                        ]
+                    },
+                    2024: {
+                        events: [
+                            {
+                                title: 'Pravaah',
+                                eventFolder: 'Pravaah',
+                                imageCount: 10,
+                                images: Array.from({ length: 10 }, (_, i) => ({
+                                    src: `PhotoGallery/2024/Pravaah/${i + 1}.jpg`,
+                                    alt: `Pravaah - Image ${i + 1}`
+                                }))
+                            },
+                            {
+                                title: 'Utkarsh',
+                                eventFolder: 'Utkarsh',
+                                imageCount: 7,
+                                images: Array.from({ length: 7 }, (_, i) => ({
+                                    src: `PhotoGallery/2024/Utkarsh/${i + 1}.jpg`,
+                                    alt: `Utkarsh - Image ${i + 1}`
+                                }))
+                            }
+                        ]
+                    },
+                    2023: {
+                        events: [
+                            {
+                                title: 'Pravaah',
+                                eventFolder: 'Pravaah',
+                                imageCount: 8,
+                                images: Array.from({ length: 8 }, (_, i) => ({
+                                    src: `PhotoGallery/2023/Pravaah/${i + 1}.jpg`,
+                                    alt: `Pravaah - Image ${i + 1}`
+                                }))
+                            },
+                            {
+                                title: 'Utkarsh',
+                                eventFolder: 'Utkarsh',
+                                imageCount: 6,
+                                images: Array.from({ length: 6 }, (_, i) => ({
+                                    src: `PhotoGallery/2023/Utkarsh/${i + 1}.jpg`,
+                                    alt: `Utkarsh - Image ${i + 1}`
+                                }))
+                            }
+                        ]
+                    },
+                    2022: {
+                        events: [
+                            {
+                                title: 'Pravaah',
+                                eventFolder: 'Pravaah',
+                                imageCount: 12,
+                                images: Array.from({ length: 12 }, (_, i) => ({
+                                    src: `PhotoGallery/2022/Pravaah/${i + 1}.jpg`,
+                                    alt: `Pravaah - Image ${i + 1}`
+                                }))
+                            }
+                        ]
+                    }
+                };
+
+                const response = await fetch(`${API_URL}/api/photos/all`);
+                if (response.ok) {
+                    const photos = await response.json();
+                    photos
+                        .filter(photo => photo.section === 'PhotoGallery' && photo.year)
+                        .forEach(photo => {
+                            const year = photo.year.toString();
+                            const eventName = photo.event || 'Annual Event';
+                            if (!years[year]) {
+                                years[year] = { events: [] };
+                            }
+                            let event = years[year].events.find(e => e.eventFolder === eventName);
+                            if (!event) {
+                                event = { title: eventName, eventFolder: eventName, imageCount: 0, images: [] };
+                                years[year].events.push(event);
+                            }
+                            event.images.push({
+                                src: `${API_URL}/${photo.filePath}`,
+                                alt: `${eventName} - Image ${event.imageCount + 1}`
+                            });
+                            event.imageCount++;
+                        });
+                }
+                renderGallery();
+            } catch (error) {
+                console.error('Error fetching photos:', error);
+                renderGallery(); // Render static photos if backend fails
+            }
+        }
+
+        function renderGallery() {
+            const yearFilter = document.getElementById('year-filter');
+            const galleryContainer = document.getElementById('gallery-container');
+            yearFilter.innerHTML = '';
+            galleryContainer.innerHTML = '';
+
+            const sortedYears = Object.keys(years).sort((a, b) => b - a);
+            sortedYears.forEach(year => {
+                const button = document.createElement('button');
+                button.textContent = year;
+                button.setAttribute('aria-label', `Filter gallery by year ${year}`);
+                button.onclick = () => {
+                    filterImagesByYear(year);
+                    highlightYearButton(year);
+                };
+                yearFilter.appendChild(button);
+
+                const yearSection = document.createElement('div');
+                yearSection.classList.add('gallery-year-section');
+                yearSection.id = `year-${year}`;
+
+                const yearHeader = document.createElement('div');
+                yearHeader.classList.add('gallery-year');
+                yearSection.appendChild(yearHeader);
+
+                const events = years[year].events;
+                const isSingleEvent = events.length === 1;
+
+                for (let i = 0; i < events.length; i += 2) {
+                    const eventRow = document.createElement('div');
+                    eventRow.classList.add('event-row');
+
+                    const event1 = events[i];
+                    if (event1) {
+                        const eventContainer1 = document.createElement('div');
+                        eventContainer1.classList.add('event-container');
+                        eventContainer1.classList.add(isSingleEvent ? 'single' : 'paired');
+
+                        const eventTitle1 = document.createElement('div');
+                        eventTitle1.classList.add('event-title');
+                        eventTitle1.textContent = event1.title;
+                        eventContainer1.appendChild(eventTitle1);
+
+                        const eventSection1 = document.createElement('div');
+                        eventSection1.classList.add('gallery-section');
+
+                        event1.images.forEach((image, j) => {
+                            const galleryItem = document.createElement('div');
+                            galleryItem.classList.add('gallery-item');
+                            galleryItem.classList.add(getGridPattern(j));
+
+                            galleryItem.innerHTML = `
+                                <img src="${image.src}" alt="${image.alt}" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Found';">
+                                <div class="caption">${event1.title}</div>
+                            `;
+                            galleryItem.onclick = () => openLightbox(year, event1.eventFolder, j, event1.title);
+                            eventSection1.appendChild(galleryItem);
+                        });
+
+                        eventContainer1.appendChild(eventSection1);
+                        eventRow.appendChild(eventContainer1);
+                    }
+
+                    const event2 = events[i + 1];
+                    if (event2) {
+                        const eventContainer2 = document.createElement('div');
+                        eventContainer2.classList.add('event-container');
+                        eventContainer2.classList.add('paired');
+
+                        const eventTitle2 = document.createElement('div');
+                        eventTitle2.classList.add('event-title');
+                        eventTitle2.textContent = event2.title;
+                        eventContainer2.appendChild(eventTitle2);
+
+                        const eventSection2 = document.createElement('div');
+                        eventSection2.classList.add('gallery-section');
+
+                        event2.images.forEach((image, j) => {
+                            const galleryItem = document.createElement('div');
+                            galleryItem.classList.add('gallery-item');
+                            galleryItem.classList.add(getGridPattern(j));
+
+                            galleryItem.innerHTML = `
+                                <img src="${image.src}" alt="${image.alt}" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Found';">
+                                <div class="caption">${event2.title}</div>
+                            `;
+                            galleryItem.onclick = () => openLightbox(year, event2.eventFolder, j, event2.title);
+                            eventSection2.appendChild(galleryItem);
+                        });
+
+                        eventContainer2.appendChild(eventSection2);
+                        eventRow.appendChild(eventContainer2);
+                    }
+
+                    yearSection.appendChild(eventRow);
+                }
+
+                galleryContainer.appendChild(yearSection);
+            });
+
+            if (sortedYears.length > 0) {
+                filterImagesByYear(sortedYears[0]);
+                highlightYearButton(sortedYears[0]);
+            }
+        }
 
         function highlightYearButton(selectedYear) {
-            yearFilter.querySelectorAll('button').forEach(button => {
+            document.querySelectorAll('#year-filter button').forEach(button => {
                 button.classList.toggle('active', button.textContent === selectedYear);
             });
         }
 
-        const galleryContainer = document.getElementById('gallery-container');
-        sortedYears.forEach(year => {
-            const yearSection = document.createElement('div');
-            yearSection.classList.add('gallery-year-section');
-            yearSection.id = `year-${year}`;
-
-            const yearHeader = document.createElement('div');
-            yearHeader.classList.add('gallery-year');
-            yearSection.appendChild(yearHeader);
-
-            const events = years[year].events;
-            const isSingleEvent = events.length === 1;
-
-            for (let i = 0; i < events.length; i += 2) {
-                const eventRow = document.createElement('div');
-                eventRow.classList.add('event-row');
-
-                const event1 = events[i];
-                if (event1) {
-                    const eventContainer1 = document.createElement('div');
-                    eventContainer1.classList.add('event-container');
-                    eventContainer1.classList.add(isSingleEvent ? 'single' : 'paired');
-
-                    const eventTitle1 = document.createElement('div');
-                    eventTitle1.classList.add('event-title');
-                    eventTitle1.textContent = event1.title;
-                    eventContainer1.appendChild(eventTitle1);
-
-                    const eventSection1 = document.createElement('div');
-                    eventSection1.classList.add('gallery-section');
-
-                    for (let j = 1; j <= event1.imageCount; j++) {
-                        const imgPath = `PhotoGallery/${year}/${event1.eventFolder}/${j}.jpg`;
-                        const galleryItem = document.createElement('div');
-                        galleryItem.classList.add('gallery-item');
-                        galleryItem.classList.add(getGridPattern(j - 1));
-
-                        galleryItem.innerHTML = `
-                            <img src="${imgPath}" alt="${event1.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Found';">
-                            <div class="caption">${event1.title} </div>
-                        `;
-                        galleryItem.onclick = () => openLightbox(year, event1.eventFolder, j - 1, event1.title);
-                        eventSection1.appendChild(galleryItem);
-                    }
-
-                    eventContainer1.appendChild(eventSection1);
-                    eventRow.appendChild(eventContainer1);
-                }
-
-                const event2 = events[i + 1];
-                if (event2) {
-                    const eventContainer2 = document.createElement('div');
-                    eventContainer2.classList.add('event-container');
-                    eventContainer2.classList.add('paired');
-
-                    const eventTitle2 = document.createElement('div');
-                    eventTitle2.classList.add('event-title');
-                    eventTitle2.textContent = event2.title;
-                    eventContainer2.appendChild(eventTitle2);
-
-                    const eventSection2 = document.createElement('div');
-                    eventSection2.classList.add('gallery-section');
-
-                    for (let j = 1; j <= event2.imageCount; j++) {
-                        const imgPath = `PhotoGallery/${year}/${event2.eventFolder}/${j}.jpg`;
-                        const galleryItem = document.createElement('div');
-                        galleryItem.classList.add('gallery-item');
-                        galleryItem.classList.add(getGridPattern(j - 1));
-
-                        galleryItem.innerHTML = `
-                            <img src="${imgPath}" alt="${event2.title} - Image ${j}" onerror="this.src='https://via.placeholder.com/200x200?text=Image+Not+Found';">
-                            <div class="caption">${event2.title}</div>
-                        `;
-                        galleryItem.onclick = () => openLightbox(year, event2.eventFolder, j - 1, event2.title);
-                        eventSection2.appendChild(galleryItem);
-                    }
-
-                    eventContainer2.appendChild(eventSection2);
-                    eventRow.appendChild(eventContainer2);
-                }
-
-                yearSection.appendChild(eventRow);
-            }
-
-            galleryContainer.appendChild(yearSection);
-        });
-
         function filterImagesByYear(selectedYear) {
-            sortedYears.forEach(year => {
+            Object.keys(years).forEach(year => {
                 document.getElementById(`year-${year}`).style.display = year === selectedYear ? 'block' : 'none';
             });
         }
@@ -579,10 +663,8 @@
             const lightboxImg = document.getElementById('lightbox-img');
             const lightboxCaption = document.getElementById('lightbox-caption');
 
-            currentImages = Array.from({ length: years[year].events.find(e => e.eventFolder === eventFolder).imageCount }, (_, i) => ({
-                src: `PhotoGallery/${year}/${eventFolder}/${i + 1}.jpg`,
-                alt: `${eventTitle}`
-            }));
+            const event = years[year].events.find(e => e.eventFolder === eventFolder);
+            currentImages = event.images;
             currentImageIndex = index;
 
             lightboxImg.src = currentImages[index].src;
@@ -612,11 +694,10 @@
             }
         });
 
-        filterImagesByYear(sortedYears[0]);
-        highlightYearButton(sortedYears[0]);
+        fetchPhotos();
         loadHeaderFooter();
     </script>
     <script src="js/loadheaderfooter.js"></script>
-	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -196,7 +196,7 @@ body {
     color: #333;
     text-decoration: none;
     font-weight: 600;
-    margin-left: 4px;
+    margin-left: 2px;
 }
 
 .announcement-item a:hover {
@@ -211,8 +211,8 @@ body {
 }
 
 .announcement-item {
-    margin-right: 2em; /* Adjust spacing between items */ 
-    margin-left: 2em; 
+    margin-right: 0.8rem; /* Adjust spacing between items */ 
+    margin-left: 0.8rem; 
 }
 
 @keyframes marquee {

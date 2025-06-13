@@ -33,12 +33,6 @@
     <meta name="language" content="English">
     <meta name="copyright"
         content="AMTICS | Asha M. Tarsadia Institute of Computer Science and Technology | Uka Tarsadia University, Bardoli">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <meta name="geo.placename" content="Surat, India">
-    <meta name="language" content="en">
-    <meta name="copyright" content="AMTICS | Asha M. Tarsadia Institute of Technology | Uka Tarsadia University, Bardoli">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs4dF2AEPkpNTA7RUiOi+bjRS3NeM2ECkwzUIxC1Qj/FLycGTbNapWQB4tP889k5T5Ju8fs4b1P5z/iB4nQ/" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style3.css">
     <meta name="geo.region" content="IN-GJ">
@@ -79,11 +73,11 @@
 
     <!-- Announcement Container -->
     <div class="announcement-container">
-        <div class="announcement-label">Announcements</div><i class="fa-solid fa-caret-right"></i>
+        <div class="announcement-label">Announcements</div><i class="fa-solid fa-caret-right" style="color: black;"></i>
         <div class="announcement-content">
             <marquee behavior="scroll" direction="left" scrollamount="-1" loop="-1" onmouseover="this.stop();"
                 onmouseout="this.start();">
-                <span id="news-content"></span>
+                <span id="announcement-marquee"></span>
             </marquee>
         </div>
     </div>
@@ -131,11 +125,11 @@
             </div>
         </section>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#banner" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#banner" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
@@ -260,21 +254,26 @@
         <div id="footer-container"></div>
 
         <script>
-            const API_URL = 'https://localhost:7000';
+            const API_URL = "https://localhost:7000";
 
             // Fetch and render photos for Banner Carousel and Amtics@Glimpse
             async function fetchAndRenderPhotos() {
                 try {
-                    const response = await fetch(`${API_URL}/api/photos/all`);
+                    const response = await fetch(`${API_URL}/api/photos/all`, {
+                        headers: {
+                            'Cache-Control': 'no-cache' // Ensure fresh data
+                        }
+                    });
                     if (response.ok) {
                         const photos = await response.json();
+                        console.log('Fetched photos:', photos); // Log for debugging
 
                         // Banner Carousel
                         const bannerPhotos = photos.filter(p => p.section === 'Banner-Carousel');
                         const carouselInner = document.getElementById('bannerCarouselInner');
                         carouselInner.innerHTML = '';
                         if (bannerPhotos.length === 0) {
-                            // Fallback to placeholder images
+                            console.warn('No Banner Carousel photos found, using placeholders');
                             carouselInner.innerHTML = `
                                 <div class="carousel-item active" style="background-image: url('SlideShowImage/1.jpg');" data-bs-interval="6000"></div>
                                 <div class="carousel-item" style="background-image: url('SlideShowImage/2.jpg');" data-bs-interval="6000"></div>
@@ -295,7 +294,7 @@
                         const slider = document.getElementById('image-slider');
                         slider.innerHTML = '';
                         if (glimpsePhotos.length === 0) {
-                            // Fallback to placeholder images
+                            console.warn('No Amtics@Glimpse photos found, using placeholders');
                             slider.innerHTML = `
                                 <img src="glimpse photos/1.jpg" alt="Placeholder 1">
                                 <img src="glimpse photos/2.jpg" alt="Placeholder 2">
@@ -321,27 +320,37 @@
                                 img.alt = `Glimpse ${index + 1}`;
                                 slider.appendChild(img);
                             });
+                            // Clone images for infinite scroll
+                            const images = Array.from(slider.children);
+                            images.forEach(img => {
+                                const clone = img.cloneNode(true);
+                                slider.appendChild(clone);
+                            });
                         }
-                        // Clone images for infinite scroll
-                        const images = Array.from(slider.children);
-                        images.forEach(img => {
-                            const clone = img.cloneNode(true);
-                            slider.appendChild(clone);
-                        });
                     } else {
-                        console.error('Failed to fetch photos:', response.status);
+                        console.error('Failed to fetch photos:', response.status, await response.text());
+                        // Display fallback message
+                        document.getElementById('bannerCarouselInner').innerHTML = '<div class="carousel-item active"><p style="color: white; text-align: center; padding: 20px;">No photos available</p></div>';
+                        document.getElementById('image-slider').innerHTML = '<p style="text-align: center; padding: 20px;">No glimpse photos available</p>';
                     }
                 } catch (error) {
                     console.error('Error fetching photos:', error);
+                    // Display fallback message
+                    document.getElementById('bannerCarouselInner').innerHTML = '<div class="carousel-item active"><p style="color: white; text-align: center; padding: 20px;">Error loading photos</p></div>';
+                    document.getElementById('image-slider').innerHTML = '<p style="text-align: center; padding: 20px;">Error loading glimpse photos</p>';
                 }
             }
 
             async function fetchAndRenderNews() {
                 const newsRow = document.getElementById('news-row');
-                const marqueeContainer = document.getElementById('news-content');
+                const marqueeContainer = document.getElementById('announcement-marquee');
 
                 try {
-                    const response = await fetch(`${API_URL}/api/news/recent`);
+                    const response = await fetch(`${API_URL}/api/news/recent`, {
+                        headers: {
+                            'Cache-Control': 'no-cache'
+                        }
+                    });
                     if (response.ok) {
                         let newsCards = await response.json();
                         // Limit to 5 most recent news items
@@ -371,10 +380,10 @@
 
                         // Update marquee
                         marqueeContainer.innerHTML = newsCards.length > 0
-                            ? newsCards.map(card => `<span class="announcement-item"><a href="news-detail.html?id=${card.id}">${card.title}</a></span>`).join(' <span class="announcement-item" style="color: #800000;"> &nbsp;&nbsp;|&nbsp;&nbsp; </span> ') + ' <span class="announcement-item"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span> '
+                            ? newsCards.map(card => `<span class="announcement-item"><a href="news-detail.html?id=${card.id}">${card.title}</a></span>`).join(' <span class="announcement-item" style="color: #800000;"> | </span> ') + ' <span class="announcement-item"> </span> '
                             : '<span class="announcement-item">No recent announcements</span>';
                     } else {
-                        console.error('Failed to fetch news:', response.status);
+                        console.error('Failed to fetch news:', response.status, await response.text());
                         marqueeContainer.innerHTML = '<span class="announcement-item">Failed to load announcements</span>';
                     }
                 } catch (error) {
@@ -386,9 +395,6 @@
             window.addEventListener('DOMContentLoaded', async () => {
                 // Fetch and render photos
                 await fetchAndRenderPhotos();
-
-                // Image slider (already handled in fetchAndRenderPhotos)
-                const slider = document.getElementById('image-slider');
 
                 // Fetch and render news
                 await fetchAndRenderNews();

@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Photos | AMTICS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-        crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&Lato:wght@400;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&Lato:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --form-primary-color: #3b3285;
@@ -402,29 +400,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-         const API_URL = 'http://103.241.244.38/AmticsApi';
+        const API_URL = 'https://localhost:7000';
         let currentUser = { username: '', password: '' };
         let loginModal = null;
-        const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes in milliseconds
-
-        // Check if session has expired
-        function isSessionExpired() {
-            const loginTimestamp = localStorage.getItem('loginTimestamp');
-            if (!loginTimestamp) return true;
-            const currentTime = Date.now();
-            return (currentTime - parseInt(loginTimestamp)) > SESSION_TIMEOUT;
-        }
-
-        // Clear session and show login modal
-        function expireSession() {
-            localStorage.clear();
-            currentUser = { username: '', password: '' };
-            document.getElementById('photoContainer').style.display = 'none';
-            loginModal.show();
-        }
-
 
         // Populate year dropdown (2020 to current year)
         function populateYearDropdown() {
@@ -455,8 +434,7 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            console.log('Login attempt:', { username }); // Debug login input
-
+            console.log('Login attempt:', { username });
             try {
                 const res = await fetch(`${API_URL}/api/auth/login`, {
                     method: 'POST',
@@ -469,13 +447,13 @@
                     localStorage.setItem('isAuthenticated', 'true');
                     localStorage.setItem('username', username);
                     localStorage.setItem('password', password);
-                    console.log('Login successful, currentUser:', currentUser); // Debug after login
+                    console.log('Login successful, currentUser:', currentUser);
                     loginModal.hide();
                     document.getElementById('photoContainer').style.display = 'block';
                     loadPhotoList();
                 } else {
                     const errorText = await res.text();
-                    console.error('Login failed:', errorText); // Debug login error
+                    console.error('Login failed:', errorText);
                     document.getElementById('errorMessage').style.display = 'block';
                     document.getElementById('errorMessage').textContent = errorText || 'Invalid credentials. Please try again.';
                 }
@@ -489,9 +467,14 @@
         async function loadPhotoList() {
             const photoTableBody = document.getElementById('photoTableBody');
             try {
-                const response = await fetch(`${API_URL}/api/photos/all`);
+                const response = await fetch(`${API_URL}/api/photos/all`, {
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
                 if (response.ok) {
                     const photos = await response.json();
+                    console.log('Loaded photos:', photos); // Log for debugging
                     photoTableBody.innerHTML = '';
                     if (photos.length === 0) {
                         photoTableBody.innerHTML = '<tr><td colspan="5">No photos found.</td></tr>';
@@ -515,6 +498,7 @@
                     });
                 } else {
                     const errorText = await response.text();
+                    console.error('Error loading photos:', response.status, errorText);
                     photoTableBody.innerHTML = `<tr><td colspan="5">Error loading photos: ${errorText || 'Unknown error'}</td></tr>`;
                 }
             } catch (error) {
@@ -526,14 +510,17 @@
         async function deletePhoto(id) {
             if (confirm('Are you sure you want to delete this photo?')) {
                 try {
+                    console.log('Deleting photo with ID:', id); // Log deletion attempt
                     const response = await fetch(`${API_URL}/api/photos/${id}?username=${encodeURIComponent(currentUser.username)}&password=${encodeURIComponent(currentUser.password)}`, {
                         method: 'DELETE'
                     });
                     if (response.ok) {
+                        console.log('Photo deleted successfully, ID:', id);
                         alert('Photo deleted successfully!');
                         loadPhotoList();
                     } else {
                         const errorText = await response.text();
+                        console.error('Error deleting photo:', response.status, errorText);
                         alert(`Error deleting photo: ${errorText || 'Unknown error'}`);
                     }
                 } catch (error) {
@@ -546,6 +533,7 @@
         document.getElementById('loginButton').onclick = login;
 
         document.getElementById('logoutButton').onclick = () => {
+            console.log('Logging out user:', currentUser.username);
             localStorage.clear();
             location.reload();
         };
@@ -569,7 +557,8 @@
             console.log('Uploading photo with credentials:', {
                 username: currentUser.username,
                 section,
-                year
+                year,
+                fileName: file.name
             });
 
             try {
@@ -583,7 +572,7 @@
                 if (year) queryParams.append('year', year);
 
                 const requestUrl = `${API_URL}/api/photos/upload?${queryParams.toString()}`;
-                console.log('Request URL:', requestUrl); // Debug request URL
+                console.log('Upload request URL:', requestUrl);
 
                 const response = await fetch(requestUrl, {
                     method: 'POST',
@@ -591,8 +580,10 @@
                 });
 
                 if (response.ok) {
+                    const uploadedPhoto = await response.json();
+                    console.log('Photo uploaded successfully:', uploadedPhoto);
                     alert('Photo uploaded successfully!');
-                    document.getElementById('photoForm').reset()
+                    document.getElementById('photoForm').reset();
                     document.getElementById('yearContainer').style.display = 'none';
                     loadPhotoList();
                 } else {
@@ -604,7 +595,7 @@
                     } else {
                         errorMessage = await response.text();
                     }
-                    console.error('Upload error response:', errorMessage, 'Status:', response.status); // Debug error
+                    console.error('Upload error:', response.status, errorMessage);
                     alert(`Error uploading photo: ${errorMessage}`);
                 }
             } catch (error) {
@@ -620,7 +611,7 @@
                     username: localStorage.getItem('username') || '',
                     password: localStorage.getItem('password') || ''
                 };
-                console.log('Loaded from localStorage:', currentUser); // Debug localStorage
+                console.log('Loaded from localStorage:', currentUser);
                 if (!currentUser.username || !currentUser.password) {
                     console.warn('Invalid localStorage credentials, clearing storage');
                     localStorage.clear();

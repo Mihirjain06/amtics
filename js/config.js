@@ -1,1 +1,1 @@
-const API_URL = 'https://localhost:7000';
+const API_URL = 'http://103.241.244.38/AmticsApi';

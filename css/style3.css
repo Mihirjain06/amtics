@@ -207,20 +207,24 @@ body {
     display: inline-block;
     white-space: nowrap;
     animation: marquee linear infinite;
-    will-change: transform; /* Optimize animation performance */
+    will-change: transform;
+    /* Optimize animation performance */
 }
 
 .announcement-item {
-    margin-right: 0.8rem; /* Adjust spacing between items */ 
-    margin-left: 0.8rem; 
+    margin-right: 0.8rem;
+    /* Adjust spacing between items */
+    margin-left: 0.8rem;
 }
 
 @keyframes marquee {
     0% {
         transform: translateX(0);
     }
+
     100% {
-        transform: translateX(-50%); /* Move only half the content width for seamless loop */
+        transform: translateX(-50%);
+        /* Move only half the content width for seamless loop */
     }
 }
 
@@ -548,6 +552,7 @@ body::-webkit-scrollbar {
     .carousel-control-next {
         width: 20px;
         height: 20px;
+        
     }
 
     .carousel-control-prev-icon,
@@ -903,6 +908,7 @@ body::-webkit-scrollbar {
     background-color: #FFFFFF;
     padding: 20px;
     margin-left: 50px;
+    /* border-left: 5px solid #3b3285; */
     margin-right: 50px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -1478,7 +1484,7 @@ footer {
 
 .pro-link {
     display: flex;
-    margin-top: 15px;
+    margin-top:15px;
 }
 
 .pro-link i {
@@ -1536,12 +1542,18 @@ footer .copyright p {
     flex: 1;
 }
 
-footer .university-name,
 footer .location,
 footer .email,
 footer .phone {
     color: #fff;
     font-size: 14px;
+    margin: 2px 0;
+}
+
+footer .university-name {
+    color: #fff;
+    font-size: 14px;
+    height: 10vh;
     margin: 2px 0;
 }
 
@@ -1551,7 +1563,8 @@ footer .logo-info {
 }
 
 footer .university-logo {
-    width: 100px;
+    width: 60px;
+    height: 50px;
     margin-bottom: 10px;
 }
 
@@ -1595,7 +1608,7 @@ footer .university-logo {
     }
 
     footer .university-logo {
-        width: 80px;
+        width: 60px;
         display: block;
         margin: 0 auto;
     }
@@ -1604,7 +1617,7 @@ footer .university-logo {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
+        margin-bottom: 10px;
     }
 
     footer .copyright {
@@ -1631,8 +1644,8 @@ footer .university-logo {
         margin: 0 auto;
     }
 
-    footer .university-name,
     footer .location,
+    footer .university-name,
     footer .email,
     footer .phone {
         text-align: center;

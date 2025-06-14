@@ -546,12 +546,14 @@ body::-webkit-scrollbar {
 
     .carousel-control-prev,
     .carousel-control-next {
+        display: none;
         width: 20px;
         height: 20px;
     }
 
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
+        display: none;
         width: 16px;
         height: 16px;
     }
@@ -565,6 +567,7 @@ body::-webkit-scrollbar {
     .carousel-content p {
         font-size: 18px;
     }
+    
 }
 
 /* Button Styles */
@@ -1590,13 +1593,12 @@ footer .university-logo {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
         text-align: center;
         margin: 0 auto;
     }
 
     footer .university-logo {
-        width: 80px;
+        width: 60px;
         display: block;
         margin: 0 auto;
     }

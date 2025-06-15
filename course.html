@@ -108,8 +108,8 @@
       overflow-x: auto;
       padding: 0;
       gap: 4px;
-      position: relative;
       z-index: 1;
+      max-width: 1200px;
       scrollbar-width: thin;
       -webkit-overflow-scrolling: touch;
       margin-left: 5%;
@@ -146,6 +146,8 @@
 
     .semester-card {
       display: none;
+      width: 100%;
+      max-width: 1200px;
     }
 
     .semester-card.active {
@@ -160,6 +162,7 @@
 
     .table-responsive {
       display: flex;
+      max-width: 1200px;
       justify-content: center;
     }
 
@@ -213,7 +216,33 @@
       filter: grayscale(100%) opacity(0.5);
       cursor: not-allowed;
     }
+/* Media Query for 13-16 inch laptops (1280px - 1920px) */
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .syllabus_container {
+    padding: 0 1rem;
+  }
 
+  .semester-tabs {
+    justify-content: center;
+    gap: 4px;
+    margin-left:9px;
+  }
+
+  .semester-tabs .nav-link {
+    font-size: 0.82rem;
+    padding: 0.6rem 1.0rem;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
     @media (max-width: 992px) {
       .container {
         width: 95%;

@@ -72,6 +72,7 @@
 
         .news-content {
             line-height: 1.6;
+            white-space: pre-wrap; /* Preserve whitespace and wrap text */
         }
 
         .back-link {
@@ -147,6 +148,7 @@
     <script src="js/loadheaderfooter.js"></script>
     <script src="./js/config.js"></script>
     <script>
+       
 
         async function loadNewsDetails() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -164,7 +166,10 @@
                     document.getElementById('news-category').textContent = news.category;
                     document.getElementById('news-title').textContent = news.title;
                     document.getElementById('news-date').textContent = new Date(news.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                    document.getElementById('news-content').textContent = news.content;
+                    // Preserve whitespace and newlines
+                    document.getElementById('news-content').innerHTML = news.content
+                        .replace(/  /g, '&nbsp;&nbsp;') // Preserve multiple spaces
+                        .replace(/\n/g, '<br>'); // Preserve newlines
 
                     const imageContainer = document.getElementById('news-image-container');
                     if (news.filePath) {

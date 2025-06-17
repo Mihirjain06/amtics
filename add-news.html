@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add/Edit News Card | AMTICS</title>
-  <link rel="icon" href="images/amtics_favicon.ico" type="image/png">
+   <link rel="icon" href="images/amtics_favicon.ico" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
     crossorigin="anonymous" />
@@ -287,11 +287,14 @@
 
     .news-table .action-btn {
       padding: 6px;
+      /* Adjusted for icon size */
       border: none;
       border-radius: 4px;
       cursor: pointer;
       font-size: 0.9em;
+      /* Slightly larger for icons */
       margin-right: 10px;
+      /* Increased gap */
       width: 32px;
       height: 32px;
       display: inline-flex;
@@ -302,6 +305,7 @@
 
     .news-table .action-btn:last-child {
       margin-right: 0;
+      /* No margin on the last button */
     }
 
     .news-table .action-btn:hover {
@@ -396,6 +400,7 @@
         padding: 5px;
         font-size: 0.8em;
         margin-right: 8px;
+        /* Slightly smaller gap on mobile */
         width: 28px;
         height: 28px;
       }
@@ -468,8 +473,6 @@
     .news-card p[contenteditable] {
       font-size: 0.95em;
       color: var(--text-dark);
-      white-space: pre-wrap;
-      /* Preserve whitespace and wrap text */
     }
 
     .modal-buttons {
@@ -649,7 +652,7 @@
     let loginModal = null;
     const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes in milliseconds
 
-    // Check if session has expired
+      // Check if session has expired
     function isSessionExpired() {
       const loginTimestamp = localStorage.getItem('loginTimestamp');
       if (!loginTimestamp) return true;
@@ -664,7 +667,6 @@
       document.getElementById('tabContainer').style.display = 'none';
       loginModal.show();
     }
-
     async function login() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
@@ -694,7 +696,6 @@
         document.getElementById('errorMessage').style.display = 'block';
       }
     }
-
     async function loadNewsList() {
       const newsTableBody = document.getElementById('newsTableBody');
       try {
@@ -710,19 +711,19 @@
           newsItems.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
-              <td>${item.id}</td>
-              <td>${item.title}</td>
-              <td>${item.category}</td>
-              <td>${new Date(item.date).toLocaleDateString('en-IN')}</td>
-              <td>
-                <button class="action-btn edit-btn" onclick="editNews(${item.id})" title="Edit">
-                  <i class="fa-solid fa-pencil"></i>
-                </button>
-                <button class="action-btn delete-btn" onclick="deleteNews(${item.id})" title="Delete">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
-              </td>
-            `;
+          <td>${item.id}</td>
+          <td>${item.title}</td>
+          <td>${item.category}</td>
+          <td>${new Date(item.date).toLocaleDateString('en-IN')}</td>
+          <td>
+            <button class="action-btn edit-btn" onclick="editNews(${item.id})" title="Edit">
+              <i class="fa-solid fa-pencil"></i>
+            </button>
+            <button class="action-btn delete-btn" onclick="deleteNews(${item.id})" title="Delete">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        `;
             newsTableBody.appendChild(row);
           });
         } else {
@@ -746,10 +747,6 @@
           document.getElementById('category').value = news.category;
           document.getElementById('date').value = news.date ? new Date(news.date).toISOString().split('T')[0] : '';
           document.getElementById('content').value = news.content;
-          // Set preview content with preserved whitespace
-          document.getElementById('previewContent').innerHTML = news.content
-            .replace(/  /g, '&nbsp;&nbsp;') // Preserve multiple spaces
-            .replace(/\n/g, '<br>'); // Preserve newlines
           if (news.filePath) {
             document.getElementById('previewImage').src = `${API_URL}/${news.filePath}`;
             document.getElementById('previewImage').style.display = ['jpg', 'jpeg', 'png'].includes(news.filePath.split('.').pop().toLowerCase()) ? 'block' : 'none';
@@ -771,6 +768,7 @@
       }
     }
 
+   
     async function deleteNews(id) {
       if (confirm('Are you sure you want to delete this news?')) {
         try {
@@ -826,10 +824,7 @@
       document.getElementById('previewCategorySelect').value = category;
       document.getElementById('previewDate').value = date;
       document.getElementById('previewIcon').className = icon;
-      // Preserve whitespace and newlines
-      document.getElementById('previewContent').innerHTML = content
-        .replace(/  /g, '&nbsp;&nbsp;') // Preserve multiple spaces
-        .replace(/\n/g, '<br>'); // Preserve newlines
+      document.getElementById('previewContent').textContent = content;
 
       const previewImage = document.getElementById('previewImage');
       const previewImagePlaceholder = document.getElementById('previewImagePlaceholder');
@@ -868,16 +863,7 @@
       const category = document.getElementById('previewCategorySelect').value;
       const date = document.getElementById('previewDate').value;
       const icon = getCategoryIcon(category);
-
-      // Convert previewContent HTML to plain text, preserving newlines and spaces
-      let content = document.getElementById('previewContent').innerHTML
-        .replace(/<br\s*\/?>/gi, '\n') // Convert <br> to newlines
-        .replace(/&nbsp;/g, ' '); // Convert non-breaking spaces to regular spaces
-      // Remove any other HTML tags, if present
-      const div = document.createElement('div');
-      div.innerHTML = content;
-      content = div.textContent || div.innerText || '';
-
+      const content = document.getElementById('previewContent').textContent;
       const datetime = new Date(date).toISOString();
 
       if (document.getElementById('file').files[0]) {
@@ -907,7 +893,7 @@
         category,
         date,
         icon,
-        content, // Use the edited content
+        content,
         filePath,
         createdAt: new Date().toISOString(),
         datetime
@@ -951,6 +937,7 @@
       }
     }
 
+
     function getCategoryIcon(category) {
       const icons = {
         Announcement: 'fa-solid fa-calendar',
@@ -974,9 +961,15 @@
       } else {
         loginModal.show();
       }
+	  
+	  setInterval(() => {
+			if (localStorage.getItem('isAuthenticated') === 'true' && isSessionExpired()) {
+				alert('Your session has expired. Please log in again.');
+				expireSession();
+				}
+				}, 60 * 1000);
     });
   </script>
 </body>
-
 
 </html>

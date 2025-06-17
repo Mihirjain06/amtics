@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,10 +31,92 @@
             font-family: "Lato", sans-serif;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: rgba(59, 50, 133, 0.95);
+            padding: 1rem 2rem;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .navbar-logo {
+            max-height: 40px;
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .navbar-brand:hover .navbar-logo {
+            opacity: 0.8;
+        }
+
+        .university-name {
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1.2;
+            max-width: 200px;
+            transition: color 0.3s ease;
+        }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            color: #f0eaea;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            color: #c82333;
+            transform: scale(1.2);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             padding: 20px;
+            width: 100%;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            border-top: 1px solid var(--form-primary-light);
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer p:hover {
+            color: var(--form-primary-color);
         }
 
         .login-container {
@@ -143,7 +226,7 @@
         }
 
         .form-container {
-            max-width: 900px;
+            max-width: 700px;
             margin: 15px auto;
             padding: 20px;
             border: 1px solid var(--form-primary-light);
@@ -190,34 +273,28 @@
         }
 
         .form-container button {
-            display: block;
-            width: 100%;
-            padding: 10px;
+            width: 200px;
+            padding: 8px;
             background-color: var(--form-primary-color);
             color: var(--text-light);
             border: none;
             border-radius: 4px;
-            font-size: 1em;
+            font-size: 0.9em;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
             font-family: 'Montserrat', sans-serif;
+            margin: 10px auto;
+            display: block;
         }
 
         .form-container button:hover {
             background-color: var(--form-primary-dark);
-        }
-
-        .form-container .logout-btn {
-            background-color: #dc3545;
-        }
-
-        .form-container .logout-btn:hover {
-            background-color: #c82333;
+            transform: translateY(-2px);
         }
 
         .photo-table {
             width: 100%;
-            min-width: 700px;
+            min-width: 600px;
             border-collapse: collapse;
             margin-top: 1rem;
             font-family: 'Montserrat', sans-serif;
@@ -305,6 +382,32 @@
         }
 
         @media (max-width: 576px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 0.75rem 1rem;
+            }
+
+            .navbar-brand {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .navbar-logo {
+                max-height: 30px;
+            }
+
+            .university-name {
+                font-size: 0.9rem;
+                max-width: 100%;
+            }
+
+            .logout-btn {
+                font-size: 1.3rem;
+            }
+
             #loginModal .modal-dialog {
                 width: 95vw;
                 max-width: 350px;
@@ -326,6 +429,11 @@
 
             .form-container {
                 padding: 10px;
+                max-width: 100%;
+            }
+
+            .photo-table {
+                min-width: 100%;
             }
 
             .photo-table th,
@@ -346,86 +454,133 @@
                 max-width: 80px;
                 max-height: 40px;
             }
+
+            .form-container button {
+                width: 150px;
+                padding: 6px;
+                font-size: 0.85em;
+            }
+
+            .footer {
+                font-size: 0.8rem;
+                padding: 0.75rem 0;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content login-container">
-                <h1 class="login-header">Login</h1>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" id="username" class="form-control" required placeholder="Enter Username" />
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" id="password" class="form-control" required placeholder="Password" />
-                    </div>
-                    <div id="errorMessage" class="error-message" style="display: none;"></div>
-                    <button type="button" id="loginButton" class="btn-login">Sign In</button>
-                </form>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <img src="images/logo.png" alt="AMTICS Logo" class="navbar-logo">
+            <span class="university-name">Asha M. Tarsadia Institute of<br> Computer Science and Technology</span>
+        </a>
+        <button id="logoutButton" class="logout-btn" title="Logout">
+            <i class="fa-solid fa-sign-out-alt"></i>
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content login-container">
+                    <h1 class="login-header">Login</h1>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username" class="form-control" required placeholder="Enter Username" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" class="form-control" required placeholder="Password" />
+                        </div>
+                        <div id="errorMessage" class="error-message" style="display: none;"></div>
+                        <button type="button" id="loginButton" class="btn-login">Sign In</button>
+                    </form>
+                </div>
             </div>
+        </div>
+
+        <!-- Photo Management Container -->
+        <div class="form-container" id="photoContainer" style="display: none;">
+            <h2>Manage Photos</h2>
+            <form id="photoForm">
+                <label for="photoSection">Section:</label>
+                <select id="photoSection" name="section" required>
+                    <option value="Banner-Carousel">Banner Carousel</option>
+                    <option value="AmticsGlimpse">Amtics@Glimpse</option>
+                    <option value="PhotoGallery">Photo Gallery</option>
+                </select>
+                <div id="yearContainer" style="display: none;">
+                    <label for="photoYear">Year:</label>
+                    <select id="photoYear" name="year">
+                        <option value="">Select Year</option>
+                    </select>
+                </div>
+                <div id="eventContainer" style="display: none;">
+                    <label for="photoEvent">Event:</label>
+                    <select id="photoEvent" name="event">
+                        <option value="">Select Event</option>
+                        <option value="AnnualFest">Annual Fest</option>
+                        <option value="TechSymposium">Tech Symposium</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div id="newEventContainer" style="display: none;">
+                    <label for="newEvent">New Event Name:</label>
+                    <input type="text" id="newEvent" name="newEvent" placeholder="Enter new event name">
+                </div>
+                <label for="photoFile">Photos (Select Multiple):</label>
+                <input type="file" id="photoFile" name="photoFile" accept="image/*" multiple>
+                <div id="uploadProgress" class="upload-progress"></div>
+                <button type="submit" id="uploadPhotoButton" class="mt-3">Upload Photos</button>
+            </form>
+            <table class="photo-table" id="photoTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Section</th>
+                        <th>Year</th>
+                        <th>Event</th>
+                        <th>Preview</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="photoTableBody"></tbody>
+            </table>
         </div>
     </div>
 
-    <!-- Photo Management Container -->
-    <div class="form-container" id="photoContainer" style="display: none;">
-        <h2>Manage Photos</h2>
-        <form id="photoForm">
-            <label for="photoSection">Section:</label>
-            <select id="photoSection" name="section" required>
-                <option value="Banner-Carousel">Banner Carousel</option>
-                <option value="AmticsGlimpse">Amtics@Glimpse</option>
-                <option value="PhotoGallery">Photo Gallery</option>
-            </select>
-            <div id="yearContainer" style="display: none;">
-                <label for="photoYear">Year:</label>
-                <select id="photoYear" name="year">
-                    <option value="">Select Year</option>
-                </select>
-            </div>
-            <div id="eventContainer" style="display: none;">
-                <label for="photoEvent">Event:</label>
-                <select id="photoEvent" name="event">
-                    <option value="">Select Event</option>
-                    <option value="AnnualFest">Annual Fest</option>
-                    <option value="TechSymposium">Tech Symposium</option>
-                    <option value="Others">Others</option>
-                </select>
-            </div>
-            <div id="newEventContainer" style="display: none;">
-                <label for="newEvent">New Event Name:</label>
-                <input type="text" id="newEvent" name="newEvent" placeholder="Enter new event name">
-            </div>
-            <label for="photoFile">Photos (Select Multiple):</label>
-            <input type="file" id="photoFile" name="photoFile" accept="image/*" multiple>
-            <div id="uploadProgress" class="upload-progress"></div>
-            <button type="submit" id="uploadPhotoButton" class="mt-3">Upload Photos</button>
-            <button type="button" id="logoutButton" class="mt-3 logout-btn">Logout</button>
-        </form>
-        <table class="photo-table" id="photoTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Section</th>
-                    <th>Year</th>
-                    <th>Event</th>
-                    <th>Preview</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="photoTableBody"></tbody>
-        </table>
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 AMTICS. All rights reserved.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/config.js"></script>
     <script>
         let currentUser = { username: '', password: '' };
         let loginModal = null;
+        const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes in milliseconds
+
+        // Check if session has expired
+        function isSessionExpired() {
+            const loginTimestamp = localStorage.getItem('loginTimestamp');
+            if (!loginTimestamp) return true;
+            const currentTime = Date.now();
+            return (currentTime - parseInt(loginTimestamp)) > SESSION_TIMEOUT;
+        }
+
+        // Clear session and show login modal
+        function expireSession() {
+            localStorage.clear();
+            currentUser = { username: '', password: '' };
+            document.getElementById('photoContainer').style.display = 'none';
+            loginModal.show();
+        }
 
         // Populate year dropdown (2020 to current year)
         function populateYearDropdown() {
@@ -486,6 +641,7 @@
                     localStorage.setItem('isAuthenticated', 'true');
                     localStorage.setItem('username', username);
                     localStorage.setItem('password', password);
+                    localStorage.setItem('loginTimestamp', Date.now().toString());
                     console.log('Login successful, currentUser:', currentUser);
                     loginModal.hide();
                     document.getElementById('photoContainer').style.display = 'block';
@@ -543,8 +699,7 @@
                 console.error('Error loading photo list:', error);
                 photoTableBody.innerHTML = '<tr><td colspan="6">Error loading photos: Network error</td></tr>';
             }
-            }
-        
+        }
 
         async function deletePhoto(id) {
             if (confirm('Are you sure you want to delete this photo?')) {
@@ -688,7 +843,7 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             loginModal = new bootstrap.Modal(document.getElementById('loginModal'), { keyboard: false });
-            if (localStorage.getItem('isAuthenticated') === 'true') {
+            if (localStorage.getItem('isAuthenticated') === 'true' && !isSessionExpired()) {
                 currentUser = {
                     username: localStorage.getItem('username') || '',
                     password: localStorage.getItem('password') || ''
@@ -703,11 +858,24 @@
                     loadPhotoList();
                 }
             } else {
-                loginModal.show();
+                if (localStorage.getItem('isAuthenticated') === 'true') {
+                    console.log('Session expired, clearing storage');
+                    alert('Your session has expired. Please log in again.');
+                    expireSession();
+                } else {
+                    loginModal.show();
+                }
             }
 
-            // Remove session expiration check for simplicity
+            setInterval(() => {
+                if (localStorage.getItem('isAuthenticated') === 'true' && isSessionExpired()) {
+                    console.log('Session check: expired');
+                    alert('Your session has expired. Please log in again.');
+                    expireSession();
+                }
+            }, 60 * 1000);
         });
     </script>
 </body>
+
 </html>

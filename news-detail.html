@@ -72,7 +72,7 @@
 
         .news-content {
             line-height: 1.6;
-            white-space: pre-wrap; /* Preserve whitespace and wrap text */
+            white-space: pre-wrap;
         }
 
         .back-link {
@@ -148,8 +148,6 @@
     <script src="js/loadheaderfooter.js"></script>
     <script src="./js/config.js"></script>
     <script>
-       
-
         async function loadNewsDetails() {
             const urlParams = new URLSearchParams(window.location.search);
             const newsId = urlParams.get('id');
@@ -159,20 +157,31 @@
             }
 
             try {
-                const response = await fetch(`${API_URL}/api/news/${newsId}`);
+                const response = await fetch(`${API_URL}/api/news/${newsId}`, {
+                    cache: 'no-store'
+                });
                 if (response.ok) {
                     const news = await response.json();
+                    console.log('Fetched news data:', news);
+                    console.log('News datetime:', news.datetime);
                     document.getElementById('news-icon').className = news.icon || 'fa-solid fa-calendar';
                     document.getElementById('news-category').textContent = news.category;
                     document.getElementById('news-title').textContent = news.title;
-                    document.getElementById('news-date').textContent = new Date(news.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                    // Preserve whitespace and newlines
-                    document.getElementById('news-content').innerHTML = news.content
-                        .replace(/  /g, '&nbsp;&nbsp;') // Preserve multiple spaces
-                        .replace(/\n/g, '<br>'); // Preserve newlines
+                    
+                    // Validate and render datetime
+                    if (news.datetime && !isNaN(new Date(news.datetime).getTime())) {
+                        document.getElementById('news-date').textContent = new Date(news.datetime).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                    } else {
+                        console.warn('Invalid or missing datetime:', news.datetime);
+                        document.getElementById('news-date').textContent = 'Date not available';
+                    }
+
+                    document.getElementById('news-content').textContent = news.content;
 
                     const imageContainer = document.getElementById('news-image-container');
+                    imageContainer.innerHTML = '';
                     if (news.filePath) {
+                        console.log('File path:', news.filePath);
                         const fileExt = news.filePath.split('.').pop().toLowerCase();
                         if (['jpg', 'jpeg', 'png'].includes(fileExt)) {
                             const img = document.createElement('img');
@@ -197,6 +206,13 @@
                 document.getElementById('news-detail').innerHTML = '<p class="error-message">Error loading news.</p>';
             }
         }
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'NEWS_UPDATED' && event.data.newsId === new URLSearchParams(window.location.search).get('id')) {
+                console.log('Received update message for news ID:', event.data.newsId);
+                loadNewsDetails();
+            }
+        });
 
         window.addEventListener('DOMContentLoaded', loadNewsDetails);
     </script>
